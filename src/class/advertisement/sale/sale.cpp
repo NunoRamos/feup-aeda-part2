@@ -23,3 +23,7 @@ Condition Sale::getCondition() const{
 ostream& Sale::print(ostream& out){
 	out << endl << conditionToString(productCondition);
 }
+
+void Sale::addProposal(Proposal* p){
+	proposals.push(p);
+}

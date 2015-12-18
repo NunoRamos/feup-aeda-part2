@@ -10,6 +10,8 @@ class Proposal {
 	User* proposalOwner;
 public:
 	Proposal(User* proposalOwner, float price);
+	float getPrice();
+	User* getOwner();
 	bool operator<(const Proposal &p) const;
 };
 

@@ -12,13 +12,18 @@
 #define PURCHASE_H
 
 #include "../advertisement.h"
+#include "../../proposal/proposal.h"
+#include <queue>
+#include <vector>
+
+using namespace std;
 
 /**
  * @brief Purchase class
  */
 class Purchase : public Advertisement{
 private:
-
+	priority_queue<Proposal*, vector<Proposal*>, CompareProposal> proposals;
 public:
 	/**
 	 * @brief Purchase constructor
@@ -42,6 +47,18 @@ public:
 	 * @return Returns a char ( P(urchase) / S(ale))
 	 */
 	char getType() const;
+
+	/**
+	 * @brief Shows ad proposals
+	 */
+	void viewProposals();
+
+	/**
+	 * @brief Add proposal
+	 *
+	 * @param p Proposal to add
+	 */
+	void addProposal(Proposal* p);
 
 	/**
 	 * @brief Prints to out

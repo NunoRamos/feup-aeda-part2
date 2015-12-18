@@ -11,8 +11,12 @@
 #ifndef SALE_H
 #define SALE_H
 
+#include <queue>
+#include <vector>
+
 #include"../../../enums.h"
 #include "../advertisement.h"
+#include "../../proposal/proposal.h"
 
 using namespace enums;
 
@@ -22,6 +26,7 @@ using namespace enums;
 class Sale : public Advertisement{
 private:
 	Condition productCondition; ///< Condition of product being sold
+	priority_queue<Proposal*> proposals;
 public:
 	/**
 	 * @brief Sale constructor
@@ -53,6 +58,18 @@ public:
 	 * @return Returns condition
 	 */
 	Condition getCondition() const;
+
+	/**
+	 * @brief Shows ad proposals
+	 */
+	void viewProposals();
+
+	/**
+	 * @brief Add proposal
+	 *
+	 * @param p Proposal to add
+	 */
+	void addProposal(Proposal* p);
 
 	/**
 	 * @brief Prints to out

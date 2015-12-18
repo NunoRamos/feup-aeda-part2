@@ -46,10 +46,10 @@ void AdDisplayMenu::print() {
 	emptyLine();
 
 	cout << borderChar << " Category: " << categoryToString(ad->getCategory())
-			<< string(
-					width - 2 - 11
+					<< string(
+							width - 2 - 11
 							- categoryToString(ad->getCategory()).length(), ' ')
-			<< borderChar << endl;
+							<< borderChar << endl;
 
 	emptyLine();
 
@@ -72,8 +72,8 @@ void AdDisplayMenu::print() {
 	emptyLine();
 
 	cout << borderChar << " Creation Date: " << ad->getCreationDate()
-			<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
-			<< borderChar << endl;
+					<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
+					<< borderChar << endl;
 
 	bool showEmail = ad->getOwner()->getShowEmail();
 	bool showName = ad->getOwner()->getShowName();
@@ -105,8 +105,8 @@ void AdDisplayMenu::print() {
 	stringstream ss;
 	ss << ad->getViews();
 	cout << borderChar << " Views: " << ss.str()
-			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-			<< endl;
+					<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+					<< endl;
 	emptyLine();
 
 	ss.str("");
@@ -115,8 +115,8 @@ void AdDisplayMenu::print() {
 		ss << "Non-";
 	ss << "Negotiable";
 	cout << borderChar << " Price: " << ss.str()
-			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-			<< endl;
+					<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+					<< endl;
 	emptyLine();
 
 	unsigned int i = 1;
@@ -141,18 +141,26 @@ void AdDisplayMenu::print() {
 		cout << borderChar << " " << removeAd
 				<< string(width - 3 - removeAd.length(), ' ') << borderChar
 				<< endl;
-		i = 6;
+		string viewProposals = "6 - View proposals";
+		cout << borderChar << " " << viewProposals
+				<< string(width - 3 - viewProposals.length(), ' ') << borderChar
+				<< endl;
+		i = 7;
 	} else {
 		string imInterested = " 1 - I'm interested";
-		i = 2;
+		string sendProposal = " 2 - Send proposal";
+		i = 3;
 		cout << borderChar << imInterested
 				<< string(width - imInterested.length() - 2, ' ') << borderChar
+				<< endl;
+		cout << borderChar << sendProposal
+				<< string(width - sendProposal.length() - 2, ' ') << borderChar
 				<< endl;
 	}
 	ss.str("");
 	ss << " " << i << " - Exit";
 	cout << borderChar << ss.str() << string(width - ss.str().length() - 2, ' ')
-			<< borderChar << endl;
+					<< borderChar << endl;
 
 	emptyLine();
 
@@ -180,7 +188,7 @@ void AdDisplayMenu::createMenu() {
 			cin.clear();
 			i++;
 
-		} while (input < 1 || input > 6);
+		} while (input < 1 || input > 7);
 		switch (input) {
 		case 1:
 			cout << "Please introduce the new title." << endl;
@@ -228,6 +236,9 @@ void AdDisplayMenu::createMenu() {
 			signedInMenu(data);
 			break;
 		case 6:
+			ad->viewProposals();
+			break;
+		case 7:
 			signedInMenu(data);
 			break;
 		default:
@@ -246,5 +257,7 @@ void AdDisplayMenu::createMenu() {
 
 		if (input == 1)
 			interested(ad->getOwner());
+		else
+			data->getSignedInUser()->sendProposal(ad);
 	}
 }

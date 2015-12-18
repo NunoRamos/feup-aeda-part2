@@ -226,6 +226,13 @@ public:
 	 * @brief Deletes all ads
 	 */
 	void deleteAds();
+
+	/**
+	 * @brief Send proposal
+	 *
+	 * @param ad Advertisement
+	 */
+	void sendProposal(Advertisement* ad);
 };
 
 #endif

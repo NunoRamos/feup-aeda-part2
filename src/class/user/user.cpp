@@ -195,3 +195,11 @@ void User::deleteAds(){
 	while(advertisements.size() != 0)
 		advertisements.pop_back();
 }
+
+void User::sendProposal(Advertisement* ad){
+	float price;
+	cout << "What price would you like to offer?\n";
+	cin >> price;
+	ad->addProposal(new Proposal(this, price));
+	cout << "Proposal sent.";
+}

@@ -19,11 +19,13 @@
 #include "../date/date.h"
 #include "../user/user.h"
 #include "../location/location.h"
+#include "../proposal/proposal.h"
 
 using namespace std;
 using namespace enums;
 
 class User;//had to do this to allow cyclic calling of class
+class Proposal;
 
 /**
  * @brief Advertisement class
@@ -229,6 +231,18 @@ public:
 	 * @return Returns in stream
 	 */
 	friend istream& operator>>(istream& in, Advertisement &ad);
+
+	/**
+	 * @brief Shows ad proposals
+	 */
+	virtual void viewProposals() = 0;
+
+	/**
+	 * @brief Add proposal
+	 *
+	 * @param p Proposal to add
+	 */
+	virtual void addProposal(Proposal* p) = 0;
 
 	/**
 	 * @brief Prints to out
