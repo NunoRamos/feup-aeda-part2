@@ -55,9 +55,13 @@ void AdDisplayMenu::print() {
 
 	//used to add menu options correctly
 	string description = ad->getDescription();
+	int tempW = width - 2 - 14 - description.length();
+
+	if(tempW < 0)
+		tempW = 0;
 
 	cout << borderChar << " Description: " << description
-			<< string(width - 2 - 14 - description.length(), ' ') << borderChar
+			<< string(tempW, ' ') << borderChar
 			<< endl;
 
 	if(ad->getType() == 'S'){
@@ -253,11 +257,18 @@ void AdDisplayMenu::createMenu() {
 			cin.ignore();
 			cin.clear();
 			i++;
-		} while (input < 1 || input > 2);
+		} while (input < 1 || input > 3);
 
-		if (input == 1)
+		switch(input){
+		case 1:
 			interested(ad->getOwner());
-		else
-			data->getSignedInUser()->sendProposal(ad);
+			break;
+		case 2:
+			if(data->getSignedInUser() != NULL)
+				data->getSignedInUser()->sendProposal(ad);
+			else
+				cout << "You must be signed in order to send a proposal.\n";
+			break;
+		}
 	}
 }

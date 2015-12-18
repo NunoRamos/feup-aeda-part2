@@ -11,11 +11,17 @@ char Purchase::getType() const{
 	return 'P';
 }
 
-ostream& Purchase::print(ostream& out){ }
+ostream& Purchase::print(ostream& out){ return out; }
 
 void Purchase::viewProposals(){
+	if(proposals.empty()){
+		cout << "You have not received any proposals.";
+		return;
+	}
+
 	int input;
 	cout << "Price offered: " << proposals.top()->getPrice() << endl;
+	cout << "Offer from: " << proposals.top()->getOwner()->getName() << endl;
 	cout << "1 - Accept\n";
 	cout << "2 - Refuse\n";
 	cout << "3 - Back\n";
