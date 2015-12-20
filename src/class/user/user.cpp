@@ -14,7 +14,7 @@ User::User() {
 
 User::User(string email, string password, string name, string phoneNumber,
 		Location location) :
-		User() {
+				User() {
 	this->email = email;
 	this->password = password;
 	this->name = name;
@@ -24,7 +24,7 @@ User::User(string email, string password, string name, string phoneNumber,
 
 User::User(string email, string password, string name, string phoneNumber,
 		string location) :
-		User(email, password, name, phoneNumber, Location(location)) {
+				User(email, password, name, phoneNumber, Location(location)) {
 }
 
 bool User::signIn(string password) const {
@@ -90,6 +90,7 @@ istream& operator>>(istream& in, User &user) {
 	unsigned int views;
 	float price;
 	bool negotiable;
+	bool paid;
 	Category category;
 	string temp, title, description;
 	stringstream ss;
@@ -130,12 +131,17 @@ istream& operator>>(istream& in, User &user) {
 			negotiable = true;
 		else
 			negotiable = false;
-
+		getline(in,temp);
+		if(temp == "1")
+			paid = true;
+		else
+			paid = false;
 		if (type == "P") {
 			Advertisement* ad = new Purchase(NULL, title, category, description,
 					price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
+			ad->setPaidForFeatured(paid);
 			user.advertisements.push_back(ad);
 		} else {
 			string cond;

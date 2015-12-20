@@ -34,22 +34,24 @@ void AdDisplayMenu::print() {
 		adType = "Sale";
 	adType += " Ad";
 
-	cout << adType << string(width - 3 - adType.length(), ' ') << borderChar << endl;
+	cout << adType << string(width - 3 - adType.length(), ' ') << borderChar
+			<< endl;
 	emptyLine();
 
 	//display title
 	string title = ad->getTitle();
 	cout << borderChar << " Title: " << title
-			<< string(width - 2 - 8 - title.length(), ' ') << borderChar << endl;
+			<< string(width - 2 - 8 - title.length(), ' ') << borderChar
+			<< endl;
 
 	//a white line between title and description
 	emptyLine();
 
 	cout << borderChar << " Category: " << categoryToString(ad->getCategory())
-					<< string(
-							width - 2 - 11
+			<< string(
+					width - 2 - 11
 							- categoryToString(ad->getCategory()).length(), ' ')
-							<< borderChar << endl;
+			<< borderChar << endl;
 
 	emptyLine();
 
@@ -57,27 +59,27 @@ void AdDisplayMenu::print() {
 	string description = ad->getDescription();
 	int tempW = width - 2 - 14 - description.length();
 
-	if(tempW < 0)
+	if (tempW < 0)
 		tempW = 0;
 
-	cout << borderChar << " Description: " << description
-			<< string(tempW, ' ') << borderChar
-			<< endl;
+	cout << borderChar << " Description: " << description << string(tempW, ' ')
+			<< borderChar << endl;
 
-	if(ad->getType() == 'S'){
+	if (ad->getType() == 'S') {
 		emptyLine();
-		Sale* sale = static_cast<Sale*> (ad);
+		Sale* sale = static_cast<Sale*>(ad);
 		string cond = conditionToString(sale->getCondition());
-		cout << borderChar << " Product Condition: " << cond << string(width-2-20- cond.length(), ' ') << borderChar << endl;
+		cout << borderChar << " Product Condition: " << cond
+				<< string(width - 2 - 20 - cond.length(), ' ') << borderChar
+				<< endl;
 	}
-
 
 	//a white line between description and contacts
 	emptyLine();
 
 	cout << borderChar << " Creation Date: " << ad->getCreationDate()
-					<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
-					<< borderChar << endl;
+			<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
+			<< borderChar << endl;
 
 	bool showEmail = ad->getOwner()->getShowEmail();
 	bool showName = ad->getOwner()->getShowName();
@@ -109,8 +111,8 @@ void AdDisplayMenu::print() {
 	stringstream ss;
 	ss << ad->getViews();
 	cout << borderChar << " Views: " << ss.str()
-					<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-					<< endl;
+			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+			<< endl;
 	emptyLine();
 
 	ss.str("");
@@ -119,8 +121,15 @@ void AdDisplayMenu::print() {
 		ss << "Non-";
 	ss << "Negotiable";
 	cout << borderChar << " Price: " << ss.str()
-					<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-					<< endl;
+			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+			<< endl;
+
+	if (ad->doesUserPaid())
+		cout << borderChar << " Paid " << string(width - 2 - 6, ' ')
+				<< borderChar << endl;
+	else
+		cout << borderChar << " Not Paid " << string(width - 2 - 10, ' ')
+						<< borderChar << endl;
 	emptyLine();
 
 	unsigned int i = 1;
@@ -164,7 +173,7 @@ void AdDisplayMenu::print() {
 	ss.str("");
 	ss << " " << i << " - Exit";
 	cout << borderChar << ss.str() << string(width - ss.str().length() - 2, ' ')
-					<< borderChar << endl;
+			<< borderChar << endl;
 
 	emptyLine();
 
@@ -259,12 +268,12 @@ void AdDisplayMenu::createMenu() {
 			i++;
 		} while (input < 1 || input > 3);
 
-		switch(input){
+		switch (input) {
 		case 1:
 			interested(ad->getOwner());
 			break;
 		case 2:
-			if(data->getSignedInUser() != NULL)
+			if (data->getSignedInUser() != NULL)
 				data->getSignedInUser()->sendProposal(ad);
 			else
 				cout << "You must be signed in order to send a proposal.\n";

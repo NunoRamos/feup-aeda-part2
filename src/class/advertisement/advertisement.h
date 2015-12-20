@@ -124,6 +124,13 @@ public:
 	bool isPriceNegotiable() const;
 
 	/**
+	 * @brief Returns if user paid to ad be on the spotlight
+	 *
+	 * @return Returns whether the user paid or not
+	 */
+	bool doesUserPaid() const;
+
+	/**
 	 * @brief Changes the title
 	 *
 	 * @param newTitle is the new title

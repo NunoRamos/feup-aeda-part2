@@ -62,6 +62,10 @@ bool Advertisement::isPriceNegotiable() const {
 	return negotiable;
 }
 
+bool Advertisement::doesUserPaid() const{
+	return paidForFeatured;
+}
+
 void Advertisement::setNegotiable(bool negotiable) {
 	this->negotiable = negotiable;
 }
@@ -124,7 +128,7 @@ ostream& operator<<(ostream& out, Advertisement &ad) {
 			<< separationChar << ad.views << separationChar
 			<< categoryToString(ad.category) << separationChar << ad.description
 			<< separationChar << ad.creationDate << separationChar << ad.price
-			<< separationChar << ad.negotiable;
+			<< separationChar << ad.negotiable<<separationChar<<ad.paidForFeatured;
 
 	ad.print(out);
 
@@ -155,6 +159,12 @@ istream& operator>>(istream& in, Advertisement &ad) {
 		ad.negotiable = true;
 	else
 		ad.negotiable = false;
+	getline(in,temp);
+	if(temp == "1")
+		ad.paidForFeatured = true;
+	else
+		ad.paidForFeatured = false;
+
 	return in;
 }
 
