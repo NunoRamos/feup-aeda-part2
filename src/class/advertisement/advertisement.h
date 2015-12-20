@@ -43,6 +43,7 @@ protected:
 	User* owner; ///< Pointer to owner of advertisement
 	float price; ///< Price of product
 	bool negotiable; ///< Whether price is negotiable or not
+	bool paidForFeatured; ///< Whether the creator of the ad paid our not to put is ad on the spotlight
 public:
 	/**
 	 * @brief Constructor for class Advertisement
@@ -170,6 +171,13 @@ public:
 	 * @param owner Owner
 	 */
 	void setOwner(User* owner);
+
+	/**
+	 * @brief Sets the spotlight
+	 *
+	 * @param new value of the flag
+	 */
+	void setPaidForFeatured(bool newValue);
 
 	string getImageAt(unsigned int index) const;//still to decide what to do with this
 

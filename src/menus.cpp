@@ -392,6 +392,18 @@ void createSellingAd(Data* data){
 		i++;
 	}while(answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
+	cout<<"\nDo you want to paid to get your ad on the spotlight? (Y/N)\n";
+	string newAnswer;
+	i=0;
+	do{
+		if(i > 0)
+			cout << "Please introduce a valid option. (Y/N)\n";
+		getline(cin,newAnswer);
+		if(newAnswer == "Y" || newAnswer == "y")
+			ad->setPaidForFeatured(true);
+		i++;
+	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
+
 	data->addAdvertisement(ad);
 	cout << "Ad has been successfully created";
 	signedInMenu(data);
@@ -447,6 +459,17 @@ void createBuyingAd(Data* data){
 		i++;
 	}while(answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
+	cout<<"\nDo you want to paid to get your ad on the spotlight? (Y/N)\n";
+	string newAnswer;
+	i=0;
+	do{
+		if(i > 0)
+			cout << "Please introduce a valid option. (Y/N)\n";
+		getline(cin,newAnswer);
+		if(newAnswer == "Y" || newAnswer == "y")
+			ad->setPaidForFeatured(true);
+		i++;
+	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
 
 	data->addAdvertisement(ad);
 	cout << "Ad has been successfully created\n";

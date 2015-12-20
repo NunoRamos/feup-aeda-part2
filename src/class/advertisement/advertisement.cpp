@@ -13,6 +13,7 @@ Advertisement::Advertisement(User* owner, string title, Category category,
 	this->description = description;
 	this->price = price;
 	negotiable = true;
+	paidForFeatured = false;
 	id = nextId;
 	nextId++;
 	views = 0;
@@ -85,6 +86,10 @@ void Advertisement::setCategory(Category newCategory) {
 	this->category = newCategory;
 }
 
+void Advertisement::setPaidForFeatured(bool newValue) {
+	this->paidForFeatured = newValue;
+}
+
 string Advertisement::getImageAt(unsigned int index) const {
 	return imagesPath[index];
 }
@@ -114,8 +119,6 @@ bool Advertisement::operator==(Advertisement* ad) const {
 
 ostream& operator<<(ostream& out, Advertisement &ad) {
 	char separationChar = '\n';
-	//TODO print category to file, not sure how.
-	//does not print id
 
 	out << separationChar << ad.getType() << separationChar << ad.title
 			<< separationChar << ad.views << separationChar
@@ -131,7 +134,6 @@ ostream& operator<<(ostream& out, Advertisement &ad) {
 istream& operator>>(istream& in, Advertisement &ad) {
 	stringstream ss;
 	string temp;
-	//TODO print category from file to variable, not sure how.
 
 	getline(in, ad.title);
 	getline(in, temp);
