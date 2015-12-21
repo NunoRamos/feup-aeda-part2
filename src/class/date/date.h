@@ -132,6 +132,21 @@ public:
 	 * @return Returns out stream
 	 */
 	friend ostream& operator<<(ostream& out, const Date &date);
+	/**
+	 * @brief Checks if date is less than d1
+	 *
+	 * @param d1 Date to be compared
+	 *
+	 * @return Returns true if the date given d1 is bigger than this date
+	 */
+	bool operator < (const Date &d1);
+	/*
+	 * @brief overloading of operator ==
+	 *
+	 * @param
+	 */
+	bool operator==(const Date &D1);
+
 };
 
 #endif

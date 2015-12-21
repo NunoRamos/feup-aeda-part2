@@ -12,6 +12,7 @@
 #include "class/advertisement/purchase/purchase.h"
 #include "class/data/data.h"
 #include "enums.h"
+#include <cstdlib>
 
 
 using namespace std;
@@ -117,7 +118,48 @@ void runAllTests(int argc, char const *argv[]){
 
 int main(int argc, char const *argv[]){
 	//runAllTests(argc,argv);
+	//	Date test;
+	//	string data;
+	//	data=test.toString();
+	//	cout<<data;
+	//	system("pause");
 	menuTest();
+
+//
+//	Data* data= new Data();
+//	int counter=0;
+//
+//	User* temp=new User("j@gmail.com", "joao", "Joao", "917",Location());
+//	data->addUserToBst(temp);
+//
+//	User* user2= new User("t@gmail.com", "tete", "Teresa", "917",Location());
+//	cout<<user2->getName()<<endl;
+//	cout<<user2->getTransactions()<<endl;
+//
+//	user2->incrementTransactions();
+//	data->addUserToBst(user2);
+//
+//	cout << user2->getTransactions()<<endl;
+//
+//	cout <<"PASSEI";
+//	BST<User*> tree = data->getUsersTransactions();
+//	BSTItrIn<User*> it(tree);
+//
+//
+//
+//	cout << it.retrieve()->getName() << endl << it.retrieve()->getTransactions() << endl;
+//	it.advance();
+//	cout << it.retrieve()->getName() << endl << it.retrieve()->getTransactions() << endl;
+//	/*while(!it.isAtEnd()){
+//		cout << "entrei"<<endl;
+//		counter++;
+//		cout<<it.retrieve()->getTransactions()<<endl;
+//		cout<<it.retrieve()->getName()<<endl;
+//		it.advance();
+//	}*/
+//
+//	cout<<counter<<endl;
+//	system("pause");
 	return 0;
 }
 

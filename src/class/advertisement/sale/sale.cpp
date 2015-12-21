@@ -33,6 +33,7 @@ void Sale::viewProposals(){
 		cout << "You have not received any proposals.";
 		return;
 	}
+	Date transactionDate;
 
 	int input;
 	cout << "Price offered: " << proposals.top()->getPrice() << endl;
@@ -49,6 +50,9 @@ void Sale::viewProposals(){
 	switch(input){
 	case 1:
 		//TODO negocio feito
+		owner->incrementTransactions();
+		owner->setLastTransaction(transactionDate);
+		//data ultima criação=data atual
 		break;
 	case 2:
 		proposals.pop();

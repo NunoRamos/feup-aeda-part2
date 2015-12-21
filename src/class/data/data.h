@@ -15,6 +15,7 @@
 #include<vector>
 
 #include "../user/user.h"
+#include "../../BST.h"
 
 using namespace std;
 
@@ -33,6 +34,8 @@ private:
 	vector<Advertisement*> advertisements; ///< Vector of pointers to all advertisements
 	vector<User> users; ///< Vector of all users
 	User* signedInUser; ///< Pointer to user that is currently signed in
+	BST<User*> usersTransactions;
+
 public:
 	/**
 	 * @brief Constructor for class Data
@@ -166,6 +169,24 @@ public:
 	 * @param user User to remove
 	 */
 	void removeUser(User* user);
+	
+	/*
+	 * @brief get usersTransactions bst
+	 *
+	 */
+	BST<User*> getUsersTransactions() const;
+	/*
+	 *@brief add user to bst
+	 *
+	 *@param u1 User
+	 */
+	void addUserToBst(User* u1);
+	/*
+	 *@brief remove userf from bst
+	 *
+	 *@param u1 User
+	 */
+	void RemoveUserFromBst(User* u1);
 
 	/*
 	 * @brief Orders a vector by transforming in a priority queue
