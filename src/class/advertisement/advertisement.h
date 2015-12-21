@@ -43,7 +43,7 @@ protected:
 	User* owner; ///< Pointer to owner of advertisement
 	float price; ///< Price of product
 	bool negotiable; ///< Whether price is negotiable or not
-	bool paidForFeatured; ///< Whether the creator of the ad paid our not to put is ad on the spotlight
+	bool featured; ///< Whether the creator of the ad paid our not to put is ad on the spotlight
 public:
 	/**
 	 * @brief Constructor for class Advertisement
@@ -116,6 +116,7 @@ public:
 	 * @return Returns advertisement creation date
 	 */
 	string getCreationDate() const;
+
 	/**
 	 * @brief Returns if price is negotiable
 	 *
@@ -128,7 +129,7 @@ public:
 	 *
 	 * @return Returns whether the user paid or not
 	 */
-	bool doesUserPaid() const;
+	bool hasUserPaid() const;
 
 	/**
 	 * @brief Changes the title
@@ -184,7 +185,7 @@ public:
 	 *
 	 * @param new value of the flag
 	 */
-	void setPaidForFeatured(bool newValue);
+	void setFeatured(bool newValue);
 
 	string getImageAt(unsigned int index) const;//still to decide what to do with this
 

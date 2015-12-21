@@ -13,7 +13,7 @@ Advertisement::Advertisement(User* owner, string title, Category category,
 	this->description = description;
 	this->price = price;
 	negotiable = true;
-	paidForFeatured = false;
+	featured = false;
 	id = nextId;
 	nextId++;
 	views = 0;
@@ -62,8 +62,8 @@ bool Advertisement::isPriceNegotiable() const {
 	return negotiable;
 }
 
-bool Advertisement::doesUserPaid() const{
-	return paidForFeatured;
+bool Advertisement::hasUserPaid() const{
+	return featured;
 }
 
 void Advertisement::setNegotiable(bool negotiable) {
@@ -90,8 +90,8 @@ void Advertisement::setCategory(Category newCategory) {
 	this->category = newCategory;
 }
 
-void Advertisement::setPaidForFeatured(bool newValue) {
-	this->paidForFeatured = newValue;
+void Advertisement::setFeatured(bool newValue) {
+	this->featured = newValue;
 }
 
 string Advertisement::getImageAt(unsigned int index) const {
@@ -128,7 +128,7 @@ ostream& operator<<(ostream& out, Advertisement &ad) {
 			<< separationChar << ad.views << separationChar
 			<< categoryToString(ad.category) << separationChar << ad.description
 			<< separationChar << ad.creationDate << separationChar << ad.price
-			<< separationChar << ad.negotiable<<separationChar<<ad.paidForFeatured;
+			<< separationChar << ad.negotiable<<separationChar<<ad.featured;
 
 	ad.print(out);
 
@@ -161,9 +161,9 @@ istream& operator>>(istream& in, Advertisement &ad) {
 		ad.negotiable = false;
 	getline(in,temp);
 	if(temp == "1")
-		ad.paidForFeatured = true;
+		ad.featured = true;
 	else
-		ad.paidForFeatured = false;
+		ad.featured = false;
 
 	return in;
 }

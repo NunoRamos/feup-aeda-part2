@@ -160,6 +160,12 @@ public:
 	 * @param user User to remove
 	 */
 	void removeUser(User* user);
+
+	/*
+	 * @brief Transforms a queue to vector
+	 *
+	 * @param
+	 */
 };
 
 #endif

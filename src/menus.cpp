@@ -11,6 +11,8 @@
 #include<stdlib.h>
 #include"class/menu/optionMenu/optionMenu.h"
 #include <ctime>
+#include <queue>
+#include "comparisons.h"
 
 /*Menu Presentation
  *
@@ -158,7 +160,10 @@ void searchByPrice(Data* data){
 	vector<Advertisement* > results;
 	results = data->searchForAdsPrice(lowerPrice,higherPrice);
 	saleOrPurchase(results,data);
-	SearchMenu menu(data, results);
+	SearchMenu menu(data, results);/*priority_queue<Advertisement*, vector<Advertisement*>, CompPrice> newResults;
+	for(int i=0;i<results.size();i++){
+		newResults.push(results[i]);
+	}*/
 	menu.createMenu();
 	if(data->getSignedInUser() != NULL)
 		signedInMenu(data);
@@ -392,7 +397,7 @@ void createSellingAd(Data* data){
 		i++;
 	}while(answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
-	cout<<"\nDo you want to paid to get your ad on the spotlight? (Y/N)\n";
+	cout<<"\nDo you want to pay to get your ad highlighted? (Y/N)\n";
 	string newAnswer;
 	i=0;
 	do{
@@ -400,7 +405,7 @@ void createSellingAd(Data* data){
 			cout << "Please introduce a valid option. (Y/N)\n";
 		getline(cin,newAnswer);
 		if(newAnswer == "Y" || newAnswer == "y")
-			ad->setPaidForFeatured(true);
+			ad->setFeatured(true);
 		i++;
 	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
 
@@ -459,7 +464,7 @@ void createBuyingAd(Data* data){
 		i++;
 	}while(answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
-	cout<<"\nDo you want to paid to get your ad on the spotlight? (Y/N)\n";
+	cout<<"\nDo you want to pay to get your ad highlighted? (Y/N)\n";
 	string newAnswer;
 	i=0;
 	do{
@@ -467,7 +472,7 @@ void createBuyingAd(Data* data){
 			cout << "Please introduce a valid option. (Y/N)\n";
 		getline(cin,newAnswer);
 		if(newAnswer == "Y" || newAnswer == "y")
-			ad->setPaidForFeatured(true);
+			ad->setFeatured(true);
 		i++;
 	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
 

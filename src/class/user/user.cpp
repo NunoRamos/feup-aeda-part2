@@ -141,7 +141,7 @@ istream& operator>>(istream& in, User &user) {
 					price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
-			ad->setPaidForFeatured(paid);
+			ad->setFeatured(paid);
 			user.advertisements.push_back(ad);
 		} else {
 			string cond;

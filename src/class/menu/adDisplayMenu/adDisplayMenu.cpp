@@ -124,7 +124,7 @@ void AdDisplayMenu::print() {
 			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
 			<< endl;
 
-	if (ad->doesUserPaid())
+	if (ad->hasUserPaid())
 		cout << borderChar << " Paid " << string(width - 2 - 6, ' ')
 				<< borderChar << endl;
 	else
