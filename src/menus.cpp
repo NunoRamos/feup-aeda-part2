@@ -10,7 +10,6 @@
 #include<iostream>
 #include<stdlib.h>
 #include"class/menu/optionMenu/optionMenu.h"
-#include <ctime>
 
 /*Menu Presentation
  *
@@ -334,15 +333,7 @@ void createSellingAd(Data* data){
 	clearScreen();
 	string title, description = "", tmp = "", category, condition;
 	float price;
-
-	time_t t = time(0);   // get time now
-	struct tm * now = localtime( & t );
-	int year=now->tm_year + 1900;
-	int month=now->tm_mon + 1 ;
-	int day= now->tm_mday;
-
-	Date creationDate(day,month,year);
-
+	Date creationDate = Date::now();
 
 	cout << "Title: ";
 	getline(cin, title);
@@ -403,13 +394,7 @@ void createBuyingAd(Data* data){
 	string title, description = "", tmp = "", category, condition;
 	float price;
 
-	time_t t = time(0);   // get time now
-	struct tm * now = localtime( & t );
-	int year=now->tm_year + 1900;
-	int month=now->tm_mon + 1 ;
-	int day= now->tm_mday;
-
-	Date creationDate(day,month,year);
+	Date creationDate = Date::now();
 
 	cout << "\nTitle: ";
 	getline(cin, title);

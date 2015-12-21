@@ -28,10 +28,10 @@ void Sale::addProposal(Proposal* p){
 	proposals.push(p);
 }
 
-void Sale::viewProposals(){
+Transaction* Sale::viewProposals(){
 	if(proposals.empty()){
 		cout << "You have not received any proposals.";
-		return;
+		return NULL;
 	}
 	Date transactionDate;
 
@@ -49,15 +49,28 @@ void Sale::viewProposals(){
 
 	switch(input){
 	case 1:
+	{
+		User* buyer = proposals.top()->getOwner();
+		float price = proposals.top()->getPrice();
+
+		while(!proposals.empty()){
+			delete proposals.top();
+			proposals.pop();
+		}
 		//TODO negocio feito
-		owner->incrementTransactions();
-		owner->setLastTransaction(transactionDate);
-		//data ultima criação=data atual
+//		RemoveUserFromBst(owner);
+//		owner->setLastTransaction();
+//		owner->incrementTransactions();
+//		addUserToBst(owner);
+		return new Transaction(buyer, owner, price);
 		break;
+	}
 	case 2:
 		proposals.pop();
+		return NULL;
 		break;
 	case 3:
+		return NULL;
 		break;
 	}
 }

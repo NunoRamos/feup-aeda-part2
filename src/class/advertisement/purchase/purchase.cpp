@@ -14,10 +14,10 @@ char Purchase::getType() const{
 
 ostream& Purchase::print(ostream& out){ return out; }
 
-void Purchase::viewProposals(){
+Transaction* Purchase::viewProposals(){
 	if(proposals.empty()){
 		cout << "You have not received any proposals.";
-		return;
+		return NULL;
 	}
 
 	int input;
@@ -34,19 +34,28 @@ void Purchase::viewProposals(){
 	} while(input < 0 || input > 3);
 
 	switch(input){
-	case 1:
+	case 1:{
+		User* seller = proposals.top()->getOwner();
+		float price = proposals.top()->getPrice();
+
+		while(!proposals.empty()){
+			delete proposals.top();
+			proposals.pop();
+		}
 		//TODO negocio feito
 //		RemoveUserFromBst(owner);
 //		owner->setLastTransaction();
 //		owner->incrementTransactions();
 //		addUserToBst(owner);
-
-
+		return new Transaction(owner, seller, price);
 		break;
+	}
 	case 2:
 		proposals.pop();
+		return NULL;
 		break;
 	case 3:
+		return NULL;
 		break;
 	}
 }

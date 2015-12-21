@@ -240,7 +240,9 @@ void AdDisplayMenu::createMenu() {
 			signedInMenu(data);
 			break;
 		case 6:
-			ad->viewProposals();
+			Transaction *t;
+			if((t = ad->viewProposals()) != NULL)
+				data->addTransaction(t);
 			break;
 		case 7:
 			signedInMenu(data);

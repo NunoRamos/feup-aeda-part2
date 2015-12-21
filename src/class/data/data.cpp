@@ -232,7 +232,7 @@ void Data::removeUser(User* user){
 		}
 	}
 	users.erase(users.begin()+index);
-	RemoveUserFromBst(user);
+	removeUserFromBst(user);
 
 }
 
@@ -245,6 +245,23 @@ BST<User*> Data:: getUsersTransactions() const{
 	return usersTransactions;
 }
 
-void Data::RemoveUserFromBst(User* u1){
+void Data::removeUserFromBst(User* u1){
 	usersTransactions.remove(u1);
+}
+
+void Data::addTransaction(Transaction* t){
+	transactions.insert(t);
+}
+
+void Data::loadTransactions(){ //TODO
+	string transaction_path = path + "transactions.txt";
+	ifstream file(transaction_path);
+
+	while(!file.eof()){
+
+	}
+}
+
+void Data::saveTransactions(){ //TODO
+	string transaction_path = path + "transactions.txt";
 }

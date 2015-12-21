@@ -3,6 +3,7 @@
 #include <sstream>
 #include <stdlib.h>
 #include <stdexcept>
+#include <ctime>
 
 Date::Date() {
 	day = 1;
@@ -146,6 +147,13 @@ bool Date::operator==(const Date &d1){
 				return true;
 
 	return false;
+}
 
-
+Date Date::now(){
+	time_t t = time(0);   // get time now
+	struct tm * now = localtime( & t );
+	int year=now->tm_year + 1900;
+	int month=now->tm_mon + 1 ;
+	int day= now->tm_mday;
+	return Date(day, month, year);
 }

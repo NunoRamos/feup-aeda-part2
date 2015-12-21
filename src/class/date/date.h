@@ -147,6 +147,12 @@ public:
 	 */
 	bool operator==(const Date &D1);
 
+	/**
+	 * @brief Returns today's date
+	 *
+	 * @return Returns today's date
+	 */
+	static Date now();
 };
 
 #endif

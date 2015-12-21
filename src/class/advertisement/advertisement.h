@@ -20,12 +20,14 @@
 #include "../user/user.h"
 #include "../location/location.h"
 #include "../proposal/proposal.h"
+#include "../transaction/transaction.h"
 
 using namespace std;
 using namespace enums;
 
 class User;//had to do this to allow cyclic calling of class
 class Proposal;
+class Transaction;
 
 /**
  * @brief Advertisement class
@@ -235,7 +237,7 @@ public:
 	/**
 	 * @brief Shows ad proposals
 	 */
-	virtual void viewProposals() = 0;
+	virtual Transaction* viewProposals() = 0;
 
 	/**
 	 * @brief Add proposal

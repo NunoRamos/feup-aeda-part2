@@ -13,11 +13,22 @@
 #define DATA_H
 
 #include<vector>
+#include<unordered_set>
 
 #include "../user/user.h"
+#include "../transaction/transaction.h"
 #include "../../BST.h"
 
 using namespace std;
+
+typedef struct {
+	size_t operator() (const Transaction *t) const{
+		return t->getId();
+	}
+	bool operator() (const Transaction *t1, const Transaction *t2) const{
+		return t1->getId() == t2->getId();
+	}
+} TransactionHash;
 
 /**
  * @brief User and Advertisement data class
@@ -29,6 +40,7 @@ private:
 	vector<User> users; ///< Vector of all users
 	User* signedInUser; ///< Pointer to user that is currently signed in
 	BST<User*> usersTransactions;
+	unordered_set<Transaction*, TransactionHash> transactions;
 
 public:
 	/**
@@ -174,14 +186,30 @@ public:
 	 *@param u1 User
 	 */
 	void addUserToBst(User* u1);
+
 	/*
 	 *@brief remove userf from bst
 	 *
 	 *@param u1 User
 	 */
-	void RemoveUserFromBst(User* u1);
+	void removeUserFromBst(User* u1);
 
+	/**
+	 * @brief Adds completed transaction
+	 *
+	 * @param t Transaction to be added
+	 */
+	void addTransaction(Transaction* t);
 
+	/**
+	 * @brief Loads transactions
+	 */
+	void loadTransactions();
+
+	/**
+	 * @brief Saves transactions
+	 */
+	void saveTransactions();
 };
 
 #endif

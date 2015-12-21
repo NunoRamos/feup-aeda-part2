@@ -62,7 +62,7 @@ public:
 	/**
 	 * @brief Shows ad proposals
 	 */
-	void viewProposals();
+	Transaction* viewProposals();
 
 	/**
 	 * @brief Add proposal
