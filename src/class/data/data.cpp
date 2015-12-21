@@ -227,3 +227,7 @@ void Data::removeUser(User* user){
 	}
 	users.erase(users.begin()+index);
 }
+
+void Data::orderResults(vector<Advertisement*> toOrder, sort::Order orderType){
+
+}

@@ -18,6 +18,12 @@
 
 using namespace std;
 
+namespace sort{
+enum Order{
+	PriceAsc, Location
+};
+}
+
 /**
  * @brief User and Advertisement data class
  */
@@ -162,10 +168,12 @@ public:
 	void removeUser(User* user);
 
 	/*
-	 * @brief Transforms a queue to vector
+	 * @brief Orders a vector by transforming in a priority queue
 	 *
-	 * @param
+	 * @param toOrder vector to order
+	 * @param orderType to helping on choosing comparing function
 	 */
+	void orderResults(vector<Advertisement*> toOrder, sort::Order orderType);
 };
 
 #endif
