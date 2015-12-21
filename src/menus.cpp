@@ -325,6 +325,7 @@ void signedInMenu(Data* data){
 	menu.addOption("View my advertisements", &viewMyAds);
 	menu.addOption("Sign out", &signOut);
 	menu.addOption("Delete account", &deleteUser);
+	menu.addOption("Top Accounts", &topAccounts);
 	menu.addOption("Exit", &exitApp);
 	menu.createMenu();
 }
@@ -492,4 +493,30 @@ void deleteUser(Data* data){
 		data->signOut();
 	}
 	mainMenu(data);
+}
+
+void topAccounts(Data* data){
+	string n;
+
+	BST<User*> tree=data->getUsersTransactions();
+	BSTItrIn<User*> it(tree);
+
+	clearScreen();
+
+	while(!it.isAtEnd()){
+		cout<< " User Name: " <<it.retrieve()->getName()<< endl;
+		cout<< " Number of Transactions: "<<it.retrieve()->getTransactions()<<endl;
+		cout<< " Last Transaction: "<<it.retrieve()->getlastTransaction().toString()<<endl;
+		cout<<endl;
+		it.advance();
+	}
+	cout << "1-Back"<<endl;;
+	cin>>n;
+	while(n!="1")
+	{
+		cout<<"Enter a valid option"<<endl;;
+		cin>>n;
+	}
+	signedInMenu(data);
+
 }

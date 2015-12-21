@@ -3,18 +3,24 @@
 #include "../advertisement/purchase/purchase.h"
 #include "../advertisement/sale/sale.h"
 #include "../../enums.h"
+#include "../date/date.h"
 #include <iostream>
-#include<sstream>
+#include <sstream>
+#include <ctime>
+#include "../../BST.h"
+
 
 User::User() {
 	showEmail = true;
 	showName = true;
 	showPhoneNumber = true;
+	transactions=0;
+	lastTransaction=Date();
 }
 
 User::User(string email, string password, string name, string phoneNumber,
 		Location location) :
-		User() {
+								User() {
 	this->email = email;
 	this->password = password;
 	this->name = name;
@@ -24,7 +30,7 @@ User::User(string email, string password, string name, string phoneNumber,
 
 User::User(string email, string password, string name, string phoneNumber,
 		string location) :
-		User(email, password, name, phoneNumber, Location(location)) {
+								User(email, password, name, phoneNumber, Location(location)) {
 }
 
 bool User::signIn(string password) const {
@@ -48,9 +54,20 @@ string User::getName() const {
 string User::getPhoneNumber() const {
 	return phoneNumber;
 }
+int User::getTransactions() const{
+	return transactions;
+}
+
+void User:: incrementTransactions(){
+	transactions++;
+}
 
 Location User::getLocation() const {
 	return location;
+}
+
+Date User:: getlastTransaction() const {
+	return lastTransaction;
 }
 
 string User::getLocationString() const {
@@ -203,3 +220,57 @@ void User::sendProposal(Advertisement* ad){
 	ad->addProposal(new Proposal(this, price));
 	cout << "Proposal sent.";
 }
+
+void User::setLastTransaction(Date transaction){
+
+	this->lastTransaction.setDay(transaction.getDay());
+	this->lastTransaction.setMonth(transaction.getMonth());
+	this->lastTransaction.setYear(transaction.getYear());
+
+}
+
+bool User::operator < (const User* &u1) const{
+
+	if (this->getTransactions()>u1->getTransactions())
+		return true;
+	else if (this->getTransactions()== u1->getTransactions()){
+		if(this->getlastTransaction()<u1->getlastTransaction())
+			return false;
+		else if (this->getlastTransaction()==u1->getlastTransaction())
+			return this->getEmail()<u1->getEmail();
+	}
+
+	return false;
+
+
+}
+
+bool User:: operator == (const User* &u1) const{
+
+	return email==u1->getEmail();
+}
+
+void User::setLastTransaction(){
+
+	time_t t = time(0);   // get time now
+	struct tm * now = localtime( & t );
+	int year=now->tm_year + 1900;
+	int month=now->tm_mon + 1 ;
+	int day= now->tm_mday;
+
+	Date creationDate(day,month,year);
+
+	lastTransaction=creationDate;
+
+}
+
+void User::RefreshProfile(User &u1){
+/*
+	RemoveUserFromBst(u1);
+	setLastTransaction();
+	incrementTransactions();
+	addUserToBst(u1);
+
+*/
+}
+

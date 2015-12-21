@@ -122,3 +122,30 @@ ostream& operator<<(ostream& out, const Date &date){
 	out << date.toString();
 	return out;
 }
+
+bool Date::operator < (const Date &d1){
+
+	if(this->getYear()<d1.getYear())
+		return true;
+	else if (this->getYear()==d1.getYear()){
+		if (this->getMonth()<d1.getMonth())
+			return true;
+		else if(this->getMonth()==d1.getMonth()){
+			if(this->getDay()<d1.getDay())
+				return true;
+		}
+	}
+	return false;
+}
+
+bool Date::operator==(const Date &d1){
+
+	if(	this->day == d1.day)
+		if(this->month == d1.month)
+			if(this->year == d1.year)
+				return true;
+
+	return false;
+
+
+}

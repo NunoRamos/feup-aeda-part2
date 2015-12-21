@@ -3,12 +3,15 @@
 #include "../advertisement/purchase/purchase.h"
 #include "../../menus.h"
 
+
 #include<fstream>
 #include <iostream>
 #include <sstream>
 
-Data::Data() {
+Data::Data():usersTransactions(new User("","","","",Location())){
+
 	signedInUser = NULL;
+
 }
 
 Data::~Data() {
@@ -42,8 +45,10 @@ bool Data::signUp(User &user) { //may add a condition to see if a user with the 
 	int i = sequentialSearch(users, user);
 	if (i != -1)
 		cout << "Client is already created\n";
-	else
+	else{
 		users.push_back(user);
+		addUserToBst(&user);
+	}
 	return true;
 }
 
@@ -67,6 +72,7 @@ bool Data::loadUsers() {
 		if (userFile.is_open()) {
 			userFile >> temp;
 			users.push_back(temp);
+			addUserToBst(&temp);
 			users[i].setAdsOwner();
 			vector<Advertisement*> ads = users[i].getAdvertisements();
 			for (unsigned int j = 0; j < ads.size(); j++) {
@@ -226,4 +232,19 @@ void Data::removeUser(User* user){
 		}
 	}
 	users.erase(users.begin()+index);
+	RemoveUserFromBst(user);
+
+}
+
+void Data::addUserToBst(User* u1){
+	usersTransactions.insert(u1);
+	return;
+}
+
+BST<User*> Data:: getUsersTransactions() const{
+	return usersTransactions;
+}
+
+void Data::RemoveUserFromBst(User* u1){
+	usersTransactions.remove(u1);
 }

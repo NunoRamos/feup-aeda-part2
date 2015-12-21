@@ -1,9 +1,10 @@
 #include "purchase.h"
 #include "../advertisement.h"
 #include <iostream>
+#include "../../data/data.h"
 
 Purchase::Purchase(User* owner, string title, Category category, string description, float price):
-	Advertisement(owner, title, category, description, price){}
+Advertisement(owner, title, category, description, price){}
 
 Purchase::~Purchase(){ }
 
@@ -26,6 +27,7 @@ void Purchase::viewProposals(){
 	cout << "2 - Refuse\n";
 	cout << "3 - Back\n";
 
+
 	do{
 		cout << "Please select a valid option\n";
 		cin >> input;
@@ -34,6 +36,12 @@ void Purchase::viewProposals(){
 	switch(input){
 	case 1:
 		//TODO negocio feito
+//		RemoveUserFromBst(owner);
+//		owner->setLastTransaction();
+//		owner->incrementTransactions();
+//		addUserToBst(owner);
+
+
 		break;
 	case 2:
 		proposals.pop();

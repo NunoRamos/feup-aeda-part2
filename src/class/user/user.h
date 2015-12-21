@@ -34,6 +34,8 @@ protected:
 	string name; ///< User name
 	string phoneNumber; ///< User phone number
 	Location location; ///< User location
+	Date lastTransaction;
+	int transactions; //Number of business transactions
 	bool showEmail; ///< Whether the user's email should be displayed in his/hers ads
 	bool showName; ///< Whether the user's name should be displayed in his/hers ads
 	bool showPhoneNumber; ///< Whether the user's phone number should be displayed in his/hers ads
@@ -93,11 +95,27 @@ public:
 	 */
 	string getPassword() const;
 	/**
+	 * @brief Get number of Transactions
+	 *
+	 * @return Returns User's number of transactions
+	 */
+	int getTransactions() const;
+	/**
+	 * @brief Increments user transactions
+	 */
+	void incrementTransactions();
+	/**
 	 * @brief Gets user location
 	 *
 	 * @return Returns user location
 	 */
 	Location getLocation() const;
+	/**
+	 * @brief Gets user last Transaction
+	 *
+	 * @return Returns user last Transaction
+	 */
+	Date getlastTransaction() const;
 
 	/**
 	 * @brief Gets user location as string
@@ -216,7 +234,7 @@ public:
 	 * @return Returns all advertisements the user has
 	 */
 	vector<Advertisement *> getAdvertisements();
-	
+
 	/**
 	 * @brief Sets all ads in user advertisement to have the user as owner
 	 */
@@ -233,6 +251,34 @@ public:
 	 * @param ad Advertisement
 	 */
 	void sendProposal(Advertisement* ad);
+	/**
+	 * @brief Changes date of last Transaction by actual date
+	 *
+	 * @param Transaction Date
+	 */
+	void setLastTransaction(Date Transaction);
+	/**
+	 * @brief Overloading of operator < for users
+	 *
+	 * @param u1 User
+	 */
+	bool operator < (const User* &u1) const;
+	/**
+	 * @brief Overloading of operator == for users
+	 *
+	 * @param u1 User
+	 */
+	bool operator == (const User* &u1) const;
+	/**
+	 * @brief changes lastTransaction date by atual date
+	 */
+	void setLastTransaction();
+	/**
+	 * @brief changes number of transactions and last Transaction
+	 */
+	void RefreshProfile(User &u1);
+
+
 };
 
 #endif
