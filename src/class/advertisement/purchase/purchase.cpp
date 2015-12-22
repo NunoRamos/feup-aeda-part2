@@ -42,11 +42,6 @@ Transaction* Purchase::viewProposals(){
 			delete proposals.top();
 			proposals.pop();
 		}
-		//TODO negocio feito
-//		RemoveUserFromBst(owner);
-//		owner->setLastTransaction();
-//		owner->incrementTransactions();
-//		addUserToBst(owner);
 		return new Transaction(owner, seller, price);
 		break;
 	}

@@ -73,22 +73,6 @@ public:
 	 * @brief Destructor for Transaction class
 	 */
 	~Transaction();
-
-	/**
-	 * @brief Print to out stream
-	 *
-	 * @param out Output stream
-	 * @param t Transaction to print
-	 */
-	friend void operator<<(ostream& out, const Transaction& t);
-
-	/**
-	 * @brief Read from in stream
-	 *
-	 * @param in Input stream
-	 * @param t Transaction to read
-	 */
-	friend void operator>>(istream& in, Transaction& t);
 };
 
 

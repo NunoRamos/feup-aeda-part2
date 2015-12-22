@@ -64,16 +64,14 @@ bool Data::loadUsers() {
 	userFile >> numberOfFiles;
 	userFile.close();
 
-	User temp;
+	users.resize(numberOfFiles);
 
 	for (unsigned int i = 0; i < numberOfFiles; i++) {
 		ss << "user" << i << ".txt";
 		userFile.open((path + ss.str()).c_str());
 		if (userFile.is_open()) {
-			userFile >> temp;
-			users.push_back(temp);
-			addUserToBst(&temp);
-			users[i].setAdsOwner();
+			userFile >> users[i];
+			addUserToBst(&users[i]);
 			vector<Advertisement*> ads = users[i].getAdvertisements();
 			for (unsigned int j = 0; j < ads.size(); j++) {
 				advertisements.push_back(ads[j]);
@@ -237,8 +235,8 @@ void Data::removeUser(User* user){
 }
 
 void Data::addUserToBst(User* u1){
-	usersTransactions.insert(u1);
-	return;
+	if(u1->getTransactions() > 0)
+		usersTransactions.insert(u1);
 }
 
 BST<User*> Data:: getUsersTransactions() const{
@@ -256,12 +254,61 @@ void Data::addTransaction(Transaction* t){
 void Data::loadTransactions(){ //TODO
 	string transaction_path = path + "transactions.txt";
 	ifstream file(transaction_path);
+	Transaction* t;
+	string email1, email2, date;
+	float price;
 
+	if(file.eof())
+		return;
+
+	getline(file, email1);
 	while(!file.eof()){
-
+		file >> email1 >> email2 >> price >> date;
+		t = new Transaction(getUser(email1), getUser(email2), price, Date(date));
+		transactions.insert(t);
 	}
 }
 
 void Data::saveTransactions(){ //TODO
 	string transaction_path = path + "transactions.txt";
+	ofstream file(transaction_path);
+	file << transactions.size();
+	for(unordered_set<Transaction*, TransactionHash>::iterator it = transactions.begin(); it != transactions.end(); it++){
+		file << '\n' << (*it)->getBuyer()->getEmail() << ' ' << (*it)->getSeller()->getEmail() << ' '
+				<< (*it)->getPrice() << ' ' << (*it)->getDate().toString();
+	}
+}
+
+User* Data::getUser(string email){
+	for(unsigned int i = 0; i < users.size(); i++){
+		if(users[i].getEmail() == email)
+			return &users[i];
+	}
+
+	return NULL;
+}
+
+bool Data::deleteAd(Advertisement* ad){
+	for(unsigned int i = 0; i < advertisements.size(); i++){
+		if(advertisements[i]->getId() == ad->getId()){
+			ad->getOwner()->deleteAd(ad);
+			delete ad;
+
+			for(unsigned int j = i; j < advertisements.size() - 1; j++){
+				*advertisements[j] = *advertisements[j+1];
+			}
+
+			advertisements.resize(advertisements.size()-1);
+
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void Data::addUsersToBst(){
+	for(unsigned int i = 0; i < users.size(); i++){
+		addUserToBst(&users[i]);
+	}
 }

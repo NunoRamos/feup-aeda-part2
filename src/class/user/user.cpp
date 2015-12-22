@@ -20,7 +20,7 @@ User::User() {
 
 User::User(string email, string password, string name, string phoneNumber,
 		Location location) :
-								User() {
+										User() {
 	this->email = email;
 	this->password = password;
 	this->name = name;
@@ -30,7 +30,7 @@ User::User(string email, string password, string name, string phoneNumber,
 
 User::User(string email, string password, string name, string phoneNumber,
 		string location) :
-								User(email, password, name, phoneNumber, Location(location)) {
+										User(email, password, name, phoneNumber, Location(location)) {
 }
 
 bool User::signIn(string password) const {
@@ -149,7 +149,7 @@ istream& operator>>(istream& in, User &user) {
 			negotiable = false;
 
 		if (type == "P") {
-			Advertisement* ad = new Purchase(NULL, title, category, description,
+			Advertisement* ad = new Purchase(&user, title, category, description,
 					price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
@@ -157,7 +157,7 @@ istream& operator>>(istream& in, User &user) {
 		} else {
 			string cond;
 			getline(in, cond);
-			Advertisement* ad = new Sale(NULL, title, category, description,
+			Advertisement* ad = new Sale(&user, title, category, description,
 					stringToCondition(cond), price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
@@ -214,23 +214,30 @@ void User::deleteAds(){
 }
 
 void User::sendProposal(Advertisement* ad){
-	float price;
-	cout << "What price would you like to offer?\n";
-	cin >> price;
-	ad->addProposal(new Proposal(this, price));
-	cout << "Proposal sent.";
+	if(ad->isPriceNegotiable()){
+		float price;
+		cout << "What price would you like to offer?\n";
+		cin >> price;
+		ad->addProposal(new Proposal(this, price));
+		cout << "Proposal sent.";
+	}
+	else {
+		cout << "The price is not negotiable. Would you like to offer " << ad->getPrice() << "? (Y/N)\n";
+		char input;
+		cin >> input;
+		if(input == 'Y' || input == 'y'){
+			ad->addProposal(new Proposal(this, ad->getPrice()));
+			cout << "Proposal sent.";
+		}
+	}
 }
 
-void User::setLastTransaction(Date transaction){
-
-	this->lastTransaction.setDay(transaction.getDay());
-	this->lastTransaction.setMonth(transaction.getMonth());
-	this->lastTransaction.setYear(transaction.getYear());
-
+void User::setLastTransaction(const Date &transaction){
+	if(lastTransaction < transaction)
+		this->lastTransaction = transaction;
 }
 
 bool User::operator < (const User* &u1) const{
-
 	if (this->getTransactions()>u1->getTransactions())
 		return true;
 	else if (this->getTransactions()== u1->getTransactions()){
@@ -241,8 +248,6 @@ bool User::operator < (const User* &u1) const{
 	}
 
 	return false;
-
-
 }
 
 bool User:: operator == (const User* &u1) const{
@@ -251,26 +256,31 @@ bool User:: operator == (const User* &u1) const{
 }
 
 void User::setLastTransaction(){
-
-	time_t t = time(0);   // get time now
-	struct tm * now = localtime( & t );
-	int year=now->tm_year + 1900;
-	int month=now->tm_mon + 1 ;
-	int day= now->tm_mday;
-
-	Date creationDate(day,month,year);
-
-	lastTransaction=creationDate;
-
+	lastTransaction = Date::now();
 }
 
 void User::RefreshProfile(User &u1){
-/*
+	/*
 	RemoveUserFromBst(u1);
 	setLastTransaction();
 	incrementTransactions();
 	addUserToBst(u1);
 
-*/
+	 */
 }
 
+bool User::deleteAd(Advertisement* ad){
+	for(unsigned int i = 0; i < advertisements.size(); i++){
+		if(advertisements[i]->getId() == ad->getId()){
+			for(unsigned int j = i; j < advertisements.size() - 1; j++){
+				*advertisements[j] = *advertisements[j+1];
+			}
+
+			advertisements.resize(advertisements.size()-1);
+
+			return true;
+		}
+	}
+
+	return false;
+}

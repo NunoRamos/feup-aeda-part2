@@ -35,7 +35,7 @@ typedef struct {
  */
 class Data{
 private:
-	const string path = "C:/Users/Utilizador/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
+	const string path = "C:/Users/Bernardo/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
 	vector<Advertisement*> advertisements; ///< Vector of pointers to all advertisements
 	vector<User> users; ///< Vector of all users
 	User* signedInUser; ///< Pointer to user that is currently signed in
@@ -210,6 +210,29 @@ public:
 	 * @brief Saves transactions
 	 */
 	void saveTransactions();
+
+	/**
+	 * @brief Gets user from email
+	 *
+	 * @param email User email
+	 *
+	 * @return User
+	 */
+	User* getUser(string email);
+
+	/**
+	 * @brief Delete advertisement
+	 *
+	 * @param ad Advertisement to delete
+	 *
+	 * @return Returns true if the advertisement was deleted, returning false otherwise.
+	 */
+	bool deleteAd(Advertisement* ad);
+
+	/**
+	 * @brief Adds all users with at least one transaction to the BST
+	 */
+	void addUsersToBst();
 };
 
 #endif

@@ -256,7 +256,7 @@ public:
 	 *
 	 * @param Transaction Date
 	 */
-	void setLastTransaction(Date Transaction);
+	void setLastTransaction(const Date &Transaction);
 	/**
 	 * @brief Overloading of operator < for users
 	 *
@@ -278,7 +278,14 @@ public:
 	 */
 	void RefreshProfile(User &u1);
 
-
+	/**
+	 * @brief Deleted advertisement
+	 *
+	 * @param ad Advertisement to delete
+	 *
+	 * @return Returns true if the advertisement was deleted, returning false otherwise.
+	 */
+	bool deleteAd(Advertisement* ad);
 };
 
 #endif

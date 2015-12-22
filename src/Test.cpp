@@ -84,6 +84,8 @@ void menuTest(){
 	Data* data = new Data();
 
 	data->loadUsers();
+	data->loadTransactions();
+	data->addUsersToBst();
 	OptionMenu menu(data);
 	menu.addOption("Search", &search);
 	menu.addOption("Sign In", &signIn);

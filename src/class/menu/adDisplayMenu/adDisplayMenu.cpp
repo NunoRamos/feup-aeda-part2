@@ -241,8 +241,11 @@ void AdDisplayMenu::createMenu() {
 			break;
 		case 6:
 			Transaction *t;
-			if((t = ad->viewProposals()) != NULL)
+			if((t = ad->viewProposals()) != NULL){
 				data->addTransaction(t);
+				data->deleteAd(ad);
+			}
+			signedInMenu(data);
 			break;
 		case 7:
 			signedInMenu(data);

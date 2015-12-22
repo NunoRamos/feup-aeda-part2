@@ -10,7 +10,9 @@ Transaction::Transaction(User* buyer, User* seller, float price) {
 	this->date = Date::now();
 	nextId++;
 	buyer->incrementTransactions();
+	buyer->setLastTransaction();
 	seller->incrementTransactions();
+	seller->setLastTransaction();
 }
 
 Transaction::Transaction(User* buyer, User* seller, float price, Date date){
@@ -21,7 +23,9 @@ Transaction::Transaction(User* buyer, User* seller, float price, Date date){
 	this->date = date;
 	nextId++;
 	buyer->incrementTransactions();
+	buyer->setLastTransaction(date);
 	seller->incrementTransactions();
+	seller->setLastTransaction(date);
 }
 
 unsigned int Transaction::getId() const{
@@ -45,13 +49,5 @@ Date Transaction::getDate() const{
 }
 
 Transaction::~Transaction(){
-
-}
-
-void operator<<(ostream& out, const Transaction& t) { //TODO
-
-}
-
-void operator>>(istream& in, Transaction& t){ //TODO
 
 }

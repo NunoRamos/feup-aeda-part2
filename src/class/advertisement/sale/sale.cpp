@@ -6,7 +6,7 @@
 using namespace std;
 
 Sale::Sale(User* owner, string title, Category category, string description, Condition productCondition, float price) :
-		Advertisement(owner, title, category, description, price){
+						Advertisement(owner, title, category, description, price){
 	this->productCondition = productCondition;
 }
 
@@ -57,11 +57,6 @@ Transaction* Sale::viewProposals(){
 			delete proposals.top();
 			proposals.pop();
 		}
-		//TODO negocio feito
-//		RemoveUserFromBst(owner);
-//		owner->setLastTransaction();
-//		owner->incrementTransactions();
-//		addUserToBst(owner);
 		return new Transaction(buyer, owner, price);
 		break;
 	}
