@@ -46,10 +46,10 @@ void AdDisplayMenu::print() {
 	emptyLine();
 
 	cout << borderChar << " Category: " << categoryToString(ad->getCategory())
-					<< string(
-							width - 2 - 11
-							- categoryToString(ad->getCategory()).length(), ' ')
-							<< borderChar << endl;
+							<< string(
+									width - 2 - 11
+									- categoryToString(ad->getCategory()).length(), ' ')
+									<< borderChar << endl;
 
 	emptyLine();
 
@@ -76,8 +76,8 @@ void AdDisplayMenu::print() {
 	emptyLine();
 
 	cout << borderChar << " Creation Date: " << ad->getCreationDate()
-					<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
-					<< borderChar << endl;
+							<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
+							<< borderChar << endl;
 
 	bool showEmail = ad->getOwner()->getShowEmail();
 	bool showName = ad->getOwner()->getShowName();
@@ -109,8 +109,8 @@ void AdDisplayMenu::print() {
 	stringstream ss;
 	ss << ad->getViews();
 	cout << borderChar << " Views: " << ss.str()
-					<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-					<< endl;
+							<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+							<< endl;
 	emptyLine();
 
 	ss.str("");
@@ -119,8 +119,8 @@ void AdDisplayMenu::print() {
 		ss << "Non-";
 	ss << "Negotiable";
 	cout << borderChar << " Price: " << ss.str()
-					<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-					<< endl;
+							<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+							<< endl;
 	emptyLine();
 
 	unsigned int i = 1;
@@ -164,7 +164,7 @@ void AdDisplayMenu::print() {
 	ss.str("");
 	ss << " " << i << " - Exit";
 	cout << borderChar << ss.str() << string(width - ss.str().length() - 2, ' ')
-					<< borderChar << endl;
+							<< borderChar << endl;
 
 	emptyLine();
 
@@ -244,6 +244,10 @@ void AdDisplayMenu::createMenu() {
 			if((t = ad->viewProposals()) != NULL){
 				data->addTransaction(t);
 				data->deleteAd(ad);
+				if(t->getBuyer()->getTransactions() == 1)
+					data->addUserToBst(t->getBuyer());
+				if(t->getSeller()->getTransactions() == 1)
+					data->addUserToBst(t->getSeller());
 			}
 			signedInMenu(data);
 			break;

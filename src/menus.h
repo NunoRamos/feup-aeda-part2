@@ -171,5 +171,25 @@ void deleteUser(Data* data);
  * @param data Data
  */
 void topAccounts(Data* data);
+/**
+ * @brief Users with more than X transactions
+ *
+ * @param data Data
+ */
+void moreThanX(Data* data);
+/**
+ *  @brief Users with X transactions
+ *
+ *  @param data Data
+ */
+void equalToX(Data* data);
+/**
+ *
+ * @brief Users with more less X transactions
+ *
+ * @param data Data
+ */
+void lessThanX(Data* data);
+
 
 #endif
