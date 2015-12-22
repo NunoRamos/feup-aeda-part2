@@ -54,10 +54,10 @@ void searchByCategory(Data* data) {
 	clearScreen();
 	string answer;
 	cout
-	<< "\nInsert what category you would like to search for\n"
-	"( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
-	"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
-	"Others ) : ";
+			<< "\nInsert what category you would like to search for\n"
+					"( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
+					"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
+					"Others ) : ";
 	getline(cin, answer);
 	vector<Advertisement*> results;
 	if (validCategory(answer)) {
@@ -269,7 +269,7 @@ void signUp(Data* data) {
 	//showEmail
 	string answer;
 	cout
-	<< "\nWould you like to show your email in your advertisements? (Y/N)\n";
+			<< "\nWould you like to show your email in your advertisements? (Y/N)\n";
 	i = 0;
 	do {
 		if (i > 0)
@@ -294,7 +294,7 @@ void signUp(Data* data) {
 
 	//showPhoneNumber
 	cout
-	<< "\nWould you like to show your phone number in your advertisements? (Y/N)\n";
+			<< "\nWould you like to show your phone number in your advertisements? (Y/N)\n";
 	i = 0;
 	do {
 		if (i > 0)
@@ -344,9 +344,9 @@ void createSellingAd(Data* data) {
 	getline(cin, title);
 
 	cout
-	<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
-	"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
-	"Others ) : ";
+			<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
+					"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
+					"Others ) : ";
 
 	getline(cin, category);
 	while (!validCategory(category)) {
@@ -405,9 +405,9 @@ void createBuyingAd(Data* data) {
 	getline(cin, title);
 
 	cout
-	<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
-	"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
-	"Others ) : ";
+			<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
+					"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
+					"Others ) : ";
 	getline(cin, category);
 	while (!validCategory(category)) {
 		cout << "\nWrite a valid Category: ";
@@ -489,31 +489,31 @@ void deleteUser(Data* data) {
 void topAccounts(Data* data) {
 	/*string n;
 
-	BST<User*> tree = data->getUsersTransactions();
+	 BST<User*> tree = data->getUsersTransactions();
 
-	clearScreen();
+	 clearScreen();
 
-	if(tree.isEmpty()){
-		cout << "There are no transactions made.\n";
-	} else {
-		BSTItrIn<User*> it(tree);
-		while (!it.isAtEnd()) {
-			cout << " User Name: " << it.retrieve()->getName() << endl;
-			cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
-			cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
-			cout << endl;
-			it.advance();
-		}
-	}
+	 if(tree.isEmpty()){
+	 cout << "There are no transactions made.\n";
+	 } else {
+	 BSTItrIn<User*> it(tree);
+	 while (!it.isAtEnd()) {
+	 cout << " User Name: " << it.retrieve()->getName() << endl;
+	 cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
+	 cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
+	 cout << endl;
+	 it.advance();
+	 }
+	 }
 
-	cout << "1 - Back" << endl;
-	cin >> n;
+	 cout << "1 - Back" << endl;
+	 cin >> n;
 
-	while (n != "1") {
-		cout << "Please, enter a valid option" << endl;
-		cin >> n;
-	}
-	signedInMenu(data);
+	 while (n != "1") {
+	 cout << "Please, enter a valid option" << endl;
+	 cin >> n;
+	 }
+	 signedInMenu(data);
 	 */
 
 	clearScreen();
@@ -522,31 +522,33 @@ void topAccounts(Data* data) {
 	menu.addOption("User with less than x transactions", &lessThanX);
 	menu.addOption("User with x transactions", &equalToX);
 	menu.addOption("Users with more than x transactions", &moreThanX);
+	menu.addOption("Back", &signedInMenu);
+	menu.createMenu();
 }
 
-
-void moreThanX(Data* data){
-
+void moreThanX(Data* data) {
 	string n;
 	int transactions;
 
-
-	cout<<"How many transactions?"<<endl;
-	cin>>transactions;
+	cout << "How many transactions?" << endl;
+	cin >> transactions;
 
 	BST<User*> tree = data->getUsersTransactions();
 
 	clearScreen();
 
-	if(tree.isEmpty()){
+	if (tree.isEmpty()) {
 		cout << "There are no transactions made.\n";
 	} else {
 		BSTItrIn<User*> it(tree);
 		while (!it.isAtEnd()) {
-			if(it.retrieve()->getTransactions()>transactions){
+			if (it.retrieve()->getTransactions() > transactions) {
 				cout << " User Name: " << it.retrieve()->getName() << endl;
-				cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
-				cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
+				cout << " Number of Transactions: "
+						<< it.retrieve()->getTransactions() << endl;
+				cout << " Last Transaction: "
+						<< it.retrieve()->getlastTransaction().toString()
+						<< endl;
 				cout << endl;
 
 			}
@@ -561,33 +563,30 @@ void moreThanX(Data* data){
 		cout << "Please, enter a valid option" << endl;
 		cin >> n;
 	}
-	signedInMenu(data);
-
-
+	topAccounts(data);
 }
 
-
-void lessThanX(Data* data){
-
+void lessThanX(Data* data) {
 	string n;
 	int transactions;
 
-
-	cout<<"How many transactions?"<<endl;
-	cin>>transactions;
+	cout << "How many transactions?" << endl;
+	cin >> transactions;
 
 	BST<User*> tree = data->getUsersTransactions();
 
 	clearScreen();
 
-	if(tree.isEmpty()){
+	if (tree.isEmpty()) {
 		cout << "There are no transactions made.\n";
 	} else {
 		BSTItrIn<User*> it(tree);
 		while (!it.isAtEnd() && it.retrieve()->getTransactions() < transactions) {
 			cout << " User Name: " << it.retrieve()->getName() << endl;
-			cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
-			cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
+			cout << " Number of Transactions: "
+					<< it.retrieve()->getTransactions() << endl;
+			cout << " Last Transaction: "
+					<< it.retrieve()->getlastTransaction().toString() << endl;
 			cout << endl;
 			it.advance();
 		}
@@ -600,35 +599,34 @@ void lessThanX(Data* data){
 		cout << "Please, enter a valid option" << endl;
 		cin >> n;
 	}
-	signedInMenu(data);
 
-
-
+	topAccounts(data);
 }
 
-void equalToX(Data* data){
+void equalToX(Data* data) {
 	string n;
 	int transactions;
 
-
-	cout<<"How many transactions?"<<endl;
-	cin>>transactions;
+	cout << "How many transactions?" << endl;
+	cin >> transactions;
 
 	BST<User*> tree = data->getUsersTransactions();
 
 	clearScreen();
 
-	if(tree.isEmpty()){
+	if (tree.isEmpty()) {
 		cout << "There are no transactions made.\n";
 	} else {
 		BSTItrIn<User*> it(tree);
 		while (!it.isAtEnd()) {
-			if(it.retrieve()->getTransactions()==transactions){
+			if (it.retrieve()->getTransactions() == transactions) {
 				cout << " User Name: " << it.retrieve()->getName() << endl;
-				cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
-				cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
+				cout << " Number of Transactions: "
+						<< it.retrieve()->getTransactions() << endl;
+				cout << " Last Transaction: "
+						<< it.retrieve()->getlastTransaction().toString()
+						<< endl;
 				cout << endl;
-
 			}
 			it.advance();
 		}
@@ -641,8 +639,5 @@ void equalToX(Data* data){
 		cout << "Please, enter a valid option" << endl;
 		cin >> n;
 	}
-	signedInMenu(data);
+	topAccounts(data);
 }
-
-
-
