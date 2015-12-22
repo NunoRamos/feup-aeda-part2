@@ -37,17 +37,16 @@ void mainMenu(Data* data) {
 void search(Data* data) {
 	clearScreen();
 	OptionMenu menu(data);
-	menu.addOption("Search By Category", searchByCategory);
-	menu.addOption("Search By Location", searchByLocation);
-	menu.addOption("Search For Approximate Price", searchByPrice);
-	menu.addOption("Search By Keyword", searchByKeyword);
+	menu.addOption("Search By Category", &searchByCategory);
+	menu.addOption("Search By Location", &searchByLocation);
+	menu.addOption("Search For Approximate Price", &searchByPrice);
+	menu.addOption("Search By Keyword", &searchByKeyword);
 	if (data->getSignedInUser() != NULL)
 		menu.addOption("Return", &signedInMenu);
 	else
 		menu.addOption("Return", &mainMenu);
 	menu.addOption("Exit", &exitApp);
 	menu.createMenu();
-
 }
 
 void searchByCategory(Data* data) {
@@ -306,7 +305,6 @@ void signUp(Data* data) {
 	} while (answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
 	data->signUp(u1);
-	cout << loc;
 	cout << "\nYour profile has been created. You may now sign in.\n";
 	mainMenu(data);
 }
@@ -382,8 +380,8 @@ void createSellingAd(Data* data) {
 	}
 	Condition cond = stringToCondition(condition);
 
-	Advertisement* ad = new Sale(data->getSignedInUser(), title, cat,
-			description, cond, price);
+	Advertisement* ad = static_cast<Advertisement*> (new Sale(data->getSignedInUser(), title, cat,
+			description, cond, price));
 	ad->setCreationDate(creationDate);
 
 	cout << "\nIs the price negotiable? (Y/N)\n";
@@ -432,8 +430,8 @@ void createBuyingAd(Data* data) {
 	cin.ignore();
 	cin.clear();
 
-	Advertisement* ad = new Purchase(data->getSignedInUser(), title, cat,
-			description, price);
+	Advertisement* ad = static_cast<Advertisement*> (new Purchase(data->getSignedInUser(), title, cat,
+			description, price));
 	ad->setCreationDate(creationDate);
 
 	cout << "\nIs the price negotiable? (Y/N)\n";

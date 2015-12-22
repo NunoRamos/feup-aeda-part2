@@ -263,7 +263,7 @@ public:
 	 *
 	 * @param u1 User
 	 */
-	bool operator < (const User* u1) const;
+	bool operator < ( User* u1) const;
 
 	/**
 	 * @brief changes lastTransaction date by atual date
@@ -282,6 +282,11 @@ public:
 	 * @return Returns true if the advertisement was deleted, returning false otherwise.
 	 */
 	bool deleteAd(Advertisement* ad);
+
+	/**
+	 * @brief User default destructor
+	 */
+	~User();
 };
 
 #endif

@@ -189,7 +189,7 @@ public:
 	 *
 	 * @return Returns true if the text being searched for has been found. Returns false otherwise.
 	 */
-	bool searchForText(string text) const;
+	bool searchForText(const string& text) const;
 
 	/**
 	 * @brief Returns a P if is a purchase ad or a S if is a sale ad

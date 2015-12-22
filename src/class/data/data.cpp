@@ -9,9 +9,7 @@
 #include <sstream>
 
 Data::Data():usersTransactions(new User("","","","",Location())){
-
 	signedInUser = NULL;
-
 }
 
 Data::~Data() {
@@ -41,12 +39,14 @@ bool Data::signIn(const string &email, const string &password) {
 	return false;
 }
 
-bool Data::signUp(User &user) { //may add a condition to see if a user with the same email already exists
+bool Data::signUp(User &user) {
 	int i = sequentialSearch(users, user);
 	if (i != -1)
 		cout << "Client is already created\n";
 	else{
-		users.push_back(user);
+		users.resize(users.size());
+		users[users.size()-1] = user; //PUSH_BACK DESTROYS A USER, DONT KNOW WHY
+		//users.push_back(user);
 		addUserToBst(&user);
 	}
 	return true;

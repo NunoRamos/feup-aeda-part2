@@ -232,8 +232,8 @@ void User::setLastTransaction(const Date &transaction) {
 		this->lastTransaction = transaction;
 }
 
-bool User::operator <(const User* u1) const {
-	if (this->getTransactions() > u1->getTransactions())
+bool User::operator <( User* u1) const {
+	/*if (this->getTransactions() > u1->getTransactions())
 		return true;
 	else if (this->getTransactions() == u1->getTransactions()) {
 		if (u1->getlastTransaction() < this->getlastTransaction())
@@ -243,10 +243,12 @@ bool User::operator <(const User* u1) const {
 	}
 
 	return false;
+	*/
+	return true;
 }
 
 bool User::operator==(const User &u1) const {
-	return email == u1.email;
+	return (this->email == u1.email);
 }
 
 void User::setLastTransaction() {
@@ -278,3 +280,5 @@ bool User::deleteAd(Advertisement* ad) {
 
 	return false;
 }
+
+User::~User(){ }

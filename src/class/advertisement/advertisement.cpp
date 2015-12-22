@@ -16,8 +16,6 @@ Advertisement::Advertisement(User* owner, string title, Category category,
 	id = nextId;
 	nextId++;
 	views = 0;
-	//TODO: get time and save as creationDate
-
 }
 
 Advertisement::~Advertisement() {
@@ -98,7 +96,7 @@ void Advertisement::incrementViews() {
 
 }
 
-bool Advertisement::searchForText(string text) const {
+bool Advertisement::searchForText(const string& text) const {
 	if (title.find(text, 0) != -1)
 		return true;
 
