@@ -9,18 +9,17 @@
 #include <ctime>
 #include "../../BST.h"
 
-
 User::User() {
 	showEmail = true;
 	showName = true;
 	showPhoneNumber = true;
-	transactions=0;
-	lastTransaction=Date();
+	transactions = 0;
+	lastTransaction = Date();
 }
 
 User::User(string email, string password, string name, string phoneNumber,
 		Location location) :
-										User() {
+		User() {
 	this->email = email;
 	this->password = password;
 	this->name = name;
@@ -30,7 +29,7 @@ User::User(string email, string password, string name, string phoneNumber,
 
 User::User(string email, string password, string name, string phoneNumber,
 		string location) :
-										User(email, password, name, phoneNumber, Location(location)) {
+		User(email, password, name, phoneNumber, Location(location)) {
 }
 
 bool User::signIn(string password) const {
@@ -54,11 +53,11 @@ string User::getName() const {
 string User::getPhoneNumber() const {
 	return phoneNumber;
 }
-int User::getTransactions() const{
+int User::getTransactions() const {
 	return transactions;
 }
 
-void User:: incrementTransactions(){
+void User::incrementTransactions() {
 	transactions++;
 }
 
@@ -66,7 +65,7 @@ Location User::getLocation() const {
 	return location;
 }
 
-Date User:: getlastTransaction() const {
+Date User::getlastTransaction() const {
 	return lastTransaction;
 }
 
@@ -123,7 +122,7 @@ istream& operator>>(istream& in, User &user) {
 	in >> user.showName;
 	in >> user.showPhoneNumber;
 	in >> numberOfAds;
-	in.ignore(1000,'\n');
+	in.ignore(1000, '\n');
 	ss.str("");
 	for (unsigned int i = 0; i < numberOfAds; i++) {
 		getline(in, type);
@@ -149,8 +148,8 @@ istream& operator>>(istream& in, User &user) {
 			negotiable = false;
 
 		if (type == "P") {
-			Advertisement* ad = new Purchase(&user, title, category, description,
-					price);
+			Advertisement* ad = new Purchase(&user, title, category,
+					description, price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
 			user.advertisements.push_back(ad);
@@ -179,10 +178,6 @@ void User::addAdvertisement(Advertisement *newAdvertisement) {
 	advertisements.push_back(newAdvertisement);
 }
 
-bool User::operator==(const User & u1) const {
-	return (this->email == u1.email);
-}
-
 ostream& operator<<(ostream& out, const User &user) {
 	char separationChar = '\n';
 
@@ -208,75 +203,74 @@ void User::setAdsOwner() {
 	}
 }
 
-void User::deleteAds(){
-	while(advertisements.size() != 0)
+void User::deleteAds() {
+	while (advertisements.size() != 0)
 		advertisements.pop_back();
 }
 
-void User::sendProposal(Advertisement* ad){
-	if(ad->isPriceNegotiable()){
+void User::sendProposal(Advertisement* ad) {
+	if (ad->isPriceNegotiable()) {
 		float price;
 		cout << "What price would you like to offer?\n";
 		cin >> price;
 		ad->addProposal(new Proposal(this, price));
 		cout << "Proposal sent.";
-	}
-	else {
-		cout << "The price is not negotiable. Would you like to offer " << ad->getPrice() << "? (Y/N)\n";
+	} else {
+		cout << "The price is not negotiable. Would you like to offer "
+				<< ad->getPrice() << "? (Y/N)\n";
 		char input;
 		cin >> input;
-		if(input == 'Y' || input == 'y'){
+		if (input == 'Y' || input == 'y') {
 			ad->addProposal(new Proposal(this, ad->getPrice()));
 			cout << "Proposal sent.";
 		}
 	}
 }
 
-void User::setLastTransaction(const Date &transaction){
-	if(lastTransaction < transaction)
+void User::setLastTransaction(const Date &transaction) {
+	if (lastTransaction < transaction)
 		this->lastTransaction = transaction;
 }
 
-bool User::operator < (const User* &u1) const{
-	if (this->getTransactions()>u1->getTransactions())
+bool User::operator <(const User* u1) const {
+	if (this->getTransactions() > u1->getTransactions())
 		return true;
-	else if (this->getTransactions()== u1->getTransactions()){
-		if(this->getlastTransaction()<u1->getlastTransaction())
-			return false;
-		else if (this->getlastTransaction()==u1->getlastTransaction())
-			return this->getEmail()<u1->getEmail();
+	else if (this->getTransactions() == u1->getTransactions()) {
+		if (u1->getlastTransaction() < this->getlastTransaction())
+			return true;
+		else if (this->getlastTransaction() == u1->getlastTransaction())
+			return this->getEmail() < u1->getEmail();
 	}
 
 	return false;
 }
 
-bool User:: operator == (const User* &u1) const{
-
-	return email==u1->getEmail();
+bool User::operator==(const User &u1) const {
+	return email == u1.email;
 }
 
-void User::setLastTransaction(){
+void User::setLastTransaction() {
 	lastTransaction = Date::now();
 }
 
-void User::RefreshProfile(User &u1){
+void User::RefreshProfile(User &u1) {
 	/*
-	RemoveUserFromBst(u1);
-	setLastTransaction();
-	incrementTransactions();
-	addUserToBst(u1);
+	 RemoveUserFromBst(u1);
+	 setLastTransaction();
+	 incrementTransactions();
+	 addUserToBst(u1);
 
 	 */
 }
 
-bool User::deleteAd(Advertisement* ad){
-	for(unsigned int i = 0; i < advertisements.size(); i++){
-		if(advertisements[i]->getId() == ad->getId()){
-			for(unsigned int j = i; j < advertisements.size() - 1; j++){
-				*advertisements[j] = *advertisements[j+1];
+bool User::deleteAd(Advertisement* ad) {
+	for (unsigned int i = 0; i < advertisements.size(); i++) {
+		if (advertisements[i]->getId() == ad->getId()) {
+			for (unsigned int j = i; j < advertisements.size() - 1; j++) {
+				*advertisements[j] = *advertisements[j + 1];
 			}
 
-			advertisements.resize(advertisements.size()-1);
+			advertisements.resize(advertisements.size() - 1);
 
 			return true;
 		}

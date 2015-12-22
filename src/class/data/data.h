@@ -233,6 +233,16 @@ public:
 	 * @brief Adds all users with at least one transaction to the BST
 	 */
 	void addUsersToBst();
+
+	/**
+	 * @brief Updates tree
+	 */
+	void updateTree();
+
+	/**
+	 * @brief Updates transactions
+	 */
+	void updateTransactions();
 };
 
 #endif

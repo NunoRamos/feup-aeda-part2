@@ -244,10 +244,11 @@ void AdDisplayMenu::createMenu() {
 			if((t = ad->viewProposals()) != NULL){
 				data->addTransaction(t);
 				data->deleteAd(ad);
-				if(t->getBuyer()->getTransactions() == 1)
+				if(t->getBuyer()->getTransactions() > 1)
 					data->addUserToBst(t->getBuyer());
-				if(t->getSeller()->getTransactions() == 1)
+				if(t->getSeller()->getTransactions() > 1)
 					data->addUserToBst(t->getSeller());
+				data->updateTree();
 			}
 			signedInMenu(data);
 			break;

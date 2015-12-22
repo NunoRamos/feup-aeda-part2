@@ -54,10 +54,10 @@ void searchByCategory(Data* data) {
 	clearScreen();
 	string answer;
 	cout
-			<< "\nInsert what category you would like to search for\n"
-					"( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
-					"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
-					"Others ) : ";
+	<< "\nInsert what category you would like to search for\n"
+	"( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
+	"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
+	"Others ) : ";
 	getline(cin, answer);
 	vector<Advertisement*> results;
 	if (validCategory(answer)) {
@@ -269,7 +269,7 @@ void signUp(Data* data) {
 	//showEmail
 	string answer;
 	cout
-			<< "\nWould you like to show your email in your advertisements? (Y/N)\n";
+	<< "\nWould you like to show your email in your advertisements? (Y/N)\n";
 	i = 0;
 	do {
 		if (i > 0)
@@ -294,7 +294,7 @@ void signUp(Data* data) {
 
 	//showPhoneNumber
 	cout
-			<< "\nWould you like to show your phone number in your advertisements? (Y/N)\n";
+	<< "\nWould you like to show your phone number in your advertisements? (Y/N)\n";
 	i = 0;
 	do {
 		if (i > 0)
@@ -312,10 +312,10 @@ void signUp(Data* data) {
 }
 
 void exitApp(Data* data) {
+	data->saveTransactions();
+
 	if (!data->saveUsers())
 		exit(1);
-
-	data->saveTransactions();
 
 	exit(0);
 }
@@ -324,14 +324,23 @@ void signedInMenu(Data* data) {
 	clearScreen();
 	OptionMenu menu(data);
 	menu.addOption("Search", &search);
+	cout << "1";
 	menu.addOption("Create buying advertisement", &createBuyingAd);
+	cout << "2";
 	menu.addOption("Create selling advertisement", &createSellingAd);
+	cout << "3";
 	menu.addOption("View my advertisements", &viewMyAds);
+	cout << "4";
 	menu.addOption("Sign out", &signOut);
+	cout << "5";
 	menu.addOption("Delete account", &deleteUser);
+	cout << "6";
 	menu.addOption("Top Accounts", &topAccounts);
+	cout << "7";
 	menu.addOption("Exit", &exitApp);
+	cout << "8";
 	menu.createMenu();
+	cout << "9";
 }
 
 void createSellingAd(Data* data) {
@@ -344,9 +353,9 @@ void createSellingAd(Data* data) {
 	getline(cin, title);
 
 	cout
-			<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
-					"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
-					"Others ) : ";
+	<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
+	"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
+	"Others ) : ";
 
 	getline(cin, category);
 	while (!validCategory(category)) {
@@ -405,9 +414,9 @@ void createBuyingAd(Data* data) {
 	getline(cin, title);
 
 	cout
-			<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
-					"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
-					"Others ) : ";
+	<< "\nCategory: \n ( Agriculture, Animals, BabyAndChildren, Fashion, Home, Job, Leisure,\n"
+	"PhonesAndTablets, RealEstate, Services, Sports, Technology, Vehicles,\n"
+	"Others ) : ";
 	getline(cin, category);
 	while (!validCategory(category)) {
 		cout << "\nWrite a valid Category: ";
@@ -480,50 +489,53 @@ void deleteUser(Data* data) {
 	cout << "Introduce your password: ";
 	getline(cin, password);
 	if (data->signIn(data->getSignedInUser()->getEmail(), password)) {
-		data->removeUser(data->getSignedInUser());
 		data->signOut();
+		data->removeUser(data->getSignedInUser());
 	}
 	mainMenu(data);
 }
 
 void topAccounts(Data* data) {
-	/*string n;
-
-	 BST<User*> tree = data->getUsersTransactions();
-
-	 clearScreen();
-
-	 if(tree.isEmpty()){
-	 cout << "There are no transactions made.\n";
-	 } else {
-	 BSTItrIn<User*> it(tree);
-	 while (!it.isAtEnd()) {
-	 cout << " User Name: " << it.retrieve()->getName() << endl;
-	 cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
-	 cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
-	 cout << endl;
-	 it.advance();
-	 }
-	 }
-
-	 cout << "1 - Back" << endl;
-	 cin >> n;
-
-	 while (n != "1") {
-	 cout << "Please, enter a valid option" << endl;
-	 cin >> n;
-	 }
-	 signedInMenu(data);
-	 */
 
 	clearScreen();
 	OptionMenu menu(data);
 
+	menu.addOption("All", &all);
 	menu.addOption("User with less than x transactions", &lessThanX);
 	menu.addOption("User with x transactions", &equalToX);
 	menu.addOption("Users with more than x transactions", &moreThanX);
 	menu.addOption("Back", &signedInMenu);
 	menu.createMenu();
+}
+
+void all(Data* data){
+	unsigned int n;
+
+	BST<User*> tree = data->getUsersTransactions();
+
+	clearScreen();
+
+	if(tree.isEmpty()){
+		cout << "There are no transactions made.\n";
+	} else {
+		BSTItrIn<User*> it(tree);
+		while (!it.isAtEnd()) {
+			cout << " User Name: " << it.retrieve()->getName() << endl;
+			cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
+			cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
+			cout << endl;
+			it.advance();
+		}
+	}
+
+	cout << "1 - Back" << endl;
+	cin >> n;
+
+	while (n != 1) {
+		cout << "Please, enter a valid option" << endl;
+		cin >> n;
+	}
+	signedInMenu(data);
 }
 
 void moreThanX(Data* data) {

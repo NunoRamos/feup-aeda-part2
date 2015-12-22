@@ -257,18 +257,14 @@ public:
 	 * @param Transaction Date
 	 */
 	void setLastTransaction(const Date &Transaction);
+
 	/**
 	 * @brief Overloading of operator < for users
 	 *
 	 * @param u1 User
 	 */
-	bool operator < (const User* &u1) const;
-	/**
-	 * @brief Overloading of operator == for users
-	 *
-	 * @param u1 User
-	 */
-	bool operator == (const User* &u1) const;
+	bool operator < (const User* u1) const;
+
 	/**
 	 * @brief changes lastTransaction date by atual date
 	 */

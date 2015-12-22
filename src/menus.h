@@ -191,5 +191,11 @@ void equalToX(Data* data);
  */
 void lessThanX(Data* data);
 
+/**
+ * @brief Shows all accounts with transactiosn made
+ *
+ * @param data Data
+ */
+void all(Data* data);
 
 #endif

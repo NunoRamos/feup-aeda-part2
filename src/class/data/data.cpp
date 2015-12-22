@@ -220,6 +220,15 @@ vector<Advertisement*> Data::getAdsInSameDistrict(string district) {
 }
 
 void Data::removeUser(User* user){
+	removeUserFromBst(user); //TODO when deleting a user, the program does not correctly update the bst
+
+	for(unordered_set<Transaction*, TransactionHash>::iterator it = transactions.begin(); it != transactions.end(); it++){
+		if(*((*it)->getBuyer()) == *user || *((*it)->getSeller()) == *user)
+			it = transactions.erase(it);
+		if(it == transactions.end())
+			break;
+	}
+
 	unsigned int index = sequentialSearch(users, *user);
 	users[index].deleteAds();
 	for(unsigned int i = 0; i < advertisements.size(); i++){
@@ -230,8 +239,6 @@ void Data::removeUser(User* user){
 		}
 	}
 	users.erase(users.begin()+index);
-	removeUserFromBst(user);
-
 }
 
 void Data::addUserToBst(User* u1){
@@ -239,12 +246,13 @@ void Data::addUserToBst(User* u1){
 		usersTransactions.insert(u1);
 }
 
-BST<User*> Data:: getUsersTransactions() const{
+BST<User*> Data::getUsersTransactions() const{
 	return usersTransactions;
 }
 
 void Data::removeUserFromBst(User* u1){
 	usersTransactions.remove(u1);
+	updateTree();
 }
 
 void Data::addTransaction(Transaction* t){
@@ -264,8 +272,12 @@ void Data::loadTransactions(){ //TODO
 	getline(file, email1);
 	while(!file.eof()){
 		file >> email1 >> email2 >> price >> date;
-		t = new Transaction(getUser(email1), getUser(email2), price, Date(date));
-		transactions.insert(t);
+		User* u1 = getUser(email1);
+		User* u2 = getUser(email2);
+		if(u1 != NULL && u2 != NULL){
+			t = new Transaction(u1, u2, price, Date(date));
+			transactions.insert(t);
+		}
 	}
 }
 
@@ -311,4 +323,9 @@ void Data::addUsersToBst(){
 	for(unsigned int i = 0; i < users.size(); i++){
 		addUserToBst(&users[i]);
 	}
+}
+
+void Data::updateTree(){
+	usersTransactions.makeEmpty();
+	addUsersToBst();
 }
