@@ -21,7 +21,7 @@ using namespace std;
 
 namespace sort{
 enum Order{
-	PriceAsc, Location
+	PriceAsc, CategoryAsc, KeywordAsc, LocCityAsc, LocCountyAsc, LocDistrictAsc
 };
 }
 
@@ -194,7 +194,7 @@ public:
 	 * @param toOrder vector to order
 	 * @param orderType to helping on choosing comparing function
 	 */
-	void orderResults(vector<Advertisement*> toOrder, sort::Order orderType);
+	void orderResults(vector<Advertisement*>& toOrder, sort::Order orderType);
 };
 
 #endif

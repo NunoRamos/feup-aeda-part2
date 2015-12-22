@@ -67,6 +67,7 @@ void searchByCategory(Data* data){
 		Category searchCategory=stringToCategory(answer);
 		results=data->searchForAdsCategory(searchCategory);
 		saleOrPurchase(results,data);
+		data->orderResults(results,sort::CategoryAsc);
 		SearchMenu menu(data, results);
 		menu.createMenu();
 	}
@@ -108,6 +109,7 @@ void sameCity(Data* data){
 	getline(cin, city);
 	vector<Advertisement *> ads = data->getAdsInSameCity(city);
 	saleOrPurchase(ads,data);
+	data->orderResults(ads,sort::LocCityAsc);
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
@@ -123,6 +125,7 @@ void sameCounty(Data* data){
 	getline(cin, county);
 	vector<Advertisement *> ads = data->getAdsInSameCounty(county);
 	saleOrPurchase(ads,data);
+	data->orderResults(ads, sort::LocCountyAsc);
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
@@ -138,6 +141,7 @@ void sameDistrict(Data* data){
 	getline(cin, district);
 	vector<Advertisement *> ads = data->getAdsInSameDistrict(district);
 	saleOrPurchase(ads,data);
+	data->orderResults(ads, sort::LocDistrictAsc);
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
@@ -160,10 +164,8 @@ void searchByPrice(Data* data){
 	vector<Advertisement* > results;
 	results = data->searchForAdsPrice(lowerPrice,higherPrice);
 	saleOrPurchase(results,data);
-	SearchMenu menu(data, results);/*priority_queue<Advertisement*, vector<Advertisement*>, CompPrice> newResults;
-	for(int i=0;i<results.size();i++){
-		newResults.push(results[i]);
-	}*/
+	data->orderResults(results,sort::PriceAsc);
+	SearchMenu menu(data, results);
 	menu.createMenu();
 	if(data->getSignedInUser() != NULL)
 		signedInMenu(data);
@@ -180,6 +182,7 @@ void searchByKeyword(Data* data){
 	vector<Advertisement* > results;
 	results = data->searchForAds(answer);
 	saleOrPurchase(results,data);
+	data->orderResults(results,sort::KeywordAsc);
 	SearchMenu menu(data, results);
 	menu.createMenu();
 	if(data->getSignedInUser() != NULL)

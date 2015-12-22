@@ -2,13 +2,15 @@
 #include "../../sequentialSearch.h"
 #include "../advertisement/purchase/purchase.h"
 #include "../../menus.h"
-
+#include "../../comparisons.h"
 
 #include<fstream>
 #include <iostream>
 #include <sstream>
+#include <queue>
 
-Data::Data():usersTransactions(new User("","","","",Location())){
+Data::Data() :
+usersTransactions(new User("", "", "", "", Location())) {
 
 	signedInUser = NULL;
 
@@ -45,7 +47,7 @@ bool Data::signUp(User &user) { //may add a condition to see if a user with the 
 	int i = sequentialSearch(users, user);
 	if (i != -1)
 		cout << "Client is already created\n";
-	else{
+	else {
 		users.push_back(user);
 		addUserToBst(&user);
 	}
@@ -221,34 +223,109 @@ vector<Advertisement*> Data::getAdsInSameDistrict(string district) {
 	return results;
 }
 
-void Data::removeUser(User* user){
+void Data::removeUser(User* user) {
 	unsigned int index = sequentialSearch(users, *user);
 	users[index].deleteAds();
-	for(unsigned int i = 0; i < advertisements.size(); i++){
-		if(advertisements[i]->getOwner() == user){
+	for (unsigned int i = 0; i < advertisements.size(); i++) {
+		if (advertisements[i]->getOwner() == user) {
 			delete advertisements[i];
-			advertisements.erase(advertisements.begin()+i);
+			advertisements.erase(advertisements.begin() + i);
 			i--;
 		}
 	}
-	users.erase(users.begin()+index);
+	users.erase(users.begin() + index);
 	RemoveUserFromBst(user);
 
 }
 
-void Data::addUserToBst(User* u1){
+void Data::addUserToBst(User* u1) {
 	usersTransactions.insert(u1);
 	return;
 }
 
-BST<User*> Data:: getUsersTransactions() const{
+BST<User*> Data::getUsersTransactions() const {
 	return usersTransactions;
 }
 
-void Data::RemoveUserFromBst(User* u1){
+void Data::RemoveUserFromBst(User* u1) {
 	usersTransactions.remove(u1);
 }
 
-void Data::orderResults(vector<Advertisement*> toOrder, sort::Order orderType){
-
+void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) {
+	switch (orderType) {
+	case sort::PriceAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscPrice> orderingPriceAsc;
+		for(unsigned int i = 0; i<toOrder.size();i++){
+			orderingPriceAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingPriceAsc.empty()){
+			toOrder[j]=orderingPriceAsc.top();
+			orderingPriceAsc.pop();
+			j++;
+		}
+		break;
+	}
+	case sort::CategoryAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscCategory> orderingCatAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingCatAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingCatAsc.empty()){
+			toOrder[j]=orderingCatAsc.top();
+			orderingCatAsc.pop();
+			j++;
+		}
+		break;
+	}
+	case sort::KeywordAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscKeyword> orderingKeyAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingKeyAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingKeyAsc.empty()){
+			toOrder[j]=orderingKeyAsc.top();
+			orderingKeyAsc.pop();
+			j++;
+		}
+	}
+	case sort::LocCityAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscLocCity> orderingLocCityAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingLocCityAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingLocCityAsc.empty()){
+			toOrder[j]=orderingLocCityAsc.top();
+			orderingLocCityAsc.pop();
+			j++;
+		}
+	}
+	case sort::LocCountyAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscLocCounty> orderingLocCountyAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingLocCountyAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingLocCountyAsc.empty()){
+			toOrder[j]=orderingLocCountyAsc.top();
+			orderingLocCountyAsc.pop();
+			j++;
+		}
+	}
+	case sort::LocDistrictAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscLocDistrict> orderingLocDistrictAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingLocDistrictAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingLocDistrictAsc.empty()){
+			toOrder[j]=orderingLocDistrictAsc.top();
+			orderingLocDistrictAsc.pop();
+			j++;
+		}
+	}
+	}
 }
