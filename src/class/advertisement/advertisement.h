@@ -194,7 +194,7 @@ public:
 	/**
 	 * @brief Sets the spotlight
 	 *
-	 * @param new value of the flag
+	 * @param newValue new value of the flag
 	 */
 	void setFeatured(bool newValue);
 

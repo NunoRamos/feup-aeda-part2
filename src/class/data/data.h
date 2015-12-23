@@ -22,6 +22,9 @@
 
 using namespace std;
 
+/**
+ * @brief Struct containing Transaction hash and operator= functions.
+ */
 typedef struct {
 	size_t operator() (const Transaction *t) const{
 		return t->getId();

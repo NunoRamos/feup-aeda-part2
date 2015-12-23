@@ -7,6 +7,9 @@
 
 class PtrUser;
 
+/**
+ * @brief Transaction class
+ */
 class Transaction{
 private:
 	static unsigned int nextId;

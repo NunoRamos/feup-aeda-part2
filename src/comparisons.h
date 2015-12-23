@@ -10,6 +10,9 @@
 
 #include "class/advertisement/advertisement.h"
 
+/**
+ * @brief Compares Advertisements by ascending price
+ */
 class CompAscPrice {
 public:
 	CompAscPrice() {
@@ -28,10 +31,12 @@ public:
 
 };
 
+/**
+ * @brief Compares Advertisements by ascending category
+ */
 class CompAscCategory {
 public:
-	CompAscCategory() {
-	}
+	CompAscCategory() { }
 	;
 	bool operator()(const Advertisement* lhs, const Advertisement* rhs) const {
 		if (lhs->hasUserPaid() && rhs->hasUserPaid())
@@ -45,6 +50,9 @@ public:
 	}
 };
 
+/**
+ * @brief Compares Advertisements by ascending keyword
+ */
 class CompAscKeyword {
 public:
 	CompAscKeyword() {
@@ -68,6 +76,9 @@ public:
 	}
 };
 
+/**
+ * @brief Compares Advertisements by ascending city
+ */
 class CompAscLocCity {
 public:
 	CompAscLocCity() {
@@ -85,6 +96,9 @@ public:
 	}
 };
 
+/**
+ * @brief Compares Advertisements by ascending county
+ */
 class CompAscLocCounty {
 public:
 	CompAscLocCounty() {
@@ -103,6 +117,9 @@ public:
 	}
 };
 
+/**
+ * @brief Compares Advertisements by ascending district
+ */
 class CompAscLocDistrict {
 public:
 	CompAscLocDistrict() {

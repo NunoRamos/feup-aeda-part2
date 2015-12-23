@@ -527,8 +527,8 @@ void deleteUser(Data* data) {
 	cout << "Introduce your password: ";
 	getline(cin, password);
 	if (data->signIn(data->getSignedInUser().getUserPtr()->getEmail(), password)) {
-		data->signOut();
 		data->removeUser(data->getSignedInUser());
+		data->signOut();
 	}
 	mainMenu(data);
 }

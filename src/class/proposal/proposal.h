@@ -6,6 +6,9 @@
 
 class PtrUser;
 
+/**
+ * @brief Proposal class
+ */
 class Proposal {
 	float price;
 	PtrUser *proposalOwner;
@@ -16,6 +19,9 @@ public:
 	bool operator<(const Proposal &p) const;
 };
 
+/**
+ * @brief Compares two proposals
+ */
 class CompareProposal{
 public:
 	bool operator()(const Proposal *p1, const Proposal *p2);

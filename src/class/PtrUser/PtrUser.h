@@ -13,6 +13,9 @@
 
 class User;
 
+/**
+ * @brief Pointer to User class. Used with BST.
+ */
 class PtrUser{
 protected:
 	User* userPtr;
@@ -37,7 +40,6 @@ public:
 	/**
 	 * @brief overloading of operator< for user pointers
 	 *
-	 * @param left left object to compare
 	 * @param right right object to compare
 	 *
 	 * @return Returns true if left operand is lesser than right

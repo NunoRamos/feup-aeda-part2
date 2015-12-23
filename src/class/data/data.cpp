@@ -33,7 +33,7 @@ bool Data::signIn(const string &email, const string &password) {
 		return false;
 
 	if (users[user].signIn(password)) {
-		signedInUser = &users[user];
+		signedInUser = PtrUser(&users[user]);
 		return true;
 	}
 	return false;
@@ -219,8 +219,6 @@ vector<Advertisement*> Data::getAdsInSameDistrict(string district) {
 }
 
 void Data::removeUser(PtrUser user) {
-	removeUserFromBst(user); //TODO when deleting a user, the program does not correctly update the bst
-
 	for(unordered_set<Transaction*, TransactionHash>::iterator it = transactions.begin(); it != transactions.end(); it++){
 		if(*((*it)->getBuyer().getUserPtr()) == *user.getUserPtr() || *((*it)->getSeller().getUserPtr()) == *user.getUserPtr())
 			it = transactions.erase(it);
@@ -228,16 +226,11 @@ void Data::removeUser(PtrUser user) {
 			break;
 	}
 
-	unsigned int index = sequentialSearch(users, *user.getUserPtr());
+	unsigned int index = sequentialSearch(users, *(user.getUserPtr()));
 	users[index].deleteAds();
-	for (unsigned int i = 0; i < advertisements.size(); i++) {
-		if (advertisements[i]->getOwner().getUserPtr() == user.getUserPtr()) {
-			delete advertisements[i];
-			advertisements.erase(advertisements.begin() + i);
-			i--;
-		}
-	}
 	users.erase(users.begin() + index);
+
+	updateTree();
 }
 
 void Data::addUserToBst(PtrUser u1){
@@ -251,7 +244,6 @@ BST<PtrUser> Data::getUsersTransactions() const{
 
 void Data::removeUserFromBst(PtrUser u1){
 	usersTransactions.remove(u1);
-	updateTree();
 }
 
 void Data::addTransaction(Transaction* t){
