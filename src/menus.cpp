@@ -500,18 +500,18 @@ void topAccounts(Data* data) {
 void all(Data* data){
 	unsigned int n;
 
-	BST<User*> tree = data->getUsersTransactions();
+	BST<PtrUser> tree = data->getUsersTransactions();
 
 	clearScreen();
 
 	if(tree.isEmpty()){
 		cout << "There are no transactions made.\n";
 	} else {
-		BSTItrIn<User*> it(tree);
+		BSTItrIn<PtrUser> it(tree);
 		while (!it.isAtEnd()) {
-			cout << " User Name: " << it.retrieve()->getName() << endl;
-			cout << " Number of Transactions: " << it.retrieve()->getTransactions() << endl;
-			cout << " Last Transaction: " << it.retrieve()->getlastTransaction().toString() << endl;
+			cout << " User Name: " << it.retrieve().getUserPtr()->getName() << endl;
+			cout << " Number of Transactions: " << it.retrieve().getUserPtr()->getTransactions() << endl;
+			cout << " Last Transaction: " << it.retrieve().getUserPtr()->getlastTransaction().toString() << endl;
 			cout << endl;
 			it.advance();
 		}
@@ -534,21 +534,21 @@ void moreThanX(Data* data) {
 	cout << "How many transactions?" << endl;
 	cin >> transactions;
 
-	BST<User*> tree = data->getUsersTransactions();
+	BST<PtrUser> tree = data->getUsersTransactions();
 
 	clearScreen();
 
 	if (tree.isEmpty()) {
 		cout << "There are no transactions made.\n";
 	} else {
-		BSTItrIn<User*> it(tree);
+		BSTItrIn<PtrUser> it(tree);
 		while (!it.isAtEnd()) {
-			if (it.retrieve()->getTransactions() > transactions) {
-				cout << " User Name: " << it.retrieve()->getName() << endl;
+			if (it.retrieve().getUserPtr()->getTransactions() > transactions) {
+				cout << " User Name: " << it.retrieve().getUserPtr()->getName() << endl;
 				cout << " Number of Transactions: "
-						<< it.retrieve()->getTransactions() << endl;
+						<< it.retrieve().getUserPtr()->getTransactions() << endl;
 				cout << " Last Transaction: "
-						<< it.retrieve()->getlastTransaction().toString()
+						<< it.retrieve().getUserPtr()->getlastTransaction().toString()
 						<< endl;
 				cout << endl;
 
@@ -574,20 +574,20 @@ void lessThanX(Data* data) {
 	cout << "How many transactions?" << endl;
 	cin >> transactions;
 
-	BST<User*> tree = data->getUsersTransactions();
+	BST<PtrUser> tree = data->getUsersTransactions();
 
 	clearScreen();
 
 	if (tree.isEmpty()) {
 		cout << "There are no transactions made.\n";
 	} else {
-		BSTItrIn<User*> it(tree);
-		while (!it.isAtEnd() && it.retrieve()->getTransactions() < transactions) {
-			cout << " User Name: " << it.retrieve()->getName() << endl;
+		BSTItrIn<PtrUser> it(tree);
+		while (!it.isAtEnd() && it.retrieve().getUserPtr()->getTransactions() < transactions) {
+			cout << " User Name: " << it.retrieve().getUserPtr()->getName() << endl;
 			cout << " Number of Transactions: "
-					<< it.retrieve()->getTransactions() << endl;
+					<< it.retrieve().getUserPtr()->getTransactions() << endl;
 			cout << " Last Transaction: "
-					<< it.retrieve()->getlastTransaction().toString() << endl;
+					<< it.retrieve().getUserPtr()->getlastTransaction().toString() << endl;
 			cout << endl;
 			it.advance();
 		}
@@ -611,21 +611,21 @@ void equalToX(Data* data) {
 	cout << "How many transactions?" << endl;
 	cin >> transactions;
 
-	BST<User*> tree = data->getUsersTransactions();
+	BST<PtrUser> tree = data->getUsersTransactions();
 
 	clearScreen();
 
 	if (tree.isEmpty()) {
 		cout << "There are no transactions made.\n";
 	} else {
-		BSTItrIn<User*> it(tree);
+		BSTItrIn<PtrUser> it(tree);
 		while (!it.isAtEnd()) {
-			if (it.retrieve()->getTransactions() == transactions) {
-				cout << " User Name: " << it.retrieve()->getName() << endl;
+			if (it.retrieve().getUserPtr()->getTransactions() == transactions) {
+				cout << " User Name: " << it.retrieve().getUserPtr()->getName() << endl;
 				cout << " Number of Transactions: "
-						<< it.retrieve()->getTransactions() << endl;
+						<< it.retrieve().getUserPtr()->getTransactions() << endl;
 				cout << " Last Transaction: "
-						<< it.retrieve()->getlastTransaction().toString()
+						<< it.retrieve().getUserPtr()->getlastTransaction().toString()
 						<< endl;
 				cout << endl;
 			}

@@ -139,13 +139,13 @@ public:
 	 *
 	 * @return Returns true if the date given d1 is bigger than this date
 	 */
-	bool operator < (const Date &d1);
+	bool operator < (const Date &d1) const;
 	/*
 	 * @brief overloading of operator ==
 	 *
 	 * @param
 	 */
-	bool operator==(const Date &D1);
+	bool operator==(const Date &d1) const;
 
 	/**
 	 * @brief Returns today's date

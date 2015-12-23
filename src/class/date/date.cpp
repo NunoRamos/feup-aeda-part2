@@ -124,7 +124,7 @@ ostream& operator<<(ostream& out, const Date &date){
 	return out;
 }
 
-bool Date::operator < (const Date &d1){
+bool Date::operator < (const Date &d1)const{
 
 	if(this->getYear()<d1.getYear())
 		return true;
@@ -139,7 +139,7 @@ bool Date::operator < (const Date &d1){
 	return false;
 }
 
-bool Date::operator==(const Date &d1){
+bool Date::operator==(const Date &d1) const{
 
 	if(	this->day == d1.day)
 		if(this->month == d1.month)

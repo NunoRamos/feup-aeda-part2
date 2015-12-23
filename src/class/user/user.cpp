@@ -240,19 +240,6 @@ void User::setLastTransaction(const Date &transaction) {
 		this->lastTransaction = transaction;
 }
 
-bool User::operator <( User* u1) const {
-	if (this->getTransactions() > u1->getTransactions())
-		return true;
-	else if (this->getTransactions() == u1->getTransactions()) {
-		if (u1->getlastTransaction() < this->getlastTransaction())
-			return true;
-		else if (this->getlastTransaction() == u1->getlastTransaction())
-			return this->getEmail() < u1->getEmail();
-	}
-
-	return false;
-}
-
 bool User::operator==(const User &u1) const {
 	return (this->email == u1.email);
 }
@@ -261,15 +248,6 @@ void User::setLastTransaction() {
 	lastTransaction = Date::now();
 }
 
-void User::RefreshProfile(User &u1) {
-	/*
-	 RemoveUserFromBst(u1);
-	 setLastTransaction();
-	 incrementTransactions();
-	 addUserToBst(u1);
-
-	 */
-}
 
 bool User::deleteAd(Advertisement* ad) {
 	for (unsigned int i = 0; i < advertisements.size(); i++) {

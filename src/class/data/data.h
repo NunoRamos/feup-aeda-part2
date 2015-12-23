@@ -17,6 +17,7 @@
 
 #include "../user/user.h"
 #include "../transaction/transaction.h"
+#include "../PtrUser/PtrUser.h"
 #include "../../BST.h"
 
 using namespace std;
@@ -35,14 +36,15 @@ typedef struct {
  */
 class Data{
 private:
-	const string path = "C:/Users/Bernardo/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
+	const string path = "C:/Users/Utilizador/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
 	vector<Advertisement*> advertisements; ///< Vector of pointers to all advertisements
 	vector<User> users; ///< Vector of all users
 	User* signedInUser; ///< Pointer to user that is currently signed in
-	BST<User*> usersTransactions;
+	BST<PtrUser> usersTransactions;
 	unordered_set<Transaction*, TransactionHash> transactions;
 
 public:
+
 	/**
 	 * @brief Constructor for class Data
 	 */
@@ -179,20 +181,20 @@ public:
 	 * @brief get usersTransactions bst
 	 *
 	 */
-	BST<User*> getUsersTransactions() const;
+	BST<PtrUser> getUsersTransactions() const;
 	/*
 	 *@brief add user to bst
 	 *
 	 *@param u1 User
 	 */
-	void addUserToBst(User* u1);
+	void addUserToBst(PtrUser u1);
 
 	/*
 	 *@brief remove userf from bst
 	 *
 	 *@param u1 User
 	 */
-	void removeUserFromBst(User* u1);
+	void removeUserFromBst(PtrUser u1);
 
 	/**
 	 * @brief Adds completed transaction

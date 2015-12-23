@@ -127,41 +127,113 @@ int main(int argc, char const *argv[]){
 	//	system("pause");
 	menuTest();
 
-//
-//	Data* data= new Data();
-//	int counter=0;
-//
-//	User* temp=new User("j@gmail.com", "joao", "Joao", "917",Location());
-//	data->addUserToBst(temp);
-//
-//	User* user2= new User("t@gmail.com", "tete", "Teresa", "917",Location());
-//	cout<<user2->getName()<<endl;
-//	cout<<user2->getTransactions()<<endl;
-//
-//	user2->incrementTransactions();
-//	data->addUserToBst(user2);
-//
-//	cout << user2->getTransactions()<<endl;
-//
-//	cout <<"PASSEI";
-//	BST<User*> tree = data->getUsersTransactions();
-//	BSTItrIn<User*> it(tree);
-//
-//
-//
-//	cout << it.retrieve()->getName() << endl << it.retrieve()->getTransactions() << endl;
-//	it.advance();
-//	cout << it.retrieve()->getName() << endl << it.retrieve()->getTransactions() << endl;
-//	/*while(!it.isAtEnd()){
-//		cout << "entrei"<<endl;
-//		counter++;
-//		cout<<it.retrieve()->getTransactions()<<endl;
-//		cout<<it.retrieve()->getName()<<endl;
-//		it.advance();
-//	}*/
-//
-//	cout<<counter<<endl;
-//	system("pause");
+/*
+	Data* data= new Data();
+	int counter=0;
+
+
+
+	PtrUser u3(new User("b@gmail.com", "bernardo", "Bernardo", "917",Location()));
+	u3.getUserPtr()->incrementTransactions();
+	data->addUserToBst(u3);
+	cout << "User3 tem::::" << u3.getUserPtr()->getTransactions()<<endl;
+
+
+	PtrUser u4(new User("m@gmail.com", "margarida", "margarida", "917",Location()));
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->incrementTransactions();
+	u4.getUserPtr()->setLastTransaction(Date(2,6,2000));
+	cout << "User4 tem::::" << u4.getUserPtr()->getTransactions()<<endl;
+	data->addUserToBst(u4);
+
+
+	PtrUser u8(new User("m@gmail.com", "margarida", "margarida", "917",Location()));
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->incrementTransactions();
+	u8.getUserPtr()->setLastTransaction(Date(2,6,2013));
+	cout << "User8 tem::::" << u8.getUserPtr()->getTransactions()<<endl;
+	data->addUserToBst(u8);
+
+
+
+	PtrUser u2 (new User("t@gmail.com", "tete", "Teresa", "917",Location()));
+	u2.getUserPtr()->setLastTransaction(Date(2,3,2015));
+	u2.getUserPtr()->incrementTransactions();
+	u2.getUserPtr()->incrementTransactions();
+	cout << "User2 tem::::" << u2.getUserPtr()->getTransactions()<<endl;
+	data->addUserToBst(u2);
+
+
+
+
+	PtrUser u7 (new User("t@gmail.com", "nuno", "nuno", "917",Location()));
+	u7.getUserPtr()->setLastTransaction(Date(4,3,2015));
+	u7.getUserPtr()->incrementTransactions();
+	u7.getUserPtr()->incrementTransactions();
+	cout << "User2 tem::::" << u7.getUserPtr()->getTransactions()<<endl;
+	data->addUserToBst(u7);
+
+
+
+
+
+
+
+
+
+
+
+
+
+	PtrUser u1(new User("j@gmail.com", "joao", "Joao", "917",Location()));
+	data->addUserToBst(u1);
+	cout << "User1 tem::::" << u1.getUserPtr()->getTransactions()<<endl;
+
+
+
+
+	PtrUser u5(new User("m@gmail.com", "ed", "ed", "917",Location()));
+	u5.getUserPtr()->incrementTransactions();
+	u5.getUserPtr()->incrementTransactions();
+	u5.getUserPtr()->incrementTransactions();
+	u5.getUserPtr()->incrementTransactions();
+	cout << "User4 tem::::" << u5.getUserPtr()->getTransactions()<<endl;
+	data->addUserToBst(u5);
+
+
+
+
+
+
+	BST<PtrUser> tree = data->getUsersTransactions();
+	BSTItrIn<PtrUser> it(tree);
+
+
+	while(!it.isAtEnd()){
+		cout<<it.retrieve().getUserPtr()->getName()<<"       "<<it.retrieve().getUserPtr()->getTransactions()<<"        Data:::"<<it.retrieve().getUserPtr()->getlastTransaction().toString()<<endl;
+		it.advance();
+
+	}
+
+	cout<< counter <<endl;
+	system("pause");
+	*/
 	return 0;
 }
 
