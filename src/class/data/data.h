@@ -30,6 +30,13 @@ typedef struct {
 	}
 } TransactionHash;
 
+//the different types of searches
+namespace sort{
+enum Order{
+	PriceAsc, CategoryAsc, KeywordAsc, LocCityAsc, LocCountyAsc, LocDistrictAsc
+};
+}
+
 /**
  * @brief User and Advertisement data class
  */
@@ -39,7 +46,7 @@ private:
 	vector<Advertisement*> advertisements; ///< Vector of pointers to all advertisements
 	vector<User> users; ///< Vector of all users
 	User* signedInUser; ///< Pointer to user that is currently signed in
-	BST<User*> usersTransactions;
+	BST<User*> usersTransactions; ///< BST about users transactions
 	unordered_set<Transaction*, TransactionHash> transactions;
 
 public:
@@ -90,6 +97,7 @@ public:
 	 * @brief Removes advertisement from advertisement vector
 	 */
 	void removeAdvertisement(Advertisement* ad);
+
 	/**
 	 * @brief Added advertisement to advertisement vector
 	 */
@@ -98,12 +106,16 @@ public:
 	/**
 	 * @brief Searches for ads with text in it.
 	 *
+	 * @param text  string used to search
+	 *
 	 * @return Returns vector of pointers to Advertisement with ads that have text either in their title or their description
 	 */
 	vector<Advertisement*> searchForAds(string text);
 
 	/**
 	 * @brief Searches for ads category with text in it.
+	 *
+	 * @param text category used to search
 	 *
 	 * @return Returns vector of pointers to Advertisement with ads that have same category
 	 */
@@ -113,7 +125,6 @@ public:
 	 * @brief Searches for ads that have similar price to price
 	 *
 	 * @param inicialPrice lower price the user want to spend
-	 *
 	 * @param finalPrice higher price the user want to spend
 	 *
 	 * @return Returns vector of pointers to Advertisement with ads that have similar price
@@ -175,6 +186,7 @@ public:
 	 * @param user User to remove
 	 */
 	void removeUser(User* user);
+	
 	/*
 	 * @brief get usersTransactions bst
 	 *
@@ -238,7 +250,15 @@ public:
 	 * @brief Updates tree
 	 */
 	void updateTree();
-
+	
+	/*
+	 * @brief Orders a vector by transforming in a priority queue
+	 *
+	 * @param toOrder vector to order
+	 * @param orderType to helping on choosing comparing function
+	 */
+	void orderResults(vector<Advertisement*>& toOrder, sort::Order orderType);
+	
 	/**
 	 * @brief Updates transactions
 	 */

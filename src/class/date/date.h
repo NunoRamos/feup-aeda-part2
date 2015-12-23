@@ -124,6 +124,13 @@ public:
 	static bool isLeapYear(unsigned int year);
 
 	/**
+	 * @brief Checks if a month ends in 30 , 31 , 28 or 29
+	 *
+	 * @return Returns the number of days that a determinate month have
+	 */
+	static unsigned int numberOfDaysInAMonth(unsigned int month, unsigned int year);
+
+	/**
 	 * @brief Prints date to out stream
 	 *
 	 * @param out Out stream
@@ -143,9 +150,11 @@ public:
 	/*
 	 * @brief overloading of operator ==
 	 *
-	 * @param
+	 * @param d1 Date to be compared
+	 *
+	 * @return Returns true if the date given d1 is bigger than this date
 	 */
-	bool operator==(const Date &D1);
+	bool operator==(const Date &d1);
 
 	/**
 	 * @brief Returns today's date

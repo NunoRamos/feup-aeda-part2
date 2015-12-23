@@ -10,6 +10,8 @@
 #include<iostream>
 #include<stdlib.h>
 #include"class/menu/optionMenu/optionMenu.h"
+#include <queue>
+#include "comparisons.h"
 
 /*Menu Presentation
  *
@@ -63,6 +65,7 @@ void searchByCategory(Data* data) {
 		Category searchCategory = stringToCategory(answer);
 		results = data->searchForAdsCategory(searchCategory);
 		saleOrPurchase(results, data);
+		data->orderResults(results,sort::CategoryAsc);
 		SearchMenu menu(data, results);
 		menu.createMenu();
 	} else {
@@ -83,7 +86,7 @@ void searchByCategory(Data* data) {
 		mainMenu(data);
 }
 
-void searchByLocation(Data* data) { //TODO berninhas dá tudo com a localização
+void searchByLocation(Data* data) {
 	clearScreen();
 	OptionMenu menu(data);
 	menu.addOption("Same city", &sameCity);
@@ -103,6 +106,7 @@ void sameCity(Data* data) {
 	getline(cin, city);
 	vector<Advertisement *> ads = data->getAdsInSameCity(city);
 	saleOrPurchase(ads, data);
+	data->orderResults(ads,sort::LocCityAsc);
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
@@ -118,6 +122,7 @@ void sameCounty(Data* data) {
 	getline(cin, county);
 	vector<Advertisement *> ads = data->getAdsInSameCounty(county);
 	saleOrPurchase(ads, data);
+	data->orderResults(ads, sort::LocCountyAsc);
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
@@ -133,6 +138,7 @@ void sameDistrict(Data* data) {
 	getline(cin, district);
 	vector<Advertisement *> ads = data->getAdsInSameDistrict(district);
 	saleOrPurchase(ads, data);
+	data->orderResults(ads, sort::LocDistrictAsc);
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
@@ -155,6 +161,7 @@ void searchByPrice(Data* data) {
 	vector<Advertisement*> results;
 	results = data->searchForAdsPrice(lowerPrice, higherPrice);
 	saleOrPurchase(results, data);
+	data->orderResults(results,sort::PriceAsc);
 	SearchMenu menu(data, results);
 	menu.createMenu();
 	if (data->getSignedInUser() != NULL)
@@ -172,6 +179,7 @@ void searchByKeyword(Data* data) {
 	vector<Advertisement*> results;
 	results = data->searchForAds(answer);
 	saleOrPurchase(results, data);
+	data->orderResults(results,sort::KeywordAsc);
 	SearchMenu menu(data, results);
 	menu.createMenu();
 	if (data->getSignedInUser() != NULL)
@@ -195,7 +203,6 @@ void saleOrPurchase(vector<Advertisement*> &results, Data* data) {
 void signIn(Data* data) {
 	clearScreen();
 	string email, password, input;
-
 	cout << "\nEmail: ";
 	getline(cin, email);
 
@@ -314,7 +321,6 @@ void exitApp(Data* data) {
 
 	if (!data->saveUsers())
 		exit(1);
-
 	exit(0);
 }
 
@@ -387,6 +393,28 @@ void createSellingAd(Data* data) {
 		i++;
 	} while (answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
+	//asking to user if he wants to highlight the ad and how many days
+	cout<<"\nDo you want to pay to get your ad highlighted? (Y/N)\n";
+	string newAnswer;
+	i=0;
+	do{
+		if(i > 0)
+			cout << "Please introduce a valid option. (Y/N)\n";
+		getline(cin,newAnswer);
+		if(newAnswer == "Y" || newAnswer == "y"){
+			ad->setFeatured(true);
+			ad->sethighlightEndDate(ad->getCreationDate());
+			cout<<"Number of days that you want to extend your highlight extension. 2 Euros per day" << endl;
+			unsigned int duration;
+			cin>>duration;
+			cin.ignore();
+			cin.clear();
+			ad->extendDurationHighligh(duration);
+			cout<<ad->gethighlightEndDate()<<endl;
+		}
+		i++;
+	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
+
 	data->addAdvertisement(ad);
 	cout << "Ad has been successfully created";
 	signedInMenu(data);
@@ -436,6 +464,27 @@ void createBuyingAd(Data* data) {
 			ad->setNegotiable(false);
 		i++;
 	} while (answer != "Y" && answer != "y" && answer != "N" && answer != "n");
+	//asking to user if he wants to highlight the ad and how many days
+	cout<<"\nDo you want to pay to get your ad highlighted? (Y/N)\n";
+	string newAnswer;
+	i=0;
+	do{
+		if(i > 0)
+			cout << "Please introduce a valid option. (Y/N)\n";
+		getline(cin,newAnswer);
+		if(newAnswer == "Y" || newAnswer == "y"){
+			ad->setFeatured(true);
+			ad->sethighlightEndDate(ad->getCreationDate());
+			cout<<"Number of days that you want to extend your highlight extension. 2 Euros per day" << endl;
+			unsigned int duration;
+			cin>>duration;
+			cin.ignore();
+			cin.clear();
+			ad->extendDurationHighligh(duration);
+			cout<<ad->gethighlightEndDate()<<endl;
+		}
+		i++;
+	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
 
 	data->addAdvertisement(ad);
 	cout << "Ad has been successfully created\n";

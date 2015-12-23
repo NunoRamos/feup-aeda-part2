@@ -2,8 +2,10 @@
 #include "adDisplayMenu.h"
 #include "../../../enums.h"
 #include "../../advertisement/sale/sale.h"
+#include "../../date/date.h"
 #include <sstream>
 #include <iostream>
+#include <ctime>
 
 AdDisplayMenu::AdDisplayMenu(Data* data, Advertisement* ad, unsigned int height,
 		unsigned int width, char borderChar) :
@@ -34,13 +36,15 @@ void AdDisplayMenu::print() {
 		adType = "Sale";
 	adType += " Ad";
 
-	cout << adType << string(width - 3 - adType.length(), ' ') << borderChar << endl;
+	cout << adType << string(width - 3 - adType.length(), ' ') << borderChar
+			<< endl;
 	emptyLine();
 
 	//display title
 	string title = ad->getTitle();
 	cout << borderChar << " Title: " << title
-			<< string(width - 2 - 8 - title.length(), ' ') << borderChar << endl;
+			<< string(width - 2 - 8 - title.length(), ' ') << borderChar
+			<< endl;
 
 	//a white line between title and description
 	emptyLine();
@@ -57,20 +61,20 @@ void AdDisplayMenu::print() {
 	string description = ad->getDescription();
 	int tempW = width - 2 - 14 - description.length();
 
-	if(tempW < 0)
+	if (tempW < 0)
 		tempW = 0;
 
-	cout << borderChar << " Description: " << description
-			<< string(tempW, ' ') << borderChar
-			<< endl;
+	cout << borderChar << " Description: " << description << string(tempW, ' ')
+																			<< borderChar << endl;
 
-	if(ad->getType() == 'S'){
+	if (ad->getType() == 'S') {
 		emptyLine();
-		Sale* sale = static_cast<Sale*> (ad);
+		Sale* sale = static_cast<Sale*>(ad);
 		string cond = conditionToString(sale->getCondition());
-		cout << borderChar << " Product Condition: " << cond << string(width-2-20- cond.length(), ' ') << borderChar << endl;
+		cout << borderChar << " Product Condition: " << cond
+				<< string(width - 2 - 20 - cond.length(), ' ') << borderChar
+				<< endl;
 	}
-
 
 	//a white line between description and contacts
 	emptyLine();
@@ -121,6 +125,15 @@ void AdDisplayMenu::print() {
 	cout << borderChar << " Price: " << ss.str()
 							<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
 							<< endl;
+																			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+																			<< endl;
+
+	if (data->getSignedInUser() == ad->getOwner()){
+		if (ad->hasUserPaid())
+			cout << borderChar << " Highlighted Ends in "<<ad->gethighlightEndDate() << string(width - 2 - 21-ad->gethighlightEndDate().length(), ' ')
+			<< borderChar << endl;
+	}
+
 	emptyLine();
 
 	unsigned int i = 1;
@@ -149,7 +162,11 @@ void AdDisplayMenu::print() {
 		cout << borderChar << " " << viewProposals
 				<< string(width - 3 - viewProposals.length(), ' ') << borderChar
 				<< endl;
-		i = 7;
+		string extendDuration= "7 - Extend highlight";
+		cout << borderChar << " " << extendDuration
+				<< string(width - 3 - extendDuration.length(), ' ') << borderChar
+				<< endl;
+		i = 8;
 	} else {
 		string imInterested = " 1 - I'm interested";
 		string sendProposal = " 2 - Send proposal";
@@ -192,7 +209,7 @@ void AdDisplayMenu::createMenu() {
 			cin.clear();
 			i++;
 
-		} while (input < 1 || input > 7);
+		} while (input < 1 || input > 8);
 		switch (input) {
 		case 1:
 			cout << "Please introduce the new title." << endl;
@@ -253,6 +270,19 @@ void AdDisplayMenu::createMenu() {
 			signedInMenu(data);
 			break;
 		case 7:
+			if(!ad->hasUserPaid()){
+				ad->setFeatured(true);
+				ad->sethighlightEndDate(Date::now());
+			}
+
+			cout<<"Number of days that you want to extend your highlight extension.  2 Euros per day" << endl;
+			unsigned int duration;
+			cin>>duration;
+			cin.ignore();
+			cin.clear();
+			ad->extendDurationHighligh(duration);
+			break;
+		case 8:
 			signedInMenu(data);
 			break;
 		default:
@@ -269,12 +299,12 @@ void AdDisplayMenu::createMenu() {
 			i++;
 		} while (input < 1 || input > 3);
 
-		switch(input){
+		switch (input) {
 		case 1:
 			interested(ad->getOwner());
 			break;
 		case 2:
-			if(data->getSignedInUser() != NULL)
+			if (data->getSignedInUser() != NULL)
 				data->getSignedInUser()->sendProposal(ad);
 			else
 				cout << "You must be signed in order to send a proposal.\n";

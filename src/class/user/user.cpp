@@ -120,6 +120,7 @@ istream& operator>>(istream& in, User &user) {
 	unsigned int views;
 	float price;
 	bool negotiable;
+	bool paid;
 	Category category;
 	string temp, title, description;
 	stringstream ss;
@@ -160,12 +161,17 @@ istream& operator>>(istream& in, User &user) {
 			negotiable = true;
 		else
 			negotiable = false;
-
+		getline(in,temp);
+		if(temp == "1")            //TODO Read and write on the file , the date while ad going to be highlighted
+			paid = true;
+		else
+			paid = false;
 		if (type == "P") {
 			Advertisement* ad = new Purchase(&user, title, category,
 					description, price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
+			ad->setFeatured(paid);
 			user.advertisements.push_back(ad);
 		} else {
 			string cond;

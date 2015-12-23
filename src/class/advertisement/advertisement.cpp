@@ -13,6 +13,7 @@ Advertisement::Advertisement(User* owner, string title, Category category,
 	this->description = description;
 	this->price = price;
 	negotiable = true;
+	featured = false;
 	id = nextId;
 	nextId++;
 	views = 0;
@@ -52,11 +53,18 @@ float Advertisement::getPrice() const {
 
 string Advertisement::getCreationDate() const {
 	return creationDate.toString();
+}
 
+string Advertisement::gethighlightEndDate() const {
+	return highlightEndDate.toString();
 }
 
 bool Advertisement::isPriceNegotiable() const {
 	return negotiable;
+}
+
+bool Advertisement::hasUserPaid() const {
+	return featured;
 }
 
 void Advertisement::setNegotiable(bool negotiable) {
@@ -83,12 +91,35 @@ void Advertisement::setCategory(Category newCategory) {
 	this->category = newCategory;
 }
 
-string Advertisement::getImageAt(unsigned int index) const {
-	return imagesPath[index];
+void Advertisement::setFeatured(bool newValue) {
+	this->featured = newValue;
 }
 
-void Advertisement::addImage(string path) {
-	imagesPath.push_back(path);
+void Advertisement::sethighlightEndDate(Date newDate) {
+	this->highlightEndDate = newDate;
+}
+
+void Advertisement::extendDurationHighligh(unsigned int duration) {
+	if (featured) {
+		if (highlightEndDate.getDay() + duration
+				> Date::numberOfDaysInAMonth(highlightEndDate.getMonth(),
+						highlightEndDate.getYear())) {
+			highlightEndDate.setDay(
+					duration - (Date::numberOfDaysInAMonth(highlightEndDate.getMonth(),
+							highlightEndDate.getYear()) - highlightEndDate.getDay()));
+			if (highlightEndDate.getMonth() + 1 > 12) { //happy new year!!!!!!!!!!
+				highlightEndDate.setMonth(1);
+				highlightEndDate.setYear(highlightEndDate.getYear() + 1);
+			} else
+				highlightEndDate.setMonth(highlightEndDate.getMonth() + 1);
+		} else {
+			highlightEndDate.setDay(highlightEndDate.getDay() + duration);
+		}
+	} else {
+		highlightEndDate.setDay(0);
+		highlightEndDate.setMonth(0);
+		highlightEndDate.setYear(0);
+	}
 }
 
 void Advertisement::incrementViews() {
@@ -112,14 +143,12 @@ bool Advertisement::operator==(Advertisement* ad) const {
 
 ostream& operator<<(ostream& out, Advertisement &ad) {
 	char separationChar = '\n';
-	//TODO print category to file, not sure how.
-	//does not print id
 
 	out << separationChar << ad.getType() << separationChar << ad.title
 			<< separationChar << ad.views << separationChar
 			<< categoryToString(ad.category) << separationChar << ad.description
 			<< separationChar << ad.creationDate << separationChar << ad.price
-			<< separationChar << ad.negotiable;
+			<< separationChar << ad.negotiable << separationChar << ad.featured;
 
 	ad.print(out);
 
@@ -129,7 +158,6 @@ ostream& operator<<(ostream& out, Advertisement &ad) {
 istream& operator>>(istream& in, Advertisement &ad) {
 	stringstream ss;
 	string temp;
-	//TODO print category from file to variable, not sure how.
 
 	getline(in, ad.title);
 	getline(in, temp);
@@ -151,6 +179,12 @@ istream& operator>>(istream& in, Advertisement &ad) {
 		ad.negotiable = true;
 	else
 		ad.negotiable = false;
+	getline(in, temp);
+	if (temp == "1")
+		ad.featured = true;
+	else
+		ad.featured = false;
+
 	return in;
 }
 

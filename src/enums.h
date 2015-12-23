@@ -32,7 +32,6 @@ enum Condition{
 	New, UsedAsNew, Functional, ForParts
 };
 
-
 }
 
 using namespace enums;

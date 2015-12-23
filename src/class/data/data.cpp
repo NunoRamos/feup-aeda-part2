@@ -2,20 +2,20 @@
 #include "../../sequentialSearch.h"
 #include "../advertisement/purchase/purchase.h"
 #include "../../menus.h"
-
+#include "../../comparisons.h"
 
 #include<fstream>
 #include <iostream>
 #include <sstream>
+#include <queue>
 
-Data::Data():usersTransactions(new User("","","","",Location())){
+Data::Data() :
+usersTransactions(new User("", "", "", "", Location())) {
 	signedInUser = NULL;
 }
 
 Data::~Data() {
-	int i;
-	//	saveUsers();
-	for (int i = 0; i < advertisements.size(); i++) {
+	for (unsigned int i = 0; i < advertisements.size(); i++) {
 		delete advertisements[i];
 	}
 }
@@ -40,18 +40,10 @@ bool Data::signIn(const string &email, const string &password) {
 
 bool Data::signUp(User &user) {
 	int i = sequentialSearch(users, user);
-	//int i;
 
-	/*for(i = 0; i < users.size(); i++)
-		if(users[i].getEmail() == user.getEmail())
-			break;*/
-
-	//if (i != users.size())
 	if(i != -1)
 		cout << "Client is already created\n";
-	else{
-		//users.resize(users.size());
-		//users[users.size()-1] = user; //PUSH_BACK DESTROYS A USER, DONT KNOW WHY
+	else {
 		users.push_back(User(user));
 		addUserToBst(&users[users.size()-1]);
 	}
@@ -170,12 +162,12 @@ vector<Advertisement*> Data::vectorOfSaleOrPurchase(vector<Advertisement*> ads,
 	vector<Advertisement*> results;
 
 	if (saleOrPurchase == 'S') {
-		for (int i = 0; i < ads.size(); i++) {
+		for (unsigned int i = 0; i < ads.size(); i++) {
 			if (ads[i]->getType() == 'S')
 				results.push_back(ads[i]);
 		}
 	} else if (saleOrPurchase == 'P') {
-		for (int i = 0; i < ads.size(); i++) {
+		for (unsigned int i = 0; i < ads.size(); i++) {
 			if (ads[i]->getType() == 'P')
 				results.push_back(ads[i]);
 		}
@@ -225,7 +217,7 @@ vector<Advertisement*> Data::getAdsInSameDistrict(string district) {
 	return results;
 }
 
-void Data::removeUser(User* user){
+void Data::removeUser(User* user) {
 	removeUserFromBst(user); //TODO when deleting a user, the program does not correctly update the bst
 
 	for(unordered_set<Transaction*, TransactionHash>::iterator it = transactions.begin(); it != transactions.end(); it++){
@@ -237,26 +229,26 @@ void Data::removeUser(User* user){
 
 	unsigned int index = sequentialSearch(users, *user);
 	users[index].deleteAds();
-	for(unsigned int i = 0; i < advertisements.size(); i++){
-		if(advertisements[i]->getOwner() == user){
+	for (unsigned int i = 0; i < advertisements.size(); i++) {
+		if (advertisements[i]->getOwner() == user) {
 			delete advertisements[i];
-			advertisements.erase(advertisements.begin()+i);
+			advertisements.erase(advertisements.begin() + i);
 			i--;
 		}
 	}
-	users.erase(users.begin()+index);
+	users.erase(users.begin() + index);
 }
 
-void Data::addUserToBst(User* u1){
+void Data::addUserToBst(User* u1) {
 	if(u1->getTransactions() > 0)
 		usersTransactions.insert(u1);
 }
 
-BST<User*> Data::getUsersTransactions() const{
+BST<User*> Data::getUsersTransactions() const {
 	return usersTransactions;
 }
 
-void Data::removeUserFromBst(User* u1){
+void Data::removeUserFromBst(User* u1) {
 	usersTransactions.remove(u1);
 	updateTree();
 }
@@ -334,4 +326,83 @@ void Data::addUsersToBst(){
 void Data::updateTree(){
 	usersTransactions.makeEmpty();
 	addUsersToBst();
+}
+
+void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) {
+	switch (orderType) {
+	case sort::PriceAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscPrice> orderingPriceAsc;
+		for(unsigned int i = 0; i<toOrder.size();i++){
+			orderingPriceAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingPriceAsc.empty()){
+			toOrder[j]=orderingPriceAsc.top();
+			orderingPriceAsc.pop();
+			j++;
+		}
+		break;
+	}
+	case sort::CategoryAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscCategory> orderingCatAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingCatAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingCatAsc.empty()){
+			toOrder[j]=orderingCatAsc.top();
+			orderingCatAsc.pop();
+			j++;
+		}
+		break;
+	}
+	case sort::KeywordAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscKeyword> orderingKeyAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingKeyAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingKeyAsc.empty()){
+			toOrder[j]=orderingKeyAsc.top();
+			orderingKeyAsc.pop();
+			j++;
+		}
+	}
+	case sort::LocCityAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscLocCity> orderingLocCityAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingLocCityAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingLocCityAsc.empty()){
+			toOrder[j]=orderingLocCityAsc.top();
+			orderingLocCityAsc.pop();
+			j++;
+		}
+	}
+	case sort::LocCountyAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscLocCounty> orderingLocCountyAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingLocCountyAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingLocCountyAsc.empty()){
+			toOrder[j]=orderingLocCountyAsc.top();
+			orderingLocCountyAsc.pop();
+			j++;
+		}
+	}
+	case sort::LocDistrictAsc:{
+		priority_queue<Advertisement*, vector<Advertisement*>, CompAscLocDistrict> orderingLocDistrictAsc;
+		for(unsigned int i=0; i<toOrder.size();i++){
+			orderingLocDistrictAsc.push(toOrder[i]);
+		}
+		int j=0;
+		while(!orderingLocDistrictAsc.empty()){
+			toOrder[j]=orderingLocDistrictAsc.top();
+			orderingLocDistrictAsc.pop();
+			j++;
+		}
+	}
+	}
 }
