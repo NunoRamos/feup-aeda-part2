@@ -33,7 +33,7 @@ User::User(const User& u){
 
 User::User(string email, string password, string name, string phoneNumber,
 		Location location) :
-				User() {
+								User() {
 	this->email = email;
 	this->password = password;
 	this->name = name;
@@ -43,7 +43,7 @@ User::User(string email, string password, string name, string phoneNumber,
 
 User::User(string email, string password, string name, string phoneNumber,
 		string location) :
-				User(email, password, name, phoneNumber, Location(location)) {
+								User(email, password, name, phoneNumber, Location(location)) {
 }
 
 bool User::signIn(string password) const {
@@ -167,24 +167,29 @@ istream& operator>>(istream& in, User &user) {
 		else
 			paid = false;
 		if (type == "P") {
-			Advertisement* ad = new Purchase(&user, title, category,
+			Advertisement* ad = new Purchase(PtrUser(&user), title, category,
 					description, price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
 			ad->setFeatured(paid);
-			if(paid==true){
+			if(paid){
 				getline(in, temp);
 				Date d1(temp);
 				ad->sethighlightEndDate(d1);
 			}
 			user.advertisements.push_back(ad);
 		} else {
+			if(paid){
+				getline(in, temp);
+			}
 			string cond;
 			getline(in, cond);
-			Advertisement* ad = new Sale(&user, title, category, description,
+			Advertisement* ad = new Sale(PtrUser(&user), title, category, description,
 					stringToCondition(cond), price);
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
+			ad->setFeatured(paid);
+			ad->sethighlightEndDate(Date(temp));
 			user.advertisements.push_back(ad);
 		}
 	}

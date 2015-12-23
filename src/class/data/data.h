@@ -43,11 +43,7 @@ enum Order{
  */
 class Data{
 private:
-<<<<<<< HEAD
 	const string path = "C:/Users/Bernardo/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
-=======
-	const string path = "C:/Users/Nuno/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
->>>>>>> refs/remotes/origin/merge_mj
 	vector<Advertisement*> advertisements; ///< Vector of pointers to all advertisements
 	vector<User> users; ///< Vector of all users
 	PtrUser signedInUser; ///< Pointer to user that is currently signed in

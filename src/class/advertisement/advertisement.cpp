@@ -105,8 +105,11 @@ void Advertisement::extendDurationHighligh(unsigned int duration) {
 				> Date::numberOfDaysInAMonth(highlightEndDate.getMonth(),
 						highlightEndDate.getYear())) {
 			highlightEndDate.setDay(
-					duration - (Date::numberOfDaysInAMonth(highlightEndDate.getMonth(),
-							highlightEndDate.getYear()) - highlightEndDate.getDay()));
+					duration
+							- (Date::numberOfDaysInAMonth(
+									highlightEndDate.getMonth(),
+									highlightEndDate.getYear())
+									- highlightEndDate.getDay()));
 			if (highlightEndDate.getMonth() + 1 > 12) { //happy new year!!!!!!!!!!
 				highlightEndDate.setMonth(1);
 				highlightEndDate.setYear(highlightEndDate.getYear() + 1);
@@ -149,8 +152,8 @@ ostream& operator<<(ostream& out, Advertisement &ad) {
 			<< categoryToString(ad.category) << separationChar << ad.description
 			<< separationChar << ad.creationDate << separationChar << ad.price
 			<< separationChar << ad.negotiable << separationChar << ad.featured;
-	if(ad.featured)
-		out<<separationChar<<ad.highlightEndDate;
+	if (ad.featured)
+		out << separationChar << ad.highlightEndDate;
 
 	ad.print(out);
 
