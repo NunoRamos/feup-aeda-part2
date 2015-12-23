@@ -47,11 +47,7 @@ private:
 	vector<Advertisement*> advertisements; ///< Vector of pointers to all advertisements
 	vector<User> users; ///< Vector of all users
 	User* signedInUser; ///< Pointer to user that is currently signed in
-<<<<<<< HEAD
-	BST<User*> usersTransactions; ///< BST about users transactions
-=======
-	BST<PtrUser> usersTransactions;
->>>>>>> refs/remotes/origin/MariaJoao
+	BST<PtrUser> usersTransactions; ///< Tree with users with at least one transaction sorted by descending order
 	unordered_set<Transaction*, TransactionHash> transactions;
 
 public:
@@ -112,7 +108,7 @@ public:
 	/**
 	 * @brief Searches for ads with text in it.
 	 *
-	 * @param text  string used to search
+	 * @param text String used to search
 	 *
 	 * @return Returns vector of pointers to Advertisement with ads that have text either in their title or their description
 	 */
@@ -121,7 +117,7 @@ public:
 	/**
 	 * @brief Searches for ads category with text in it.
 	 *
-	 * @param text category used to search
+	 * @param text Category used to search
 	 *
 	 * @return Returns vector of pointers to Advertisement with ads that have same category
 	 */
@@ -135,7 +131,7 @@ public:
 	 *
 	 * @return Returns vector of pointers to Advertisement with ads that have similar price
 	 */
-	vector<Advertisement*> searchForAdsPrice(float inicialPrice,float finalPrice);
+	vector<Advertisement*> searchForAdsPrice(float inicialPrice, float finalPrice);
 
 	/**
 	 * @brief Creates a sub vector of vector ads, that only contained sale or purchase ads depending saleOrPurchase

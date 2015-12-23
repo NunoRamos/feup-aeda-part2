@@ -337,7 +337,7 @@ void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) 
 		}
 		int j=0;
 		while(!orderingPriceAsc.empty()){
-			toOrder[j]=orderingPriceAsc.top();
+			*toOrder[j]=*orderingPriceAsc.top();
 			orderingPriceAsc.pop();
 			j++;
 		}
@@ -350,7 +350,7 @@ void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) 
 		}
 		int j=0;
 		while(!orderingCatAsc.empty()){
-			toOrder[j]=orderingCatAsc.top();
+			*toOrder[j]=*orderingCatAsc.top();
 			orderingCatAsc.pop();
 			j++;
 		}
@@ -363,7 +363,7 @@ void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) 
 		}
 		int j=0;
 		while(!orderingKeyAsc.empty()){
-			toOrder[j]=orderingKeyAsc.top();
+			*toOrder[j]=*orderingKeyAsc.top();
 			orderingKeyAsc.pop();
 			j++;
 		}
@@ -375,7 +375,7 @@ void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) 
 		}
 		int j=0;
 		while(!orderingLocCityAsc.empty()){
-			toOrder[j]=orderingLocCityAsc.top();
+			*toOrder[j]=*orderingLocCityAsc.top();
 			orderingLocCityAsc.pop();
 			j++;
 		}
@@ -387,7 +387,7 @@ void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) 
 		}
 		int j=0;
 		while(!orderingLocCountyAsc.empty()){
-			toOrder[j]=orderingLocCountyAsc.top();
+			*toOrder[j]=*orderingLocCountyAsc.top();
 			orderingLocCountyAsc.pop();
 			j++;
 		}
@@ -399,7 +399,7 @@ void Data::orderResults(vector<Advertisement*>& toOrder, sort::Order orderType) 
 		}
 		int j=0;
 		while(!orderingLocDistrictAsc.empty()){
-			toOrder[j]=orderingLocDistrictAsc.top();
+			*toOrder[j]=*orderingLocDistrictAsc.top();
 			orderingLocDistrictAsc.pop();
 			j++;
 		}
