@@ -162,7 +162,7 @@ istream& operator>>(istream& in, User &user) {
 		else
 			negotiable = false;
 		getline(in,temp);
-		if(temp == "1")            //TODO Read and write on the file , the date while ad going to be highlighted
+		if(temp == "1")
 			paid = true;
 		else
 			paid = false;
@@ -172,6 +172,11 @@ istream& operator>>(istream& in, User &user) {
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
 			ad->setFeatured(paid);
+			if(paid==true){
+				getline(in, temp);
+				Date d1(temp);
+				ad->sethighlightEndDate(d1);
+			}
 			user.advertisements.push_back(ad);
 		} else {
 			string cond;
