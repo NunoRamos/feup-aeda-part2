@@ -166,6 +166,7 @@ istream& operator>>(istream& in, User &user) {
 			paid = true;
 		else
 			paid = false;
+
 		if (type == "P") {
 			Advertisement* ad = new Purchase(PtrUser(&user), title, category,
 					description, price);
@@ -189,7 +190,8 @@ istream& operator>>(istream& in, User &user) {
 			ad->setNegotiable(negotiable);
 			ad->setCreationDate(creationDate);
 			ad->setFeatured(paid);
-			ad->sethighlightEndDate(Date(temp));
+			if(paid)
+				ad->sethighlightEndDate(Date(temp));
 			user.advertisements.push_back(ad);
 		}
 	}
