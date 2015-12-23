@@ -149,6 +149,8 @@ ostream& operator<<(ostream& out, Advertisement &ad) {
 			<< categoryToString(ad.category) << separationChar << ad.description
 			<< separationChar << ad.creationDate << separationChar << ad.price
 			<< separationChar << ad.negotiable << separationChar << ad.featured;
+	if(ad.featured)
+		out<<separationChar<<ad.highlightEndDate;
 
 	ad.print(out);
 
