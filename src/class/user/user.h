@@ -35,7 +35,7 @@ protected:
 	string phoneNumber; ///< User phone number
 	Location location; ///< User location
 	Date lastTransaction; ///< Date of last transaction
-	int transactions; //Number of business transactions
+	int transactions; ///< Number of business transactions
 	bool showEmail; ///< Whether the user's email should be displayed in his/hers ads
 	bool showName; ///< Whether the user's name should be displayed in his/hers ads
 	bool showPhoneNumber; ///< Whether the user's phone number should be displayed in his/hers ads

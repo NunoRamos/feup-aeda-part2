@@ -1,0 +1,176 @@
+\hypertarget{enums_8h}{}\section{src/enums.h File Reference}
+\label{enums_8h}\index{src/enums.\+h@{src/enums.\+h}}
+
+
+Header file with enumerations and their conversion.  
+
+
+{\ttfamily \#include $<$string$>$}\\*
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{namespaceenums_a117503159d4b12812c01b1dd3bf33c1b}{}enum {\bfseries Category} \{ \\*
+{\bfseries Agriculture}, 
+{\bfseries Animals}, 
+{\bfseries Baby\+And\+Children}, 
+{\bfseries Fashion}, 
+\\*
+{\bfseries Home}, 
+{\bfseries Job}, 
+{\bfseries Leisure}, 
+{\bfseries Phones\+And\+Tablets}, 
+\\*
+{\bfseries Real\+Estate}, 
+{\bfseries Services}, 
+{\bfseries Sports}, 
+{\bfseries Technology}, 
+\\*
+{\bfseries Vehicles}, 
+{\bfseries Others}
+ \}\label{namespaceenums_a117503159d4b12812c01b1dd3bf33c1b}
+\begin{DoxyCompactList}\small\item\em Categories for the different kinds of advertisements. \end{DoxyCompactList}
+\item 
+\hypertarget{namespaceenums_a7cb9af72aca8dae66e03fedc479d54b2}{}enum {\bfseries Condition} \{ {\bfseries New}, 
+{\bfseries Used\+As\+New}, 
+{\bfseries Functional}, 
+{\bfseries For\+Parts}
+ \}\label{namespaceenums_a7cb9af72aca8dae66e03fedc479d54b2}
+\begin{DoxyCompactList}\small\item\em Condition for the different kinds of product being sold. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{enums_8h_adc8f8dd0fdb2eb5da5b08e0737e5befd}{valid\+Category} (string is\+Valid\+Category)
+\begin{DoxyCompactList}\small\item\em See if valid\+Category is a valid category then changes the value of category. \end{DoxyCompactList}\item 
+Category \hyperlink{enums_8h_a88c2d08dec32fa87427679ca28f825e6}{string\+To\+Category} (string \hyperlink{enums_8h_adc8f8dd0fdb2eb5da5b08e0737e5befd}{valid\+Category})
+\begin{DoxyCompactList}\small\item\em Changes a string to a category. \end{DoxyCompactList}\item 
+string \hyperlink{enums_8h_aa1389e4ccfea1de64e309ca65b7a4a71}{category\+To\+String} (Category \hyperlink{enums_8h_adc8f8dd0fdb2eb5da5b08e0737e5befd}{valid\+Category})
+\begin{DoxyCompactList}\small\item\em Changes a string to a category. \end{DoxyCompactList}\item 
+bool \hyperlink{enums_8h_ac44afaa3fb3951470f45296c763b772b}{valid\+Condition} (string is\+Valid\+Condition)
+\begin{DoxyCompactList}\small\item\em See if valid\+Category is a valid category then changes the value of category. \end{DoxyCompactList}\item 
+Condition \hyperlink{enums_8h_addb69f27a40b247ea05a940ac0bc8416}{string\+To\+Condition} (string \hyperlink{enums_8h_ac44afaa3fb3951470f45296c763b772b}{valid\+Condition})
+\begin{DoxyCompactList}\small\item\em Changes a string to a condition. \end{DoxyCompactList}\item 
+string \hyperlink{enums_8h_a2bb34fefe96fc92fc235d5de7b7f40f9}{condition\+To\+String} (Condition \hyperlink{enums_8h_ac44afaa3fb3951470f45296c763b772b}{valid\+Condition})
+\begin{DoxyCompactList}\small\item\em Changes a condition to a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file with enumerations and their conversion. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{enums_8h_aa1389e4ccfea1de64e309ca65b7a4a71}{}\index{enums.\+h@{enums.\+h}!category\+To\+String@{category\+To\+String}}
+\index{category\+To\+String@{category\+To\+String}!enums.\+h@{enums.\+h}}
+\subsubsection[{category\+To\+String(\+Category valid\+Category)}]{\setlength{\rightskip}{0pt plus 5cm}string category\+To\+String (
+\begin{DoxyParamCaption}
+\item[{Category}]{valid\+Category}
+\end{DoxyParamCaption}
+)}\label{enums_8h_aa1389e4ccfea1de64e309ca65b7a4a71}
+
+
+Changes a string to a category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid\+Category} & to transform in a string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns one string 
+\end{DoxyReturn}
+\hypertarget{enums_8h_a2bb34fefe96fc92fc235d5de7b7f40f9}{}\index{enums.\+h@{enums.\+h}!condition\+To\+String@{condition\+To\+String}}
+\index{condition\+To\+String@{condition\+To\+String}!enums.\+h@{enums.\+h}}
+\subsubsection[{condition\+To\+String(\+Condition valid\+Condition)}]{\setlength{\rightskip}{0pt plus 5cm}string condition\+To\+String (
+\begin{DoxyParamCaption}
+\item[{Condition}]{valid\+Condition}
+\end{DoxyParamCaption}
+)}\label{enums_8h_a2bb34fefe96fc92fc235d5de7b7f40f9}
+
+
+Changes a condition to a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid\+Condition} & to transform in a string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns one string 
+\end{DoxyReturn}
+\hypertarget{enums_8h_a88c2d08dec32fa87427679ca28f825e6}{}\index{enums.\+h@{enums.\+h}!string\+To\+Category@{string\+To\+Category}}
+\index{string\+To\+Category@{string\+To\+Category}!enums.\+h@{enums.\+h}}
+\subsubsection[{string\+To\+Category(string valid\+Category)}]{\setlength{\rightskip}{0pt plus 5cm}Category string\+To\+Category (
+\begin{DoxyParamCaption}
+\item[{string}]{valid\+Category}
+\end{DoxyParamCaption}
+)}\label{enums_8h_a88c2d08dec32fa87427679ca28f825e6}
+
+
+Changes a string to a category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid\+Category} & to transform in a category\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns one Category 
+\end{DoxyReturn}
+\hypertarget{enums_8h_addb69f27a40b247ea05a940ac0bc8416}{}\index{enums.\+h@{enums.\+h}!string\+To\+Condition@{string\+To\+Condition}}
+\index{string\+To\+Condition@{string\+To\+Condition}!enums.\+h@{enums.\+h}}
+\subsubsection[{string\+To\+Condition(string valid\+Condition)}]{\setlength{\rightskip}{0pt plus 5cm}Condition string\+To\+Condition (
+\begin{DoxyParamCaption}
+\item[{string}]{valid\+Condition}
+\end{DoxyParamCaption}
+)}\label{enums_8h_addb69f27a40b247ea05a940ac0bc8416}
+
+
+Changes a string to a condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valid\+Condition} & to transform in a condition\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns one condition 
+\end{DoxyReturn}
+\hypertarget{enums_8h_adc8f8dd0fdb2eb5da5b08e0737e5befd}{}\index{enums.\+h@{enums.\+h}!valid\+Category@{valid\+Category}}
+\index{valid\+Category@{valid\+Category}!enums.\+h@{enums.\+h}}
+\subsubsection[{valid\+Category(string is\+Valid\+Category)}]{\setlength{\rightskip}{0pt plus 5cm}bool valid\+Category (
+\begin{DoxyParamCaption}
+\item[{string}]{is\+Valid\+Category}
+\end{DoxyParamCaption}
+)}\label{enums_8h_adc8f8dd0fdb2eb5da5b08e0737e5befd}
+
+
+See if valid\+Category is a valid category then changes the value of category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Valid\+Category} & to compare with the enums\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if is a valid category 
+\end{DoxyReturn}
+\hypertarget{enums_8h_ac44afaa3fb3951470f45296c763b772b}{}\index{enums.\+h@{enums.\+h}!valid\+Condition@{valid\+Condition}}
+\index{valid\+Condition@{valid\+Condition}!enums.\+h@{enums.\+h}}
+\subsubsection[{valid\+Condition(string is\+Valid\+Condition)}]{\setlength{\rightskip}{0pt plus 5cm}bool valid\+Condition (
+\begin{DoxyParamCaption}
+\item[{string}]{is\+Valid\+Condition}
+\end{DoxyParamCaption}
+)}\label{enums_8h_ac44afaa3fb3951470f45296c763b772b}
+
+
+See if valid\+Category is a valid category then changes the value of category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Valid\+Condition} & to compare with the enums\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if is a valid category 
+\end{DoxyReturn}

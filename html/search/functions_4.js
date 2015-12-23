@@ -24,10 +24,10 @@ var searchData=
   ['getlocationstring',['getLocationString',['../class_user.html#a7185d303044e8dbb683b717228e2560d',1,'User']]],
   ['getmonth',['getMonth',['../class_date.html#ac471b901531b7a1e73809918bac8c1ec',1,'Date']]],
   ['getname',['getName',['../class_user.html#a2b2a3d00d303affb4f5674bc9788db52',1,'User']]],
-  ['getowner',['getOwner',['../class_advertisement.html#a79a18c34607cef5cfc30afffea734327',1,'Advertisement']]],
+  ['getowner',['getOwner',['../class_advertisement.html#a79a18c34607cef5cfc30afffea734327',1,'Advertisement::getOwner()'],['../class_proposal.html#a76f1b22a8e5f2cd1accf39fc6ca8f222',1,'Proposal::getOwner()']]],
   ['getpassword',['getPassword',['../class_user.html#a3f39e6b48da6b769692bf71f26104a6a',1,'User']]],
   ['getphonenumber',['getPhoneNumber',['../class_user.html#a4d59412a7d7411dd8c8127adc9e80fae',1,'User']]],
-  ['getprice',['getPrice',['../class_advertisement.html#a6c7a08129880f12744853f9ceeb172ee',1,'Advertisement::getPrice()'],['../class_transaction.html#afb001258bfc0a233d539bcf52dd0d215',1,'Transaction::getPrice()']]],
+  ['getprice',['getPrice',['../class_advertisement.html#a6c7a08129880f12744853f9ceeb172ee',1,'Advertisement::getPrice()'],['../class_proposal.html#a465b08ee975ff1d89aede6bee0d16608',1,'Proposal::getPrice()'],['../class_transaction.html#afb001258bfc0a233d539bcf52dd0d215',1,'Transaction::getPrice()']]],
   ['getseller',['getSeller',['../class_transaction.html#a5be0f0d670cfce197c228c1c1192bf11',1,'Transaction']]],
   ['getshowemail',['getShowEmail',['../class_user.html#a6d936807efcd03cf1763742668ff8b7a',1,'User']]],
   ['getshowname',['getShowName',['../class_user.html#a232cf36107c8b0f7ff9440fc97cb402f',1,'User']]],
@@ -38,6 +38,7 @@ var searchData=
   ['gettype',['getType',['../class_advertisement.html#acb3174a830215ed6dfd922002f2c8924',1,'Advertisement::getType()'],['../class_purchase.html#aacd849fc1ec2b96e7c59de4012b8e45a',1,'Purchase::getType()'],['../class_sale.html#ae105e16c4b41870d375c5b1442dc7031',1,'Sale::getType()']]],
   ['getuser',['getUser',['../class_data.html#ad86b95b360f65b0e0e4ca1e0d53576bd',1,'Data']]],
   ['getuserptr',['getUserPtr',['../class_ptr_user.html#a3805e28de762dfc07d1563e5eab3f694',1,'PtrUser']]],
+  ['getuserstransactions',['getUsersTransactions',['../class_data.html#adaeb0ac1a1c1e7f1cca5ad5046ca4fd3',1,'Data']]],
   ['getviews',['getViews',['../class_advertisement.html#a823c798799bcdf75a5b65158d6ad8c96',1,'Advertisement']]],
   ['getyear',['getYear',['../class_date.html#a6561cf495bd6b7e6c747420d7ae9cc12',1,'Date']]]
 ];

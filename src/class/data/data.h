@@ -51,7 +51,7 @@ private:
 	vector<User> users; ///< Vector of all users
 	PtrUser signedInUser; ///< Pointer to user that is currently signed in
 	BST<PtrUser> usersTransactions; ///< Tree with users with at least one transaction sorted by descending order
-	unordered_set<Transaction*, TransactionHash> transactions;
+	unordered_set<Transaction*, TransactionHash> transactions; ///< Hash table with all transaction made
 public:
 
 	/**
@@ -191,22 +191,24 @@ public:
 	 */
 	void removeUser(PtrUser user);
 	
-	/*
-	 * @brief get usersTransactions bst
+	/**
+	 * @brief Gets a BST with all users transactions
 	 *
+	 * @return Returns a BST with all users transactions
 	 */
 	BST<PtrUser> getUsersTransactions() const;
-	/*
-	 *@brief add user to bst
+
+	/**
+	 *@brief Adds user to the transactions BST
 	 *
-	 *@param u1 User
+	 *@param u1 User to add
 	 */
 	void addUserToBst(PtrUser u1);
 
-	/*
-	 *@brief remove userf from bst
+	/**
+	 *@brief Removes user from the transactions BST
 	 *
-	 *@param u1 User
+	 *@param u1 User to remove
 	 */
 	void removeUserFromBst(PtrUser u1);
 
@@ -255,11 +257,11 @@ public:
 	 */
 	void updateTree();
 	
-	/*
+	/**
 	 * @brief Orders a vector by transforming in a priority queue
 	 *
-	 * @param toOrder vector to order
-	 * @param orderType to helping on choosing comparing function
+	 * @param toOrder Vector to order
+	 * @param orderType Sorting algorithm
 	 */
 	void orderResults(vector<Advertisement*>& toOrder, sort::Order orderType);
 	

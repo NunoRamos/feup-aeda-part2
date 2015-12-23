@@ -1,0 +1,136 @@
+\hypertarget{class_purchase}{}\section{Purchase Class Reference}
+\label{class_purchase}\index{Purchase@{Purchase}}
+
+
+\hyperlink{class_purchase}{Purchase} class.  
+
+
+
+
+{\ttfamily \#include $<$purchase.\+h$>$}
+
+Inheritance diagram for Purchase\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_purchase}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_purchase_a205b0e7ff255956bbc5aaca2403dc007}{Purchase} (\hyperlink{class_ptr_user}{Ptr\+User} \hyperlink{class_advertisement_abcb6446847bfd1880be9c854c4442313}{owner}, string \hyperlink{class_advertisement_a63b197da6f91139ed6baf700f834a3db}{title}, Category \hyperlink{class_advertisement_af77599e289974c0e4f502db621257fe5}{category}, string \hyperlink{class_advertisement_afb0909f9fceabb44804e06e721ff7fee}{description}, float \hyperlink{class_advertisement_aefd1dddaabd0cfa411e6cbaaf67c4dd5}{price})
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_purchase}{Purchase} constructor. \end{DoxyCompactList}\item 
+\hypertarget{class_purchase_a8ebd6efb2177df6d10fcba514095915f}{}\hyperlink{class_purchase_a8ebd6efb2177df6d10fcba514095915f}{$\sim$\+Purchase} ()\label{class_purchase_a8ebd6efb2177df6d10fcba514095915f}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_purchase}{Purchase} destructor. \end{DoxyCompactList}\item 
+char \hyperlink{class_purchase_aacd849fc1ec2b96e7c59de4012b8e45a}{get\+Type} () const 
+\begin{DoxyCompactList}\small\item\em Returns a P if is a purchase ad or a S if is a sale ad. \end{DoxyCompactList}\item 
+\hypertarget{class_purchase_aceac950ad211470727c2cbcfe11eb69a}{}\hyperlink{class_transaction}{Transaction} $\ast$ \hyperlink{class_purchase_aceac950ad211470727c2cbcfe11eb69a}{view\+Proposals} ()\label{class_purchase_aceac950ad211470727c2cbcfe11eb69a}
+
+\begin{DoxyCompactList}\small\item\em Shows ad proposals. \end{DoxyCompactList}\item 
+void \hyperlink{class_purchase_aba6c84c5e90bdff8aac40704ec92c716}{add\+Proposal} (\hyperlink{class_proposal}{Proposal} $\ast$p)
+\begin{DoxyCompactList}\small\item\em Add proposal. \end{DoxyCompactList}\item 
+ostream \& \hyperlink{class_purchase_ad9c91fe1eadbb43884d5e95fb9607b08}{print} (ostream \&out)
+\begin{DoxyCompactList}\small\item\em Prints to out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_purchase}{Purchase} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_purchase_a205b0e7ff255956bbc5aaca2403dc007}{}\index{Purchase@{Purchase}!Purchase@{Purchase}}
+\index{Purchase@{Purchase}!Purchase@{Purchase}}
+\subsubsection[{Purchase(\+Ptr\+User owner, string title, Category category, string description, float price)}]{\setlength{\rightskip}{0pt plus 5cm}Purchase\+::\+Purchase (
+\begin{DoxyParamCaption}
+\item[{{\bf Ptr\+User}}]{owner, }
+\item[{string}]{title, }
+\item[{Category}]{category, }
+\item[{string}]{description, }
+\item[{float}]{price}
+\end{DoxyParamCaption}
+)}\label{class_purchase_a205b0e7ff255956bbc5aaca2403dc007}
+
+
+\hyperlink{class_purchase}{Purchase} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Pointer to advertisement owner \\
+\hline
+{\em title} & \hyperlink{class_advertisement}{Advertisement} title \\
+\hline
+{\em category} & \hyperlink{class_advertisement}{Advertisement} category \\
+\hline
+{\em description} & \hyperlink{class_advertisement}{Advertisement} description \\
+\hline
+{\em price} & Product price \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_purchase_aba6c84c5e90bdff8aac40704ec92c716}{}\index{Purchase@{Purchase}!add\+Proposal@{add\+Proposal}}
+\index{add\+Proposal@{add\+Proposal}!Purchase@{Purchase}}
+\subsubsection[{add\+Proposal(\+Proposal $\ast$p)}]{\setlength{\rightskip}{0pt plus 5cm}void Purchase\+::add\+Proposal (
+\begin{DoxyParamCaption}
+\item[{{\bf Proposal} $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_purchase_aba6c84c5e90bdff8aac40704ec92c716}
+
+
+Add proposal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \hyperlink{class_proposal}{Proposal} to add \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_advertisement_aabe17c6fbc25e46d953e206ed408207a}{Advertisement}.
+
+\hypertarget{class_purchase_aacd849fc1ec2b96e7c59de4012b8e45a}{}\index{Purchase@{Purchase}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Purchase@{Purchase}}
+\subsubsection[{get\+Type() const }]{\setlength{\rightskip}{0pt plus 5cm}char Purchase\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_purchase_aacd849fc1ec2b96e7c59de4012b8e45a}
+
+
+Returns a P if is a purchase ad or a S if is a sale ad. 
+
+\begin{DoxyReturn}{Returns}
+Returns a char ( P(urchase) / S(ale)) 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{class_advertisement_acb3174a830215ed6dfd922002f2c8924}{Advertisement}.
+
+\hypertarget{class_purchase_ad9c91fe1eadbb43884d5e95fb9607b08}{}\index{Purchase@{Purchase}!print@{print}}
+\index{print@{print}!Purchase@{Purchase}}
+\subsubsection[{print(ostream \&out)}]{\setlength{\rightskip}{0pt plus 5cm}ostream \& Purchase\+::print (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_purchase_ad9c91fe1eadbb43884d5e95fb9607b08}
+
+
+Prints to out. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Out stream \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{class_advertisement_adb38cc00b914dd7a0509829c220eb2bc}{Advertisement}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/class/advertisement/purchase/\hyperlink{purchase_8h}{purchase.\+h}\item 
+src/class/advertisement/purchase/\hyperlink{purchase_8cpp}{purchase.\+cpp}\end{DoxyCompactItemize}

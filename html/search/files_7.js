@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['sale_2ecpp',['sale.cpp',['../sale_8cpp.html',1,'']]],
-  ['sale_2eh',['sale.h',['../sale_8h.html',1,'']]],
-  ['searchmenu_2ecpp',['searchMenu.cpp',['../search_menu_8cpp.html',1,'']]],
-  ['searchmenu_2eh',['searchMenu.h',['../search_menu_8h.html',1,'']]],
-  ['sequentialsearch_2eh',['sequentialSearch.h',['../sequential_search_8h.html',1,'']]]
+  ['proposal_2ecpp',['proposal.cpp',['../proposal_8cpp.html',1,'']]],
+  ['proposal_2eh',['proposal.h',['../proposal_8h.html',1,'']]],
+  ['ptruser_2ecpp',['PtrUser.cpp',['../_ptr_user_8cpp.html',1,'']]],
+  ['ptruser_2eh',['PtrUser.h',['../_ptr_user_8h.html',1,'']]],
+  ['purchase_2ecpp',['purchase.cpp',['../purchase_8cpp.html',1,'']]],
+  ['purchase_2eh',['purchase.h',['../purchase_8h.html',1,'']]]
 ];

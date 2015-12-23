@@ -126,7 +126,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    vector&lt;User&gt; users; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="class_ptr_user.html">PtrUser</a> signedInUser; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_b_s_t.html">BST&lt;PtrUser&gt;</a> usersTransactions; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    unordered_set&lt;Transaction*, TransactionHash&gt; transactions;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    unordered_set&lt;Transaction*, TransactionHash&gt; transactions; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_data.html">Data</a>();</div>
@@ -165,54 +165,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span> removeUser(<a class="code" href="class_ptr_user.html">PtrUser</a> user);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">     * @brief get usersTransactions bst</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="class_b_s_t.html">BST&lt;PtrUser&gt;</a> getUsersTransactions() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">     *@brief add user to bst</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">     *@param u1 User</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">void</span> addUserToBst(<a class="code" href="class_ptr_user.html">PtrUser</a> u1);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">     *@brief remove userf from bst</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment">     *@param u1 User</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordtype">void</span> removeUserFromBst(<a class="code" href="class_ptr_user.html">PtrUser</a> u1);</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">void</span> addTransaction(<a class="code" href="class_transaction.html">Transaction</a>* t);</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordtype">void</span> loadTransactions();</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordtype">void</span> saveTransactions();</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <a class="code" href="class_ptr_user.html">PtrUser</a> getUser(<span class="keywordtype">string</span> email);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <span class="keywordtype">bool</span> deleteAd(<a class="code" href="class_advertisement.html">Advertisement</a>* ad);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordtype">void</span> addUsersToBst();</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keywordtype">void</span> updateTree();</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">     * @brief Orders a vector by transforming in a priority queue</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">     * @param toOrder vector to order</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">     * @param orderType to helping on choosing comparing function</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordtype">void</span> orderResults(vector&lt;Advertisement*&gt;&amp; toOrder, sort::Order orderType);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">void</span> updateTransactions();</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;};</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <a class="code" href="class_b_s_t.html">BST&lt;PtrUser&gt;</a> getUsersTransactions() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">void</span> addUserToBst(<a class="code" href="class_ptr_user.html">PtrUser</a> u1);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordtype">void</span> removeUserFromBst(<a class="code" href="class_ptr_user.html">PtrUser</a> u1);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordtype">void</span> addTransaction(<a class="code" href="class_transaction.html">Transaction</a>* t);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordtype">void</span> loadTransactions();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordtype">void</span> saveTransactions();</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <a class="code" href="class_ptr_user.html">PtrUser</a> getUser(<span class="keywordtype">string</span> email);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">bool</span> deleteAd(<a class="code" href="class_advertisement.html">Advertisement</a>* ad);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">void</span> addUsersToBst();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keywordtype">void</span> updateTree();</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <span class="keywordtype">void</span> orderResults(vector&lt;Advertisement*&gt;&amp; toOrder, sort::Order orderType);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordtype">void</span> updateTransactions();</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;};</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="class_transaction_html_afa733f8dea36e39279a3eef6919dad97"><div class="ttname"><a href="class_transaction.html#afa733f8dea36e39279a3eef6919dad97">Transaction::getId</a></div><div class="ttdeci">unsigned int getId() const </div><div class="ttdoc">Returns transaction id. </div><div class="ttdef"><b>Definition:</b> transaction.cpp:31</div></div>
 <div class="ttc" id="class_data_html"><div class="ttname"><a href="class_data.html">Data</a></div><div class="ttdoc">User and Advertisement data class. </div><div class="ttdef"><b>Definition:</b> data.h:47</div></div>
-<div class="ttc" id="class_transaction_html"><div class="ttname"><a href="class_transaction.html">Transaction</a></div><div class="ttdoc">Transaction class. </div><div class="ttdef"><b>Definition:</b> transaction.h:13</div></div>
+<div class="ttc" id="class_transaction_html"><div class="ttname"><a href="class_transaction.html">Transaction</a></div><div class="ttdoc">Transaction class. </div><div class="ttdef"><b>Definition:</b> transaction.h:23</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
 <div class="ttc" id="class_user_html"><div class="ttname"><a href="class_user.html">User</a></div><div class="ttdoc">User class. </div><div class="ttdef"><b>Definition:</b> user.h:29</div></div>
 <div class="ttc" id="struct_transaction_hash_html"><div class="ttname"><a href="struct_transaction_hash.html">TransactionHash</a></div><div class="ttdoc">Struct containing Transaction hash and operator= functions. </div><div class="ttdef"><b>Definition:</b> data.h:28</div></div>
@@ -223,7 +204,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="menus_8cpp_html_acf700ea4f48b9a77d7d2347c582f3288"><div class="ttname"><a href="menus_8cpp.html#acf700ea4f48b9a77d7d2347c582f3288">signOut</a></div><div class="ttdeci">void signOut(Data *data)</div><div class="ttdoc">Signs user out. </div><div class="ttdef"><b>Definition:</b> menus.cpp:500</div></div>
 <div class="ttc" id="menus_8cpp_html_ae86c9baed98a2c948118c65c7f6c7764"><div class="ttname"><a href="menus_8cpp.html#ae86c9baed98a2c948118c65c7f6c7764">saleOrPurchase</a></div><div class="ttdeci">void saleOrPurchase(vector&lt; Advertisement * &gt; &amp;results, Data *data)</div><div class="ttdoc">Filters results into sale or purchase depending on user input. </div><div class="ttdef"><b>Definition:</b> menus.cpp:191</div></div>
 <div class="ttc" id="class_advertisement_html"><div class="ttname"><a href="class_advertisement.html">Advertisement</a></div><div class="ttdoc">Advertisement class. </div><div class="ttdef"><b>Definition:</b> advertisement.h:37</div></div>
-<div class="ttc" id="class_ptr_user_html"><div class="ttname"><a href="class_ptr_user.html">PtrUser</a></div><div class="ttdoc">Pointer to User class. Used with BST. </div><div class="ttdef"><b>Definition:</b> PtrUser.h:19</div></div>
+<div class="ttc" id="class_ptr_user_html"><div class="ttname"><a href="class_ptr_user.html">PtrUser</a></div><div class="ttdoc">Pointer to User class. Used with BST. </div><div class="ttdef"><b>Definition:</b> PtrUser.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

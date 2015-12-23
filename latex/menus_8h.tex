@@ -1,0 +1,493 @@
+\hypertarget{menus_8h}{}\section{src/menus.h File Reference}
+\label{menus_8h}\index{src/menus.\+h@{src/menus.\+h}}
+
+
+Header file with menus and other utilities.  
+
+
+{\ttfamily \#include \char`\"{}class/data/data.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{menus_8h_a9d7e8af417b6d543da691e9c0e2f6f9f}{}void \hyperlink{menus_8h_a9d7e8af417b6d543da691e9c0e2f6f9f}{clear\+Screen} ()\label{menus_8h_a9d7e8af417b6d543da691e9c0e2f6f9f}
+
+\begin{DoxyCompactList}\small\item\em Clear the screen by printing 50 blank lines. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a66a0d8e3bd020bf1fb3d317a149aec1c}{main\+Menu} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Main menu. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a77c3579406df28d3aa53dc9bfc27f62e}{search} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Search \hyperlink{class_menu}{Menu}. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a889fa03429e9b009eb3e3aa762703a6e}{search\+By\+Category} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Search by category menu. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_aac04063374d40c7867b5458fee4f0c1d}{search\+By\+Location} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Search by location menu. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a0f997bba40000511f5215599107ad0ee}{same\+City} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Shows ads within the same city. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a7378f519eee8f78574e7e68afe095f13}{same\+County} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Shows ads within the same county. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a2fbc89dbd6e801c50e20a067e3d5c078}{same\+District} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Shows ads within the same district. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a49884109a8275be793c69dd17af6dd71}{search\+By\+Price} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Search by price menu. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_ac3109ac0452b9f39dda7c100e93bbefa}{search\+By\+Keyword} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Search by keyword menu. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_ae86c9baed98a2c948118c65c7f6c7764}{sale\+Or\+Purchase} (vector$<$ \hyperlink{class_advertisement}{Advertisement} $\ast$ $>$ \&results, \hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Filters results into sale or purchase depending on user input. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_ad66123b44de8c88195560477d281867f}{sign\+In} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Signs the user in. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a214c6150e7cb79af4cfd4e57993bf841}{sign\+Up} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Signs the user up. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_afe3708f7586e0f8b5dce580093f7b736}{exit\+App} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Exits application. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_aa0fcb498dacd30c6efd5669591445258}{signed\+In\+Menu} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Sign in menu. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a687b80bb42ffeec840b0564202c031d6}{create\+Selling\+Ad} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Creates sale ad. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a5480467a5d4ea380187d0c511721ac5b}{create\+Buying\+Ad} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Creates purchase ad. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_abb2eac95f801bdbd230d8669f39d94eb}{edit\+Ad} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Edit ad menu. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_acf700ea4f48b9a77d7d2347c582f3288}{sign\+Out} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Signs user out. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a84e03e858a3fb505934cd49a0a9bf7d1}{interested} (\hyperlink{class_user}{User} $\ast$user)
+\begin{DoxyCompactList}\small\item\em Simulates a sent email to user. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a3baca7623774a55698220e99e4cb58ef}{view\+My\+Ads} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Shows the user ads. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a821ff88ce7895d848ffafe068aa7a20c}{delete\+User} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Deletes user. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_ad0572c141543a3968681c602bc5f5d5e}{top\+Accounts} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_user}{User} with more transactions. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a96371d6bb35e644f9f67e65b3159e1d2}{more\+Than\+X} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Users with more than X transactions. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a2870263d67759564cf68b7f066ebc190}{equal\+To\+X} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Users with X transactions. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_a163299ae094032f5f2c810228aadfbb8}{less\+Than\+X} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Users with more less X transactions. \end{DoxyCompactList}\item 
+void \hyperlink{menus_8h_aae7f1dae94c3d269f5dd836bc3975f63}{all} (\hyperlink{class_data}{Data} $\ast$data)
+\begin{DoxyCompactList}\small\item\em Shows all accounts with transactiosn made. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file with menus and other utilities. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{menus_8h_aae7f1dae94c3d269f5dd836bc3975f63}{}\index{menus.\+h@{menus.\+h}!all@{all}}
+\index{all@{all}!menus.\+h@{menus.\+h}}
+\subsubsection[{all(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void all (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_aae7f1dae94c3d269f5dd836bc3975f63}
+
+
+Shows all accounts with transactiosn made. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a5480467a5d4ea380187d0c511721ac5b}{}\index{menus.\+h@{menus.\+h}!create\+Buying\+Ad@{create\+Buying\+Ad}}
+\index{create\+Buying\+Ad@{create\+Buying\+Ad}!menus.\+h@{menus.\+h}}
+\subsubsection[{create\+Buying\+Ad(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Buying\+Ad (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a5480467a5d4ea380187d0c511721ac5b}
+
+
+Creates purchase ad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a687b80bb42ffeec840b0564202c031d6}{}\index{menus.\+h@{menus.\+h}!create\+Selling\+Ad@{create\+Selling\+Ad}}
+\index{create\+Selling\+Ad@{create\+Selling\+Ad}!menus.\+h@{menus.\+h}}
+\subsubsection[{create\+Selling\+Ad(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void create\+Selling\+Ad (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a687b80bb42ffeec840b0564202c031d6}
+
+
+Creates sale ad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a821ff88ce7895d848ffafe068aa7a20c}{}\index{menus.\+h@{menus.\+h}!delete\+User@{delete\+User}}
+\index{delete\+User@{delete\+User}!menus.\+h@{menus.\+h}}
+\subsubsection[{delete\+User(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void delete\+User (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a821ff88ce7895d848ffafe068aa7a20c}
+
+
+Deletes user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_abb2eac95f801bdbd230d8669f39d94eb}{}\index{menus.\+h@{menus.\+h}!edit\+Ad@{edit\+Ad}}
+\index{edit\+Ad@{edit\+Ad}!menus.\+h@{menus.\+h}}
+\subsubsection[{edit\+Ad(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void edit\+Ad (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_abb2eac95f801bdbd230d8669f39d94eb}
+
+
+Edit ad menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a2870263d67759564cf68b7f066ebc190}{}\index{menus.\+h@{menus.\+h}!equal\+To\+X@{equal\+To\+X}}
+\index{equal\+To\+X@{equal\+To\+X}!menus.\+h@{menus.\+h}}
+\subsubsection[{equal\+To\+X(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void equal\+To\+X (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a2870263d67759564cf68b7f066ebc190}
+
+
+Users with X transactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_afe3708f7586e0f8b5dce580093f7b736}{}\index{menus.\+h@{menus.\+h}!exit\+App@{exit\+App}}
+\index{exit\+App@{exit\+App}!menus.\+h@{menus.\+h}}
+\subsubsection[{exit\+App(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void exit\+App (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_afe3708f7586e0f8b5dce580093f7b736}
+
+
+Exits application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a84e03e858a3fb505934cd49a0a9bf7d1}{}\index{menus.\+h@{menus.\+h}!interested@{interested}}
+\index{interested@{interested}!menus.\+h@{menus.\+h}}
+\subsubsection[{interested(\+User $\ast$user)}]{\setlength{\rightskip}{0pt plus 5cm}void interested (
+\begin{DoxyParamCaption}
+\item[{{\bf User} $\ast$}]{user}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a84e03e858a3fb505934cd49a0a9bf7d1}
+
+
+Simulates a sent email to user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \hyperlink{class_user}{User} to send the email to \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a163299ae094032f5f2c810228aadfbb8}{}\index{menus.\+h@{menus.\+h}!less\+Than\+X@{less\+Than\+X}}
+\index{less\+Than\+X@{less\+Than\+X}!menus.\+h@{menus.\+h}}
+\subsubsection[{less\+Than\+X(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void less\+Than\+X (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a163299ae094032f5f2c810228aadfbb8}
+
+
+Users with more less X transactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a66a0d8e3bd020bf1fb3d317a149aec1c}{}\index{menus.\+h@{menus.\+h}!main\+Menu@{main\+Menu}}
+\index{main\+Menu@{main\+Menu}!menus.\+h@{menus.\+h}}
+\subsubsection[{main\+Menu(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void main\+Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a66a0d8e3bd020bf1fb3d317a149aec1c}
+
+
+Main menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a96371d6bb35e644f9f67e65b3159e1d2}{}\index{menus.\+h@{menus.\+h}!more\+Than\+X@{more\+Than\+X}}
+\index{more\+Than\+X@{more\+Than\+X}!menus.\+h@{menus.\+h}}
+\subsubsection[{more\+Than\+X(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void more\+Than\+X (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a96371d6bb35e644f9f67e65b3159e1d2}
+
+
+Users with more than X transactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_ae86c9baed98a2c948118c65c7f6c7764}{}\index{menus.\+h@{menus.\+h}!sale\+Or\+Purchase@{sale\+Or\+Purchase}}
+\index{sale\+Or\+Purchase@{sale\+Or\+Purchase}!menus.\+h@{menus.\+h}}
+\subsubsection[{sale\+Or\+Purchase(vector$<$ Advertisement $\ast$ $>$ \&results, Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void sale\+Or\+Purchase (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Advertisement} $\ast$ $>$ \&}]{results, }
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_ae86c9baed98a2c948118c65c7f6c7764}
+
+
+Filters results into sale or purchase depending on user input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em results} & Results from previous menu \\
+\hline
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a0f997bba40000511f5215599107ad0ee}{}\index{menus.\+h@{menus.\+h}!same\+City@{same\+City}}
+\index{same\+City@{same\+City}!menus.\+h@{menus.\+h}}
+\subsubsection[{same\+City(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void same\+City (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a0f997bba40000511f5215599107ad0ee}
+
+
+Shows ads within the same city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a7378f519eee8f78574e7e68afe095f13}{}\index{menus.\+h@{menus.\+h}!same\+County@{same\+County}}
+\index{same\+County@{same\+County}!menus.\+h@{menus.\+h}}
+\subsubsection[{same\+County(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void same\+County (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a7378f519eee8f78574e7e68afe095f13}
+
+
+Shows ads within the same county. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a2fbc89dbd6e801c50e20a067e3d5c078}{}\index{menus.\+h@{menus.\+h}!same\+District@{same\+District}}
+\index{same\+District@{same\+District}!menus.\+h@{menus.\+h}}
+\subsubsection[{same\+District(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void same\+District (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a2fbc89dbd6e801c50e20a067e3d5c078}
+
+
+Shows ads within the same district. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a77c3579406df28d3aa53dc9bfc27f62e}{}\index{menus.\+h@{menus.\+h}!search@{search}}
+\index{search@{search}!menus.\+h@{menus.\+h}}
+\subsubsection[{search(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void search (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a77c3579406df28d3aa53dc9bfc27f62e}
+
+
+Search \hyperlink{class_menu}{Menu}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a889fa03429e9b009eb3e3aa762703a6e}{}\index{menus.\+h@{menus.\+h}!search\+By\+Category@{search\+By\+Category}}
+\index{search\+By\+Category@{search\+By\+Category}!menus.\+h@{menus.\+h}}
+\subsubsection[{search\+By\+Category(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void search\+By\+Category (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a889fa03429e9b009eb3e3aa762703a6e}
+
+
+Search by category menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_ac3109ac0452b9f39dda7c100e93bbefa}{}\index{menus.\+h@{menus.\+h}!search\+By\+Keyword@{search\+By\+Keyword}}
+\index{search\+By\+Keyword@{search\+By\+Keyword}!menus.\+h@{menus.\+h}}
+\subsubsection[{search\+By\+Keyword(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void search\+By\+Keyword (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_ac3109ac0452b9f39dda7c100e93bbefa}
+
+
+Search by keyword menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_aac04063374d40c7867b5458fee4f0c1d}{}\index{menus.\+h@{menus.\+h}!search\+By\+Location@{search\+By\+Location}}
+\index{search\+By\+Location@{search\+By\+Location}!menus.\+h@{menus.\+h}}
+\subsubsection[{search\+By\+Location(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void search\+By\+Location (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_aac04063374d40c7867b5458fee4f0c1d}
+
+
+Search by location menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a49884109a8275be793c69dd17af6dd71}{}\index{menus.\+h@{menus.\+h}!search\+By\+Price@{search\+By\+Price}}
+\index{search\+By\+Price@{search\+By\+Price}!menus.\+h@{menus.\+h}}
+\subsubsection[{search\+By\+Price(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void search\+By\+Price (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a49884109a8275be793c69dd17af6dd71}
+
+
+Search by price menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_aa0fcb498dacd30c6efd5669591445258}{}\index{menus.\+h@{menus.\+h}!signed\+In\+Menu@{signed\+In\+Menu}}
+\index{signed\+In\+Menu@{signed\+In\+Menu}!menus.\+h@{menus.\+h}}
+\subsubsection[{signed\+In\+Menu(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void signed\+In\+Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_aa0fcb498dacd30c6efd5669591445258}
+
+
+Sign in menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_ad66123b44de8c88195560477d281867f}{}\index{menus.\+h@{menus.\+h}!sign\+In@{sign\+In}}
+\index{sign\+In@{sign\+In}!menus.\+h@{menus.\+h}}
+\subsubsection[{sign\+In(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void sign\+In (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_ad66123b44de8c88195560477d281867f}
+
+
+Signs the user in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_acf700ea4f48b9a77d7d2347c582f3288}{}\index{menus.\+h@{menus.\+h}!sign\+Out@{sign\+Out}}
+\index{sign\+Out@{sign\+Out}!menus.\+h@{menus.\+h}}
+\subsubsection[{sign\+Out(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void sign\+Out (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_acf700ea4f48b9a77d7d2347c582f3288}
+
+
+Signs user out. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a214c6150e7cb79af4cfd4e57993bf841}{}\index{menus.\+h@{menus.\+h}!sign\+Up@{sign\+Up}}
+\index{sign\+Up@{sign\+Up}!menus.\+h@{menus.\+h}}
+\subsubsection[{sign\+Up(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void sign\+Up (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a214c6150e7cb79af4cfd4e57993bf841}
+
+
+Signs the user up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_ad0572c141543a3968681c602bc5f5d5e}{}\index{menus.\+h@{menus.\+h}!top\+Accounts@{top\+Accounts}}
+\index{top\+Accounts@{top\+Accounts}!menus.\+h@{menus.\+h}}
+\subsubsection[{top\+Accounts(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void top\+Accounts (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_ad0572c141543a3968681c602bc5f5d5e}
+
+
+\hyperlink{class_user}{User} with more transactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}
+\hypertarget{menus_8h_a3baca7623774a55698220e99e4cb58ef}{}\index{menus.\+h@{menus.\+h}!view\+My\+Ads@{view\+My\+Ads}}
+\index{view\+My\+Ads@{view\+My\+Ads}!menus.\+h@{menus.\+h}}
+\subsubsection[{view\+My\+Ads(\+Data $\ast$data)}]{\setlength{\rightskip}{0pt plus 5cm}void view\+My\+Ads (
+\begin{DoxyParamCaption}
+\item[{{\bf Data} $\ast$}]{data}
+\end{DoxyParamCaption}
+)}\label{menus_8h_a3baca7623774a55698220e99e4cb58ef}
+
+
+Shows the user ads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \hyperlink{class_data}{Data} \\
+\hline
+\end{DoxyParams}

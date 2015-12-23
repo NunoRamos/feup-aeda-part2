@@ -1,9 +1,7 @@
-/*
- * comparisons.h
+/**
+ * @file comparisons.h
  *
- *  Created on: 20/12/2015
- *      Author: Nuno
- */
+ * @brief Header file and code for Comparison classes */
 
 #ifndef SRC_COMPARISONS_H_
 #define SRC_COMPARISONS_H_

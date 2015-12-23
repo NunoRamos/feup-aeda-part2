@@ -5,6 +5,7 @@ var searchData=
   ['city',['city',['../class_location.html#a0179634b6ba4046f74f57949e789abfb',1,'Location']]],
   ['clearscreen',['clearScreen',['../menus_8cpp.html#a9d7e8af417b6d543da691e9c0e2f6f9f',1,'clearScreen():&#160;menus.cpp'],['../menus_8h.html#a9d7e8af417b6d543da691e9c0e2f6f9f',1,'clearScreen():&#160;menus.cpp']]],
   ['compareproposal',['CompareProposal',['../class_compare_proposal.html',1,'']]],
+  ['comparisons_2eh',['comparisons.h',['../comparisons_8h.html',1,'']]],
   ['compasccategory',['CompAscCategory',['../class_comp_asc_category.html',1,'']]],
   ['compasckeyword',['CompAscKeyword',['../class_comp_asc_keyword.html',1,'']]],
   ['compascloccity',['CompAscLocCity',['../class_comp_asc_loc_city.html',1,'']]],

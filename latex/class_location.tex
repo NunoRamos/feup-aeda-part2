@@ -1,0 +1,213 @@
+\hypertarget{class_location}{}\section{Location Class Reference}
+\label{class_location}\index{Location@{Location}}
+
+
+Code for class \hyperlink{class_location}{Location}. A county has many cities; a district has various counties.  
+
+
+
+
+{\ttfamily \#include $<$location.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_location_a87790c14997fd8cdd12080c78c9794bb}{}\hyperlink{class_location_a87790c14997fd8cdd12080c78c9794bb}{Location} ()\label{class_location_a87790c14997fd8cdd12080c78c9794bb}
+
+\begin{DoxyCompactList}\small\item\em Default constructor for \hyperlink{class_location}{Location} class. \end{DoxyCompactList}\item 
+\hyperlink{class_location_adde1be165887d4738c25164191107f8a}{Location} (string \hyperlink{class_location_a0179634b6ba4046f74f57949e789abfb}{city}, string \hyperlink{class_location_a648dadbf656ddaff096a36faa271a165}{county}, string \hyperlink{class_location_a3739b4e334dfd90923671fb543baef4a}{district})
+\begin{DoxyCompactList}\small\item\em Constructor for \hyperlink{class_location}{Location} class. \end{DoxyCompactList}\item 
+\hyperlink{class_location_aa41373bb46efc066f79ab697c56b0da3}{Location} (string location)
+\begin{DoxyCompactList}\small\item\em Constructor for \hyperlink{class_location}{Location} class. Covnerts string into city, county, district. \end{DoxyCompactList}\item 
+string \hyperlink{class_location_a4d91190cad2ea40b0e8d53f5211561a6}{to\+String} () const 
+\begin{DoxyCompactList}\small\item\em Gets location in format city, county, district. \end{DoxyCompactList}\item 
+string \hyperlink{class_location_ac682ee57f401c50a88d362305d159640}{get\+City} () const 
+\begin{DoxyCompactList}\small\item\em Gets city attribute. \end{DoxyCompactList}\item 
+string \hyperlink{class_location_aa200afd4afd7898f16c5e54c533da4ef}{get\+County} () const 
+\begin{DoxyCompactList}\small\item\em Gets county attribute. \end{DoxyCompactList}\item 
+string \hyperlink{class_location_a989ce807f112210952bad662d38185dd}{get\+District} () const 
+\begin{DoxyCompactList}\small\item\em Gets district attribute. \end{DoxyCompactList}\item 
+\hyperlink{class_location}{Location} \& \hyperlink{class_location_a41a15b0cfd590d365e31f613d32eebd1}{operator=} (const \hyperlink{class_location}{Location} \&rhs)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_location}{Location} assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_location_a0b4be23bfc6e2ea1ed95d80f70a84fbf}{trim\+Spaces} (string str)
+\begin{DoxyCompactList}\small\item\em Trims spaces from right and left. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_location_a0179634b6ba4046f74f57949e789abfb}{}string \hyperlink{class_location_a0179634b6ba4046f74f57949e789abfb}{city}\label{class_location_a0179634b6ba4046f74f57949e789abfb}
+
+\begin{DoxyCompactList}\small\item\em City. \end{DoxyCompactList}\item 
+\hypertarget{class_location_a648dadbf656ddaff096a36faa271a165}{}string \hyperlink{class_location_a648dadbf656ddaff096a36faa271a165}{county}\label{class_location_a648dadbf656ddaff096a36faa271a165}
+
+\begin{DoxyCompactList}\small\item\em County. \end{DoxyCompactList}\item 
+\hypertarget{class_location_a3739b4e334dfd90923671fb543baef4a}{}string \hyperlink{class_location_a3739b4e334dfd90923671fb543baef4a}{district}\label{class_location_a3739b4e334dfd90923671fb543baef4a}
+
+\begin{DoxyCompactList}\small\item\em District. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{class_location_acbdedd349c06b3c398317f9a9a9d3fe8}{operator$<$$<$} (ostream \&os, const \hyperlink{class_location}{Location} \&location)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_location}{Location} $<$$<$ operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Code for class \hyperlink{class_location}{Location}. A county has many cities; a district has various counties. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_location_adde1be165887d4738c25164191107f8a}{}\index{Location@{Location}!Location@{Location}}
+\index{Location@{Location}!Location@{Location}}
+\subsubsection[{Location(string city, string county, string district)}]{\setlength{\rightskip}{0pt plus 5cm}Location\+::\+Location (
+\begin{DoxyParamCaption}
+\item[{string}]{city, }
+\item[{string}]{county, }
+\item[{string}]{district}
+\end{DoxyParamCaption}
+)}\label{class_location_adde1be165887d4738c25164191107f8a}
+
+
+Constructor for \hyperlink{class_location}{Location} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & City \\
+\hline
+{\em county} & County \\
+\hline
+{\em district} & District \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_location_aa41373bb46efc066f79ab697c56b0da3}{}\index{Location@{Location}!Location@{Location}}
+\index{Location@{Location}!Location@{Location}}
+\subsubsection[{Location(string location)}]{\setlength{\rightskip}{0pt plus 5cm}Location\+::\+Location (
+\begin{DoxyParamCaption}
+\item[{string}]{location}
+\end{DoxyParamCaption}
+)}\label{class_location_aa41373bb46efc066f79ab697c56b0da3}
+
+
+Constructor for \hyperlink{class_location}{Location} class. Covnerts string into city, county, district. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & \hyperlink{class_location}{Location} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_location_ac682ee57f401c50a88d362305d159640}{}\index{Location@{Location}!get\+City@{get\+City}}
+\index{get\+City@{get\+City}!Location@{Location}}
+\subsubsection[{get\+City() const }]{\setlength{\rightskip}{0pt plus 5cm}string Location\+::get\+City (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_location_ac682ee57f401c50a88d362305d159640}
+
+
+Gets city attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns city 
+\end{DoxyReturn}
+\hypertarget{class_location_aa200afd4afd7898f16c5e54c533da4ef}{}\index{Location@{Location}!get\+County@{get\+County}}
+\index{get\+County@{get\+County}!Location@{Location}}
+\subsubsection[{get\+County() const }]{\setlength{\rightskip}{0pt plus 5cm}string Location\+::get\+County (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_location_aa200afd4afd7898f16c5e54c533da4ef}
+
+
+Gets county attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns county 
+\end{DoxyReturn}
+\hypertarget{class_location_a989ce807f112210952bad662d38185dd}{}\index{Location@{Location}!get\+District@{get\+District}}
+\index{get\+District@{get\+District}!Location@{Location}}
+\subsubsection[{get\+District() const }]{\setlength{\rightskip}{0pt plus 5cm}string Location\+::get\+District (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_location_a989ce807f112210952bad662d38185dd}
+
+
+Gets district attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns district 
+\end{DoxyReturn}
+\hypertarget{class_location_a41a15b0cfd590d365e31f613d32eebd1}{}\index{Location@{Location}!operator=@{operator=}}
+\index{operator=@{operator=}!Location@{Location}}
+\subsubsection[{operator=(const Location \&rhs)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location} \& Location\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Location} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\label{class_location_a41a15b0cfd590d365e31f613d32eebd1}
+
+
+\hyperlink{class_location}{Location} assignment operator. 
+
+\begin{DoxyReturn}{Returns}
+Returns location 
+\end{DoxyReturn}
+\hypertarget{class_location_a4d91190cad2ea40b0e8d53f5211561a6}{}\index{Location@{Location}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Location@{Location}}
+\subsubsection[{to\+String() const }]{\setlength{\rightskip}{0pt plus 5cm}string Location\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_location_a4d91190cad2ea40b0e8d53f5211561a6}
+
+
+Gets location in format city, county, district. 
+
+\begin{DoxyReturn}{Returns}
+Returns location in string format 
+\end{DoxyReturn}
+\hypertarget{class_location_a0b4be23bfc6e2ea1ed95d80f70a84fbf}{}\index{Location@{Location}!trim\+Spaces@{trim\+Spaces}}
+\index{trim\+Spaces@{trim\+Spaces}!Location@{Location}}
+\subsubsection[{trim\+Spaces(string str)}]{\setlength{\rightskip}{0pt plus 5cm}string Location\+::trim\+Spaces (
+\begin{DoxyParamCaption}
+\item[{string}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_location_a0b4be23bfc6e2ea1ed95d80f70a84fbf}
+
+
+Trims spaces from right and left. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String to trim\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns trimmed string 
+\end{DoxyReturn}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_location_acbdedd349c06b3c398317f9a9a9d3fe8}{}\index{Location@{Location}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Location@{Location}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{const {\bf Location} \&}]{location}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_location_acbdedd349c06b3c398317f9a9a9d3fe8}
+
+
+\hyperlink{class_location}{Location} $<$$<$ operator. 
+
+\begin{DoxyReturn}{Returns}
+Returns output stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/class/location/\hyperlink{location_8h}{location.\+h}\item 
+src/class/location/\hyperlink{location_8cpp}{location.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,633 @@
+\hypertarget{class_advertisement}{}\section{Advertisement Class Reference}
+\label{class_advertisement}\index{Advertisement@{Advertisement}}
+
+
+\hyperlink{class_advertisement}{Advertisement} class.  
+
+
+
+
+{\ttfamily \#include $<$advertisement.\+h$>$}
+
+Inheritance diagram for Advertisement\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_advertisement}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_advertisement_ad424d4af8c03981a8eb03512dd67ae0d}{Advertisement} (\hyperlink{class_ptr_user}{Ptr\+User} \hyperlink{class_advertisement_abcb6446847bfd1880be9c854c4442313}{owner}, string \hyperlink{class_advertisement_a63b197da6f91139ed6baf700f834a3db}{title}, Category \hyperlink{class_advertisement_af77599e289974c0e4f502db621257fe5}{category}, string \hyperlink{class_advertisement_afb0909f9fceabb44804e06e721ff7fee}{description}, float \hyperlink{class_advertisement_aefd1dddaabd0cfa411e6cbaaf67c4dd5}{price})
+\begin{DoxyCompactList}\small\item\em Constructor for class \hyperlink{class_advertisement}{Advertisement}. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_a49170a22dcd2a8bf88d3ed1aad475b82}{}virtual \hyperlink{class_advertisement_a49170a22dcd2a8bf88d3ed1aad475b82}{$\sim$\+Advertisement} ()\label{class_advertisement_a49170a22dcd2a8bf88d3ed1aad475b82}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_advertisement}{Advertisement} destructor. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_advertisement_aa66d9158d12ae99a04f81cf2adb155fd}{get\+Id} () const 
+\begin{DoxyCompactList}\small\item\em Gets advertisement I\+D. \end{DoxyCompactList}\item 
+\hyperlink{class_ptr_user}{Ptr\+User} \hyperlink{class_advertisement_a79a18c34607cef5cfc30afffea734327}{get\+Owner} ()
+\begin{DoxyCompactList}\small\item\em Gets advertisement owner. \end{DoxyCompactList}\item 
+string \hyperlink{class_advertisement_ac65aa68caf2b1697c0cc04f2ebb0fd99}{get\+Title} () const 
+\begin{DoxyCompactList}\small\item\em Gets advertisement title. \end{DoxyCompactList}\item 
+Category \hyperlink{class_advertisement_a123c05d427fed1ac7fec0f55050da20d}{get\+Category} () const 
+\begin{DoxyCompactList}\small\item\em Gets advertisement category. \end{DoxyCompactList}\item 
+string \hyperlink{class_advertisement_ac455b4918dbd923af81efbaebf924985}{get\+Description} () const 
+\begin{DoxyCompactList}\small\item\em Gets advertisement description. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{class_advertisement_a823c798799bcdf75a5b65158d6ad8c96}{get\+Views} () const 
+\begin{DoxyCompactList}\small\item\em Gets number of views the advertisement has had. \end{DoxyCompactList}\item 
+float \hyperlink{class_advertisement_a6c7a08129880f12744853f9ceeb172ee}{get\+Price} () const 
+\begin{DoxyCompactList}\small\item\em Gets advertisement price. \end{DoxyCompactList}\item 
+string \hyperlink{class_advertisement_aae882e292b1ddcad797df1d4b4766073}{get\+Creation\+Date} () const 
+\begin{DoxyCompactList}\small\item\em Gets advertisement creation date. \end{DoxyCompactList}\item 
+string \hyperlink{class_advertisement_a6fc53f531efa835c695ecd562d636be4}{gethighlight\+End\+Date} () const 
+\begin{DoxyCompactList}\small\item\em Gets date that highlight will finish. \end{DoxyCompactList}\item 
+bool \hyperlink{class_advertisement_a872ed609f23386fa5b26913a1d78036a}{is\+Price\+Negotiable} () const 
+\begin{DoxyCompactList}\small\item\em Returns if price is negotiable. \end{DoxyCompactList}\item 
+bool \hyperlink{class_advertisement_a0e277bd69072cf2250670e58bf89f491}{has\+User\+Paid} () const 
+\begin{DoxyCompactList}\small\item\em Returns if user paid to ad be on the spotlight. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_a22bc67410075fb1d7121ebe641da460e}{set\+Title} (string new\+Title)
+\begin{DoxyCompactList}\small\item\em Changes the title. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_a6313190818f1e4177bedeab6077e8fd7}{set\+Creation\+Date} (\hyperlink{class_date}{Date} \hyperlink{class_advertisement_a1997017950120c6ed305d772baae32b2}{creation\+Date})
+\begin{DoxyCompactList}\small\item\em Changes creation date. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_acaf414adece9bb3ca2077354e15ab626}{set\+Description} (string new\+Description)
+\begin{DoxyCompactList}\small\item\em Changes the description. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_a99c97180458c86d517cbbf35d960994f}{set\+Negotiable} (bool \hyperlink{class_advertisement_a34021160ad144fefd9df9a30d19bd895}{negotiable})
+\begin{DoxyCompactList}\small\item\em Sets negotiable attribute to value. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_ad9ba4dc7b74aea1e4bdd12d60322453c}{set\+Category} (Category new\+Category)
+\begin{DoxyCompactList}\small\item\em Sets category attribute to value. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_af47b69a36414d09f24bc2e9173e4ab8b}{set\+Price} (float new\+Price)
+\begin{DoxyCompactList}\small\item\em Sets price attribute to value. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_aa814cf6e2055d5b53d8b56849c55fb4c}{set\+Owner} (\hyperlink{class_ptr_user}{Ptr\+User} \hyperlink{class_advertisement_abcb6446847bfd1880be9c854c4442313}{owner})
+\begin{DoxyCompactList}\small\item\em Sets owner. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_aed9b87fa4c1129ee26789662da6259c7}{set\+Featured} (bool new\+Value)
+\begin{DoxyCompactList}\small\item\em Sets the spotlight. \end{DoxyCompactList}\item 
+void \hyperlink{class_advertisement_af8616fa5d3a5c0c0f605d33299609080}{sethighlight\+End\+Date} (\hyperlink{class_date}{Date} new\+Date)
+\begin{DoxyCompactList}\small\item\em Sets finish date of highlight. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_ad73071a166ba91edf80719806646dda7}{}void \hyperlink{class_advertisement_ad73071a166ba91edf80719806646dda7}{extend\+Duration\+Highligh} (unsigned int duration)\label{class_advertisement_ad73071a166ba91edf80719806646dda7}
+
+\begin{DoxyCompactList}\small\item\em Extend duration of highlight. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_abd20373813b956bac9a6fd78a4947ebc}{}void \hyperlink{class_advertisement_abd20373813b956bac9a6fd78a4947ebc}{increment\+Views} ()\label{class_advertisement_abd20373813b956bac9a6fd78a4947ebc}
+
+\begin{DoxyCompactList}\small\item\em Increments advertisement views. \end{DoxyCompactList}\item 
+bool \hyperlink{class_advertisement_a0a6b830d332effa0fd4a0263a2d477bf}{search\+For\+Text} (const string \&text) const 
+\begin{DoxyCompactList}\small\item\em Searches for text in advertisement. \end{DoxyCompactList}\item 
+virtual char \hyperlink{class_advertisement_acb3174a830215ed6dfd922002f2c8924}{get\+Type} () const  =0
+\begin{DoxyCompactList}\small\item\em Returns a P if is a purchase ad or a S if is a sale ad. \end{DoxyCompactList}\item 
+\hyperlink{class_location}{Location} \hyperlink{class_advertisement_a353ac42132683f145b64cf00cd9bdf40}{get\+Location} () const 
+\begin{DoxyCompactList}\small\item\em Gets ad owner location. \end{DoxyCompactList}\item 
+bool \hyperlink{class_advertisement_a72e7b7fe8f2d1070fa2682d268e39567}{operator==} (\hyperlink{class_advertisement}{Advertisement} $\ast$ad) const 
+\begin{DoxyCompactList}\small\item\em Compares two ads by they title. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_a18c7ef25ce6c2013ad50f2ace77e6596}{}virtual \hyperlink{class_transaction}{Transaction} $\ast$ \hyperlink{class_advertisement_a18c7ef25ce6c2013ad50f2ace77e6596}{view\+Proposals} ()=0\label{class_advertisement_a18c7ef25ce6c2013ad50f2ace77e6596}
+
+\begin{DoxyCompactList}\small\item\em Shows ad proposals. \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_advertisement_aabe17c6fbc25e46d953e206ed408207a}{add\+Proposal} (\hyperlink{class_proposal}{Proposal} $\ast$p)=0
+\begin{DoxyCompactList}\small\item\em Add proposal. \end{DoxyCompactList}\item 
+virtual ostream \& \hyperlink{class_advertisement_adb38cc00b914dd7a0509829c220eb2bc}{print} (ostream \&out)=0
+\begin{DoxyCompactList}\small\item\em Prints to out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_advertisement_afa7bb3d8371e8fdc476614f472f31ec9}{}unsigned int \hyperlink{class_advertisement_afa7bb3d8371e8fdc476614f472f31ec9}{views}\label{class_advertisement_afa7bb3d8371e8fdc476614f472f31ec9}
+
+\begin{DoxyCompactList}\small\item\em Number of times the advertisement has been seen. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_a0cb0d85726a8f955d2ab8bb312814e88}{}unsigned int \hyperlink{class_advertisement_a0cb0d85726a8f955d2ab8bb312814e88}{id}\label{class_advertisement_a0cb0d85726a8f955d2ab8bb312814e88}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_advertisement}{Advertisement} identification number. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_a63b197da6f91139ed6baf700f834a3db}{}string \hyperlink{class_advertisement_a63b197da6f91139ed6baf700f834a3db}{title}\label{class_advertisement_a63b197da6f91139ed6baf700f834a3db}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_advertisement}{Advertisement} title. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_af77599e289974c0e4f502db621257fe5}{}Category \hyperlink{class_advertisement_af77599e289974c0e4f502db621257fe5}{category}\label{class_advertisement_af77599e289974c0e4f502db621257fe5}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_advertisement}{Advertisement} category. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_afb0909f9fceabb44804e06e721ff7fee}{}string \hyperlink{class_advertisement_afb0909f9fceabb44804e06e721ff7fee}{description}\label{class_advertisement_afb0909f9fceabb44804e06e721ff7fee}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_advertisement}{Advertisement} description. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_a1997017950120c6ed305d772baae32b2}{}\hyperlink{class_date}{Date} \hyperlink{class_advertisement_a1997017950120c6ed305d772baae32b2}{creation\+Date}\label{class_advertisement_a1997017950120c6ed305d772baae32b2}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_advertisement}{Advertisement} date of creation. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_abcb6446847bfd1880be9c854c4442313}{}\hyperlink{class_ptr_user}{Ptr\+User} $\ast$ \hyperlink{class_advertisement_abcb6446847bfd1880be9c854c4442313}{owner}\label{class_advertisement_abcb6446847bfd1880be9c854c4442313}
+
+\begin{DoxyCompactList}\small\item\em Pointer to owner of advertisement. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_aefd1dddaabd0cfa411e6cbaaf67c4dd5}{}float \hyperlink{class_advertisement_aefd1dddaabd0cfa411e6cbaaf67c4dd5}{price}\label{class_advertisement_aefd1dddaabd0cfa411e6cbaaf67c4dd5}
+
+\begin{DoxyCompactList}\small\item\em Price of product. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_a34021160ad144fefd9df9a30d19bd895}{}bool \hyperlink{class_advertisement_a34021160ad144fefd9df9a30d19bd895}{negotiable}\label{class_advertisement_a34021160ad144fefd9df9a30d19bd895}
+
+\begin{DoxyCompactList}\small\item\em Whether price is negotiable or not. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_adab3e8386c76791d07f6a8ecee62d8eb}{}bool \hyperlink{class_advertisement_adab3e8386c76791d07f6a8ecee62d8eb}{featured}\label{class_advertisement_adab3e8386c76791d07f6a8ecee62d8eb}
+
+\begin{DoxyCompactList}\small\item\em Whether the creator of the ad paid our not to put is ad on the spotlight. \end{DoxyCompactList}\item 
+\hypertarget{class_advertisement_a0cc102883ab94e2d547597a7b51eee43}{}\hyperlink{class_date}{Date} \hyperlink{class_advertisement_a0cc102883ab94e2d547597a7b51eee43}{highlight\+End\+Date}\label{class_advertisement_a0cc102883ab94e2d547597a7b51eee43}
+
+\begin{DoxyCompactList}\small\item\em The date while the ad going to be highlighted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_advertisement_a0b5a0f2ec778aba63d0dd24bb3b2675b}{}static unsigned int \hyperlink{class_advertisement_a0b5a0f2ec778aba63d0dd24bb3b2675b}{next\+Id} = 0\label{class_advertisement_a0b5a0f2ec778aba63d0dd24bb3b2675b}
+
+\begin{DoxyCompactList}\small\item\em Next advertisement identification number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{class_advertisement_af6ba8e9ebe3c64e17263cbbcaa8bbb59}{operator$<$$<$} (ostream \&out, \hyperlink{class_advertisement}{Advertisement} \&ad)
+\begin{DoxyCompactList}\small\item\em Prints advertisement to out. \end{DoxyCompactList}\item 
+istream \& \hyperlink{class_advertisement_a5180e86255ebd01c83666f431b910bb4}{operator$>$$>$} (istream \&in, \hyperlink{class_advertisement}{Advertisement} \&ad)
+\begin{DoxyCompactList}\small\item\em Reads advertisement to in. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_advertisement}{Advertisement} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_advertisement_ad424d4af8c03981a8eb03512dd67ae0d}{}\index{Advertisement@{Advertisement}!Advertisement@{Advertisement}}
+\index{Advertisement@{Advertisement}!Advertisement@{Advertisement}}
+\subsubsection[{Advertisement(\+Ptr\+User owner, string title, Category category, string description, float price)}]{\setlength{\rightskip}{0pt plus 5cm}Advertisement\+::\+Advertisement (
+\begin{DoxyParamCaption}
+\item[{{\bf Ptr\+User}}]{owner, }
+\item[{string}]{title, }
+\item[{Category}]{category, }
+\item[{string}]{description, }
+\item[{float}]{price}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_ad424d4af8c03981a8eb03512dd67ae0d}
+
+
+Constructor for class \hyperlink{class_advertisement}{Advertisement}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Pointer to advertisement owner \\
+\hline
+{\em title} & \hyperlink{class_advertisement}{Advertisement} title \\
+\hline
+{\em category} & \hyperlink{class_advertisement}{Advertisement} category \\
+\hline
+{\em description} & \hyperlink{class_advertisement}{Advertisement} description \\
+\hline
+{\em price} & Product price \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_advertisement_aabe17c6fbc25e46d953e206ed408207a}{}\index{Advertisement@{Advertisement}!add\+Proposal@{add\+Proposal}}
+\index{add\+Proposal@{add\+Proposal}!Advertisement@{Advertisement}}
+\subsubsection[{add\+Proposal(\+Proposal $\ast$p)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Advertisement\+::add\+Proposal (
+\begin{DoxyParamCaption}
+\item[{{\bf Proposal} $\ast$}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_advertisement_aabe17c6fbc25e46d953e206ed408207a}
+
+
+Add proposal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \hyperlink{class_proposal}{Proposal} to add \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_sale_a3d96559f162caa33f63665a4076581d6}{Sale}, and \hyperlink{class_purchase_aba6c84c5e90bdff8aac40704ec92c716}{Purchase}.
+
+\hypertarget{class_advertisement_a123c05d427fed1ac7fec0f55050da20d}{}\index{Advertisement@{Advertisement}!get\+Category@{get\+Category}}
+\index{get\+Category@{get\+Category}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Category() const }]{\setlength{\rightskip}{0pt plus 5cm}Category Advertisement\+::get\+Category (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a123c05d427fed1ac7fec0f55050da20d}
+
+
+Gets advertisement category. 
+
+\begin{DoxyReturn}{Returns}
+Returns advertisement category 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_aae882e292b1ddcad797df1d4b4766073}{}\index{Advertisement@{Advertisement}!get\+Creation\+Date@{get\+Creation\+Date}}
+\index{get\+Creation\+Date@{get\+Creation\+Date}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Creation\+Date() const }]{\setlength{\rightskip}{0pt plus 5cm}string Advertisement\+::get\+Creation\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_aae882e292b1ddcad797df1d4b4766073}
+
+
+Gets advertisement creation date. 
+
+\begin{DoxyReturn}{Returns}
+Returns advertisement creation date 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_ac455b4918dbd923af81efbaebf924985}{}\index{Advertisement@{Advertisement}!get\+Description@{get\+Description}}
+\index{get\+Description@{get\+Description}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Description() const }]{\setlength{\rightskip}{0pt plus 5cm}string Advertisement\+::get\+Description (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_ac455b4918dbd923af81efbaebf924985}
+
+
+Gets advertisement description. 
+
+\begin{DoxyReturn}{Returns}
+Returns advertisement description 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a6fc53f531efa835c695ecd562d636be4}{}\index{Advertisement@{Advertisement}!gethighlight\+End\+Date@{gethighlight\+End\+Date}}
+\index{gethighlight\+End\+Date@{gethighlight\+End\+Date}!Advertisement@{Advertisement}}
+\subsubsection[{gethighlight\+End\+Date() const }]{\setlength{\rightskip}{0pt plus 5cm}string Advertisement\+::gethighlight\+End\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a6fc53f531efa835c695ecd562d636be4}
+
+
+Gets date that highlight will finish. 
+
+\begin{DoxyReturn}{Returns}
+Returns that date 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_aa66d9158d12ae99a04f81cf2adb155fd}{}\index{Advertisement@{Advertisement}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Id() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Advertisement\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_aa66d9158d12ae99a04f81cf2adb155fd}
+
+
+Gets advertisement I\+D. 
+
+\begin{DoxyReturn}{Returns}
+Returns advertisement I\+D 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a353ac42132683f145b64cf00cd9bdf40}{}\index{Advertisement@{Advertisement}!get\+Location@{get\+Location}}
+\index{get\+Location@{get\+Location}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Location() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Location} Advertisement\+::get\+Location (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a353ac42132683f145b64cf00cd9bdf40}
+
+
+Gets ad owner location. 
+
+\begin{DoxyReturn}{Returns}
+Returns ad owner location 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a79a18c34607cef5cfc30afffea734327}{}\index{Advertisement@{Advertisement}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Owner()}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ptr\+User} Advertisement\+::get\+Owner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_a79a18c34607cef5cfc30afffea734327}
+
+
+Gets advertisement owner. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to advertisement owner 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a6c7a08129880f12744853f9ceeb172ee}{}\index{Advertisement@{Advertisement}!get\+Price@{get\+Price}}
+\index{get\+Price@{get\+Price}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Price() const }]{\setlength{\rightskip}{0pt plus 5cm}float Advertisement\+::get\+Price (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a6c7a08129880f12744853f9ceeb172ee}
+
+
+Gets advertisement price. 
+
+\begin{DoxyReturn}{Returns}
+Returns advertisement price 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_ac65aa68caf2b1697c0cc04f2ebb0fd99}{}\index{Advertisement@{Advertisement}!get\+Title@{get\+Title}}
+\index{get\+Title@{get\+Title}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Title() const }]{\setlength{\rightskip}{0pt plus 5cm}string Advertisement\+::get\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_ac65aa68caf2b1697c0cc04f2ebb0fd99}
+
+
+Gets advertisement title. 
+
+\begin{DoxyReturn}{Returns}
+Returns advertisement title 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_acb3174a830215ed6dfd922002f2c8924}{}\index{Advertisement@{Advertisement}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Type() const  =0}]{\setlength{\rightskip}{0pt plus 5cm}virtual char Advertisement\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_advertisement_acb3174a830215ed6dfd922002f2c8924}
+
+
+Returns a P if is a purchase ad or a S if is a sale ad. 
+
+\begin{DoxyReturn}{Returns}
+Returns a char ( P(urchase) / S(ale)) 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_sale_ae105e16c4b41870d375c5b1442dc7031}{Sale}, and \hyperlink{class_purchase_aacd849fc1ec2b96e7c59de4012b8e45a}{Purchase}.
+
+\hypertarget{class_advertisement_a823c798799bcdf75a5b65158d6ad8c96}{}\index{Advertisement@{Advertisement}!get\+Views@{get\+Views}}
+\index{get\+Views@{get\+Views}!Advertisement@{Advertisement}}
+\subsubsection[{get\+Views() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Advertisement\+::get\+Views (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a823c798799bcdf75a5b65158d6ad8c96}
+
+
+Gets number of views the advertisement has had. 
+
+\begin{DoxyReturn}{Returns}
+Returns views 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a0e277bd69072cf2250670e58bf89f491}{}\index{Advertisement@{Advertisement}!has\+User\+Paid@{has\+User\+Paid}}
+\index{has\+User\+Paid@{has\+User\+Paid}!Advertisement@{Advertisement}}
+\subsubsection[{has\+User\+Paid() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Advertisement\+::has\+User\+Paid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a0e277bd69072cf2250670e58bf89f491}
+
+
+Returns if user paid to ad be on the spotlight. 
+
+\begin{DoxyReturn}{Returns}
+Returns whether the user paid or not 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a872ed609f23386fa5b26913a1d78036a}{}\index{Advertisement@{Advertisement}!is\+Price\+Negotiable@{is\+Price\+Negotiable}}
+\index{is\+Price\+Negotiable@{is\+Price\+Negotiable}!Advertisement@{Advertisement}}
+\subsubsection[{is\+Price\+Negotiable() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Advertisement\+::is\+Price\+Negotiable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a872ed609f23386fa5b26913a1d78036a}
+
+
+Returns if price is negotiable. 
+
+\begin{DoxyReturn}{Returns}
+Returns whether the price is negotiable or not 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a72e7b7fe8f2d1070fa2682d268e39567}{}\index{Advertisement@{Advertisement}!operator==@{operator==}}
+\index{operator==@{operator==}!Advertisement@{Advertisement}}
+\subsubsection[{operator==(\+Advertisement $\ast$ad) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Advertisement\+::operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf Advertisement} $\ast$}]{ad}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a72e7b7fe8f2d1070fa2682d268e39567}
+
+
+Compares two ads by they title. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ad} & Pointer to ad to compare with.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if their titles match. 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_adb38cc00b914dd7a0509829c220eb2bc}{}\index{Advertisement@{Advertisement}!print@{print}}
+\index{print@{print}!Advertisement@{Advertisement}}
+\subsubsection[{print(ostream \&out)=0}]{\setlength{\rightskip}{0pt plus 5cm}virtual ostream\& Advertisement\+::print (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_advertisement_adb38cc00b914dd7a0509829c220eb2bc}
+
+
+Prints to out. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Out stream \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_sale_a0b9e2e6bcc648d2471dc561a7eb3dcb4}{Sale}, and \hyperlink{class_purchase_ad9c91fe1eadbb43884d5e95fb9607b08}{Purchase}.
+
+\hypertarget{class_advertisement_a0a6b830d332effa0fd4a0263a2d477bf}{}\index{Advertisement@{Advertisement}!search\+For\+Text@{search\+For\+Text}}
+\index{search\+For\+Text@{search\+For\+Text}!Advertisement@{Advertisement}}
+\subsubsection[{search\+For\+Text(const string \&text) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Advertisement\+::search\+For\+Text (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{text}
+\end{DoxyParamCaption}
+) const}\label{class_advertisement_a0a6b830d332effa0fd4a0263a2d477bf}
+
+
+Searches for text in advertisement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & String to be search for in advertisement title and description\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the text being searched for has been found. Returns false otherwise. 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_ad9ba4dc7b74aea1e4bdd12d60322453c}{}\index{Advertisement@{Advertisement}!set\+Category@{set\+Category}}
+\index{set\+Category@{set\+Category}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Category(\+Category new\+Category)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Category (
+\begin{DoxyParamCaption}
+\item[{Category}]{new\+Category}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_ad9ba4dc7b74aea1e4bdd12d60322453c}
+
+
+Sets category attribute to value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Category} & New value of category attribute \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_a6313190818f1e4177bedeab6077e8fd7}{}\index{Advertisement@{Advertisement}!set\+Creation\+Date@{set\+Creation\+Date}}
+\index{set\+Creation\+Date@{set\+Creation\+Date}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Creation\+Date(\+Date creation\+Date)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Creation\+Date (
+\begin{DoxyParamCaption}
+\item[{{\bf Date}}]{creation\+Date}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_a6313190818f1e4177bedeab6077e8fd7}
+
+
+Changes creation date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em creation\+Date} & date of creation \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_acaf414adece9bb3ca2077354e15ab626}{}\index{Advertisement@{Advertisement}!set\+Description@{set\+Description}}
+\index{set\+Description@{set\+Description}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Description(string new\+Description)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Description (
+\begin{DoxyParamCaption}
+\item[{string}]{new\+Description}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_acaf414adece9bb3ca2077354e15ab626}
+
+
+Changes the description. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Description} & is the new description \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_aed9b87fa4c1129ee26789662da6259c7}{}\index{Advertisement@{Advertisement}!set\+Featured@{set\+Featured}}
+\index{set\+Featured@{set\+Featured}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Featured(bool new\+Value)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Featured (
+\begin{DoxyParamCaption}
+\item[{bool}]{new\+Value}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_aed9b87fa4c1129ee26789662da6259c7}
+
+
+Sets the spotlight. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new} & value of the flag \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_af8616fa5d3a5c0c0f605d33299609080}{}\index{Advertisement@{Advertisement}!sethighlight\+End\+Date@{sethighlight\+End\+Date}}
+\index{sethighlight\+End\+Date@{sethighlight\+End\+Date}!Advertisement@{Advertisement}}
+\subsubsection[{sethighlight\+End\+Date(\+Date new\+Date)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::sethighlight\+End\+Date (
+\begin{DoxyParamCaption}
+\item[{{\bf Date}}]{new\+Date}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_af8616fa5d3a5c0c0f605d33299609080}
+
+
+Sets finish date of highlight. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Date} & its new date that the highlight will end \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_a99c97180458c86d517cbbf35d960994f}{}\index{Advertisement@{Advertisement}!set\+Negotiable@{set\+Negotiable}}
+\index{set\+Negotiable@{set\+Negotiable}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Negotiable(bool negotiable)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Negotiable (
+\begin{DoxyParamCaption}
+\item[{bool}]{negotiable}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_a99c97180458c86d517cbbf35d960994f}
+
+
+Sets negotiable attribute to value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em negotiable} & New value of negotiable attribute \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_aa814cf6e2055d5b53d8b56849c55fb4c}{}\index{Advertisement@{Advertisement}!set\+Owner@{set\+Owner}}
+\index{set\+Owner@{set\+Owner}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Owner(\+Ptr\+User owner)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Owner (
+\begin{DoxyParamCaption}
+\item[{{\bf Ptr\+User}}]{owner}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_aa814cf6e2055d5b53d8b56849c55fb4c}
+
+
+Sets owner. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em owner} & Owner \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_af47b69a36414d09f24bc2e9173e4ab8b}{}\index{Advertisement@{Advertisement}!set\+Price@{set\+Price}}
+\index{set\+Price@{set\+Price}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Price(float new\+Price)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Price (
+\begin{DoxyParamCaption}
+\item[{float}]{new\+Price}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_af47b69a36414d09f24bc2e9173e4ab8b}
+
+
+Sets price attribute to value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Price} & New value of price attribute \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_advertisement_a22bc67410075fb1d7121ebe641da460e}{}\index{Advertisement@{Advertisement}!set\+Title@{set\+Title}}
+\index{set\+Title@{set\+Title}!Advertisement@{Advertisement}}
+\subsubsection[{set\+Title(string new\+Title)}]{\setlength{\rightskip}{0pt plus 5cm}void Advertisement\+::set\+Title (
+\begin{DoxyParamCaption}
+\item[{string}]{new\+Title}
+\end{DoxyParamCaption}
+)}\label{class_advertisement_a22bc67410075fb1d7121ebe641da460e}
+
+
+Changes the title. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Title} & is the new title \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_advertisement_af6ba8e9ebe3c64e17263cbbcaa8bbb59}{}\index{Advertisement@{Advertisement}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Advertisement@{Advertisement}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out, }
+\item[{{\bf Advertisement} \&}]{ad}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_advertisement_af6ba8e9ebe3c64e17263cbbcaa8bbb59}
+
+
+Prints advertisement to out. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Out stream \\
+\hline
+{\em ad} & Reference to advertisement to print\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns out stream 
+\end{DoxyReturn}
+\hypertarget{class_advertisement_a5180e86255ebd01c83666f431b910bb4}{}\index{Advertisement@{Advertisement}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Advertisement@{Advertisement}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{{\bf Advertisement} \&}]{ad}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_advertisement_a5180e86255ebd01c83666f431b910bb4}
+
+
+Reads advertisement to in. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & In stream \\
+\hline
+{\em ad} & Reference to advertisement to write on\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns in stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/class/advertisement/\hyperlink{advertisement_8h}{advertisement.\+h}\item 
+src/class/advertisement/\hyperlink{advertisement_8cpp}{advertisement.\+cpp}\end{DoxyCompactItemize}

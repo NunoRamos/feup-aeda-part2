@@ -1,3 +1,13 @@
+/**
+ * @file transaction.h
+ *
+ * @brief Header file for class Transaction*/
+
+/**
+ * @file transaction.cpp
+ *
+ * @brief Code for class Transaction*/
+
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 

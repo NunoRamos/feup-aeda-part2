@@ -1,9 +1,12 @@
-/*
- * PtrUser.h
+/**
+ * @file PtrUser.h
  *
- *  Created on: 23/12/2015
- *      Author: Utilizador
- */
+ * @brief Header file for class PtrUser*/
+
+/**
+ * @file PtrUser.cpp
+ *
+ * @brief Code for class PtrUser*/
 
 #ifndef SRC_CLASS_PTRUSER_PTRUSER_H_
 #define SRC_CLASS_PTRUSER_PTRUSER_H_
@@ -18,7 +21,7 @@ class User;
  */
 class PtrUser{
 protected:
-	User* userPtr;
+	User* userPtr; ///< Pointer to User
 public:
 	/**
 	 * @brief Default construtor for PtrUser

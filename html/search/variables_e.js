@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['views',['views',['../class_advertisement.html#afa7bb3d8371e8fdc476614f472f31ec9',1,'Advertisement']]]
+  ['userptr',['userPtr',['../class_ptr_user.html#a6bab8fb2673a9f2d74f40b313ba7e4bc',1,'PtrUser']]]
 ];
