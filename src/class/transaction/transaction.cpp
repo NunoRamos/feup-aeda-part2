@@ -2,42 +2,42 @@
 
 unsigned int Transaction::nextId = 0;
 
-Transaction::Transaction(User* buyer, User* seller, float price) {
+Transaction::Transaction(PtrUser buyer, PtrUser seller, float price) {
 	this->id = nextId;
-	this->buyer = buyer;
-	this->seller = seller;
+	this->buyer = new PtrUser(buyer.getUserPtr());
+	this->seller = new PtrUser(seller.getUserPtr());
 	this->price = price;
 	this->date = Date::now();
 	nextId++;
-	buyer->incrementTransactions();
-	buyer->setLastTransaction();
-	seller->incrementTransactions();
-	seller->setLastTransaction();
+	buyer.getUserPtr()->incrementTransactions();
+	buyer.getUserPtr()->setLastTransaction();
+	seller.getUserPtr()->incrementTransactions();
+	seller.getUserPtr()->setLastTransaction();
 }
 
-Transaction::Transaction(User* buyer, User* seller, float price, Date date){
+Transaction::Transaction(PtrUser buyer, PtrUser seller, float price, Date date){
 	this->id = nextId;
-	this->buyer = buyer;
-	this->seller = seller;
+	this->buyer = new PtrUser(buyer.getUserPtr());
+	this->seller = new PtrUser(seller.getUserPtr());
 	this->price = price;
 	this->date = date;
 	nextId++;
-	buyer->incrementTransactions();
-	buyer->setLastTransaction(date);
-	seller->incrementTransactions();
-	seller->setLastTransaction(date);
+	buyer.getUserPtr()->incrementTransactions();
+	buyer.getUserPtr()->setLastTransaction(date);
+	seller.getUserPtr()->incrementTransactions();
+	seller.getUserPtr()->setLastTransaction(date);
 }
 
 unsigned int Transaction::getId() const{
 	return id;
 }
 
-User* Transaction::getBuyer() const{
-	return buyer;
+PtrUser Transaction::getBuyer() const{
+	return *buyer;
 }
 
-User* Transaction::getSeller() const{
-	return seller;
+PtrUser Transaction::getSeller() const{
+	return *seller;
 }
 
 float Transaction::getPrice() const{

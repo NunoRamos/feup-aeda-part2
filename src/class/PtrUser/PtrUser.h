@@ -18,26 +18,31 @@ protected:
 	User* userPtr;
 public:
 	/**
-	 * @brief constructor using class User
+	 * @brief Default construtor for PtrUser
+	 */
+	PtrUser();
+
+	/**
+	 * @brief Constructor using class user
 	 *
-	 * @param userPtr Apontador para user
+	 * @param userPtr Pointer to user
 	 */
 	PtrUser(User* userPtr);
 	/**
-	 * @brief Retorna apontador para User
+	 * @brief Gets pointer to user
 	 *
+	 * @return Returns pointer to user
 	 */
 	User* getUserPtr() const;
 	/**
-	 * @brief overloading of operator < for users pointers
+	 * @brief overloading of operator< for user pointers
 	 *
-	 * @param left 1ºobjeto a comparar
+	 * @param left left object to compare
+	 * @param right right object to compare
 	 *
-	 * @param right segundo objeto a comparar
+	 * @return Returns true if left operand is lesser than right
 	 */
 	bool operator< (const PtrUser &right) const;
-
-
 };
 
 

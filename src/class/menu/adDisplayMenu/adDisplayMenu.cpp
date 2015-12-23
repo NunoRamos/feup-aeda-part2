@@ -11,7 +11,7 @@ AdDisplayMenu::AdDisplayMenu(Data* data, Advertisement* ad, unsigned int height,
 		unsigned int width, char borderChar) :
 		Menu(data, height, width, borderChar) {
 	this->ad = ad;
-	if (ad->getOwner() != data->getSignedInUser()) {
+	if (ad->getOwner().getUserPtr() != data->getSignedInUser().getUserPtr()) {
 		ad->incrementViews();
 	}
 
@@ -83,27 +83,27 @@ void AdDisplayMenu::print() {
 							<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
 							<< borderChar << endl;
 
-	bool showEmail = ad->getOwner()->getShowEmail();
-	bool showName = ad->getOwner()->getShowName();
-	bool showPhoneNumber = ad->getOwner()->getShowPhoneNumber();
+	bool showEmail = ad->getOwner().getUserPtr()->getShowEmail();
+	bool showName = ad->getOwner().getUserPtr()->getShowName();
+	bool showPhoneNumber = ad->getOwner().getUserPtr()->getShowPhoneNumber();
 
 	if (showEmail || showName || showPhoneNumber) {
 		if (showEmail) {
-			string email = ad->getOwner()->getEmail();
+			string email = ad->getOwner().getUserPtr()->getEmail();
 			cout << borderChar << " Email: " << email
 					<< string(width - 2 - 8 - email.length(), ' ') << borderChar
 					<< endl;
 		}
 
 		if (showName) {
-			string name = ad->getOwner()->getName();
+			string name = ad->getOwner().getUserPtr()->getName();
 			cout << borderChar << " Name: " << name
 					<< string(width - 2 - 7 - name.length(), ' ') << borderChar
 					<< endl;
 		}
 
 		if (showPhoneNumber) {
-			string phoneNumber = ad->getOwner()->getPhoneNumber();
+			string phoneNumber = ad->getOwner().getUserPtr()->getPhoneNumber();
 			cout << borderChar << " Phone Number: " << phoneNumber
 					<< string(width - 2 - 15 - phoneNumber.length(), ' ')
 					<< borderChar << endl;
@@ -126,7 +126,7 @@ void AdDisplayMenu::print() {
 		<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
 		<< endl;
 
-	if (data->getSignedInUser() == ad->getOwner()){
+	if (data->getSignedInUser().getUserPtr() == ad->getOwner().getUserPtr()){
 		if (ad->hasUserPaid())
 			cout << borderChar << " Highlighted Ends in "<<ad->gethighlightEndDate() << string(width - 2 - 21-ad->gethighlightEndDate().length(), ' ')
 			<< borderChar << endl;
@@ -135,7 +135,7 @@ void AdDisplayMenu::print() {
 	emptyLine();
 
 	unsigned int i = 1;
-	if (data->getSignedInUser() == ad->getOwner()) {
+	if (data->getSignedInUser().getUserPtr() == ad->getOwner().getUserPtr()) {
 		string editTitle = "1 - Edit title";
 		cout << borderChar << " " << editTitle
 				<< string(width - 3 - editTitle.length(), ' ') << borderChar
@@ -197,7 +197,7 @@ void AdDisplayMenu::createMenu() {
 	string title, description, category, answer;
 	unsigned int i = 0;
 	cout << "What option would you like to choose?" << endl;
-	if (data->getSignedInUser() == ad->getOwner()) {
+	if (data->getSignedInUser().getUserPtr() == ad->getOwner().getUserPtr()) {
 		do {
 			if (i > 0) {
 				cout << "Please introduce a valid option." << endl;
@@ -250,7 +250,7 @@ void AdDisplayMenu::createMenu() {
 				ad->setNegotiable(false);
 			break;
 		case 5:
-			ad->getOwner()->removeAdvertisement(ad);
+			ad->getOwner().getUserPtr()->removeAdvertisement(ad);
 			data->removeAdvertisement(ad);
 			signedInMenu(data);
 			break;
@@ -259,9 +259,9 @@ void AdDisplayMenu::createMenu() {
 			if((t = ad->viewProposals()) != NULL){
 				data->addTransaction(t);
 				data->deleteAd(ad);
-				if(t->getBuyer()->getTransactions() > 1)
+				if(t->getBuyer().getUserPtr()->getTransactions() > 1)
 					data->addUserToBst(t->getBuyer());
-				if(t->getSeller()->getTransactions() > 1)
+				if(t->getSeller().getUserPtr()->getTransactions() > 1)
 					data->addUserToBst(t->getSeller());
 				data->updateTree();
 			}
@@ -299,11 +299,11 @@ void AdDisplayMenu::createMenu() {
 
 		switch (input) {
 		case 1:
-			interested(ad->getOwner());
+			interested(ad->getOwner().getUserPtr());
 			break;
 		case 2:
-			if (data->getSignedInUser() != NULL)
-				data->getSignedInUser()->sendProposal(ad);
+			if (data->getSignedInUser().getUserPtr() != NULL)
+				data->getSignedInUser().getUserPtr()->sendProposal(ad);
 			else
 				cout << "You must be signed in order to send a proposal.\n";
 			break;

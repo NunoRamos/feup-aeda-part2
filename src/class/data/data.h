@@ -43,13 +43,12 @@ enum Order{
  */
 class Data{
 private:
-	const string path = "C:/Users/Utilizador/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
+	const string path = "C:/Users/Bernardo/git/AEDA_OLZ_part2/data/";//const string path = "/data/"; ///< used to save and load users.
 	vector<Advertisement*> advertisements; ///< Vector of pointers to all advertisements
 	vector<User> users; ///< Vector of all users
-	User* signedInUser; ///< Pointer to user that is currently signed in
+	PtrUser signedInUser; ///< Pointer to user that is currently signed in
 	BST<PtrUser> usersTransactions; ///< Tree with users with at least one transaction sorted by descending order
 	unordered_set<Transaction*, TransactionHash> transactions;
-
 public:
 
 	/**
@@ -153,7 +152,7 @@ public:
 	 *
 	 * @return Returns pointer to signed in user
 	 */
-	User* getSignedInUser() const;
+	PtrUser getSignedInUser() const;
 
 	/**
 	 * @brief Gets ads in same city as parameter
@@ -187,7 +186,7 @@ public:
 	 *
 	 * @param user User to remove
 	 */
-	void removeUser(User* user);
+	void removeUser(PtrUser user);
 	
 	/*
 	 * @brief get usersTransactions bst
@@ -232,7 +231,7 @@ public:
 	 *
 	 * @return User
 	 */
-	User* getUser(string email);
+	PtrUser getUser(string email);
 
 	/**
 	 * @brief Delete advertisement

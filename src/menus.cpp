@@ -43,7 +43,7 @@ void search(Data* data) {
 	menu.addOption("Search By Location", &searchByLocation);
 	menu.addOption("Search For Approximate Price", &searchByPrice);
 	menu.addOption("Search By Keyword", &searchByKeyword);
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		menu.addOption("Return", &signedInMenu);
 	else
 		menu.addOption("Return", &mainMenu);
@@ -74,13 +74,13 @@ void searchByCategory(Data* data) {
 		getline(cin, answer);
 		if (answer == "y" || answer == "Y")
 			searchByCategory(data);
-		else if (data->getSignedInUser() != NULL)
+		else if (data->getSignedInUser().getUserPtr() != NULL)
 			signedInMenu(data);
 		else
 			mainMenu(data);
 	}
 
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		signedInMenu(data);
 	else
 		mainMenu(data);
@@ -94,7 +94,7 @@ void searchByLocation(Data* data) {
 	menu.addOption("Same district", &sameDistrict);
 	menu.createMenu();
 
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		signedInMenu(data);
 	else
 		mainMenu(data);
@@ -110,7 +110,7 @@ void sameCity(Data* data) {
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		signedInMenu(data);
 	else
 		mainMenu(data);
@@ -126,7 +126,7 @@ void sameCounty(Data* data) {
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		signedInMenu(data);
 	else
 		mainMenu(data);
@@ -142,7 +142,7 @@ void sameDistrict(Data* data) {
 	SearchMenu searchMenu(data, ads);
 	searchMenu.createMenu();
 
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		signedInMenu(data);
 	else
 		mainMenu(data);
@@ -164,7 +164,7 @@ void searchByPrice(Data* data) {
 	data->orderResults(results,sort::PriceAsc);
 	SearchMenu menu(data, results);
 	menu.createMenu();
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		signedInMenu(data);
 	else
 		mainMenu(data);
@@ -182,7 +182,7 @@ void searchByKeyword(Data* data) {
 	data->orderResults(results,sort::KeywordAsc);
 	SearchMenu menu(data, results);
 	menu.createMenu();
-	if (data->getSignedInUser() != NULL)
+	if (data->getSignedInUser().getUserPtr() != NULL)
 		signedInMenu(data);
 	else
 		mainMenu(data);
@@ -516,7 +516,7 @@ void interested(User* user) {
 void viewMyAds(Data* data) {
 	clearScreen();
 	vector<Advertisement*> results =
-			data->getSignedInUser()->getAdvertisements();
+			data->getSignedInUser().getUserPtr()->getAdvertisements();
 	SearchMenu menu(data, results);
 	menu.createMenu();
 	signedInMenu(data);
@@ -526,7 +526,7 @@ void deleteUser(Data* data) {
 	string password;
 	cout << "Introduce your password: ";
 	getline(cin, password);
-	if (data->signIn(data->getSignedInUser()->getEmail(), password)) {
+	if (data->signIn(data->getSignedInUser().getUserPtr()->getEmail(), password)) {
 		data->signOut();
 		data->removeUser(data->getSignedInUser());
 	}

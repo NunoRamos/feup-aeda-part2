@@ -3,14 +3,15 @@
 #include "../advertisement/purchase/purchase.h"
 #include "../../menus.h"
 #include "../../comparisons.h"
+#include "../PtrUser/PtrUser.h"
 
 #include<fstream>
 #include <iostream>
 #include <sstream>
 #include <queue>
 
-Data::Data() :
-usersTransactions(new User("", "", "", "", Location())) {
+Data::Data() : usersTransactions(PtrUser(new User("", "", "", "", Location()))) {
+	//usersTransactions = BST<PtrUser>(PtrUser(new User("", "", "", "", Location())));
 	signedInUser = NULL;
 }
 
@@ -107,7 +108,7 @@ bool Data::saveUsers() {
 }
 
 void Data::removeAdvertisement(Advertisement* ad) {
-	ad->getOwner()->removeAdvertisement(ad);
+	ad->getOwner().getUserPtr()->removeAdvertisement(ad);
 	int adIndex = sequentialSearch(advertisements, ad);
 
 	if (adIndex == -1)
@@ -119,7 +120,7 @@ void Data::removeAdvertisement(Advertisement* ad) {
 
 void Data::addAdvertisement(Advertisement* ad) {
 	advertisements.push_back(ad);
-	ad->getOwner()->addAdvertisement(ad);
+	ad->getOwner().getUserPtr()->addAdvertisement(ad);
 }
 
 vector<Advertisement*> Data::searchForAds(string text) {
@@ -180,7 +181,7 @@ void Data::signOut() {
 	signedInUser = NULL;
 }
 
-User* Data::getSignedInUser() const {
+PtrUser Data::getSignedInUser() const {
 	return signedInUser;
 }
 
@@ -217,20 +218,20 @@ vector<Advertisement*> Data::getAdsInSameDistrict(string district) {
 	return results;
 }
 
-void Data::removeUser(User* user) {
+void Data::removeUser(PtrUser user) {
 	removeUserFromBst(user); //TODO when deleting a user, the program does not correctly update the bst
 
 	for(unordered_set<Transaction*, TransactionHash>::iterator it = transactions.begin(); it != transactions.end(); it++){
-		if(*((*it)->getBuyer()) == *user || *((*it)->getSeller()) == *user)
+		if(*((*it)->getBuyer().getUserPtr()) == *user.getUserPtr() || *((*it)->getSeller().getUserPtr()) == *user.getUserPtr())
 			it = transactions.erase(it);
 		if(it == transactions.end())
 			break;
 	}
 
-	unsigned int index = sequentialSearch(users, *user);
+	unsigned int index = sequentialSearch(users, *user.getUserPtr());
 	users[index].deleteAds();
 	for (unsigned int i = 0; i < advertisements.size(); i++) {
-		if (advertisements[i]->getOwner() == user) {
+		if (advertisements[i]->getOwner().getUserPtr() == user.getUserPtr()) {
 			delete advertisements[i];
 			advertisements.erase(advertisements.begin() + i);
 			i--;
@@ -270,9 +271,9 @@ void Data::loadTransactions(){ //TODO
 	getline(file, email1);
 	while(!file.eof()){
 		file >> email1 >> email2 >> price >> date;
-		User* u1 = getUser(email1);
-		User* u2 = getUser(email2);
-		if(u1 != NULL && u2 != NULL){
+		PtrUser u1 = getUser(email1);
+		PtrUser u2 = getUser(email2);
+		if(u1.getUserPtr() != NULL && u2.getUserPtr() != NULL){
 			t = new Transaction(u1, u2, price, Date(date));
 			transactions.insert(t);
 		}
@@ -284,15 +285,15 @@ void Data::saveTransactions(){ //TODO
 	ofstream file(transaction_path);
 	file << transactions.size();
 	for(unordered_set<Transaction*, TransactionHash>::iterator it = transactions.begin(); it != transactions.end(); it++){
-		file << '\n' << (*it)->getBuyer()->getEmail() << ' ' << (*it)->getSeller()->getEmail() << ' '
+		file << '\n' << (*it)->getBuyer().getUserPtr()->getEmail() << ' ' << (*it)->getSeller().getUserPtr()->getEmail() << ' '
 				<< (*it)->getPrice() << ' ' << (*it)->getDate().toString();
 	}
 }
 
-User* Data::getUser(string email){
+PtrUser Data::getUser(string email){
 	for(unsigned int i = 0; i < users.size(); i++){
 		if(users[i].getEmail() == email)
-			return &users[i];
+			return PtrUser(&users[i]);
 	}
 
 	return NULL;
@@ -301,7 +302,7 @@ User* Data::getUser(string email){
 bool Data::deleteAd(Advertisement* ad){
 	for(unsigned int i = 0; i < advertisements.size(); i++){
 		if(advertisements[i]->getId() == ad->getId()){
-			ad->getOwner()->deleteAd(ad);
+			ad->getOwner().getUserPtr()->deleteAd(ad);
 			delete ad;
 
 			for(unsigned int j = i; j < advertisements.size() - 1; j++){

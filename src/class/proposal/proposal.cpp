@@ -7,8 +7,8 @@
 
 #include "proposal.h"
 
-Proposal::Proposal(User* proposalOwner, float price) {
-	this->proposalOwner = proposalOwner;
+Proposal::Proposal(PtrUser proposalOwner, float price) {
+	this->proposalOwner = new PtrUser(proposalOwner.getUserPtr());
 	this->price = price;
 }
 
@@ -20,8 +20,8 @@ float Proposal::getPrice(){
 	return price;
 }
 
-User* Proposal::getOwner(){
-	return proposalOwner;
+PtrUser Proposal::getOwner(){
+	return *proposalOwner;
 }
 
 

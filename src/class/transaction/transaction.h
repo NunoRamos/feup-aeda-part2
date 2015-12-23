@@ -1,17 +1,18 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
+#include "../PtrUser/PtrUser.h"
 #include "../date/date.h"
 #include "../user/user.h"
 
-class User;
+class PtrUser;
 
 class Transaction{
 private:
 	static unsigned int nextId;
 	unsigned int id;
-	User* buyer;
-	User* seller;
+	PtrUser *buyer;
+	PtrUser *seller;
 	float price;
 	Date date;
 public:
@@ -22,7 +23,7 @@ public:
 	 * @param seller Seller
 	 * @param price Price
 	 */
-	Transaction(User* buyer, User* seller, float price);
+	Transaction(PtrUser buyer, PtrUser seller, float price);
 
 	/**
 	 * @brief Constructor for Transaction class
@@ -32,7 +33,7 @@ public:
 	 * @param price Price
 	 * @param date Date
 	 */
-	Transaction(User* buyer, User* seller, float price, Date date);
+	Transaction(PtrUser buyer, PtrUser seller, float price, Date date);
 
 	/**
 	 * @brief Returns transaction id
@@ -46,14 +47,14 @@ public:
 	 *
 	 * @return Returns buyer
 	 */
-	User* getBuyer() const;
+	PtrUser getBuyer() const;
 
 	/**
 	 * @brief Returns seller
 	 *
 	 * @return Returns seller
 	 */
-	User* getSeller() const;
+	PtrUser getSeller() const;
 
 	/**
 	 * @brief Returns price

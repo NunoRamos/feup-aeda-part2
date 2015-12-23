@@ -34,7 +34,7 @@ public:
 	 * @param description Advertisement description
 	 * @param price Product price
 	 */
-	Purchase(User* owner, string title, Category category, string description, float price);
+	Purchase(PtrUser owner, string title, Category category, string description, float price);
 
 	/**
 	 * @brief Purchase destructor

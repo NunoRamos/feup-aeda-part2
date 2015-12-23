@@ -3,7 +3,7 @@
 #include <iostream>
 #include "../../data/data.h"
 
-Purchase::Purchase(User* owner, string title, Category category, string description, float price):
+Purchase::Purchase(PtrUser owner, string title, Category category, string description, float price):
 Advertisement(owner, title, category, description, price){}
 
 Purchase::~Purchase(){ }
@@ -22,7 +22,7 @@ Transaction* Purchase::viewProposals(){
 
 	int input;
 	cout << "Price offered: " << proposals.top()->getPrice() << endl;
-	cout << "Offer from: " << proposals.top()->getOwner()->getName() << endl;
+	cout << "Offer from: " << proposals.top()->getOwner().getUserPtr()->getName() << endl;
 	cout << "1 - Accept\n";
 	cout << "2 - Refuse\n";
 	cout << "3 - Back\n";
@@ -35,14 +35,14 @@ Transaction* Purchase::viewProposals(){
 
 	switch(input){
 	case 1:{
-		User* seller = proposals.top()->getOwner();
+		PtrUser seller = proposals.top()->getOwner();
 		float price = proposals.top()->getPrice();
 
 		while(!proposals.empty()){
 			delete proposals.top();
 			proposals.pop();
 		}
-		return new Transaction(owner, seller, price);
+		return new Transaction(*owner, seller, price);
 		break;
 	}
 	case 2:

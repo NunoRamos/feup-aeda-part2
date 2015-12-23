@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Sale::Sale(User* owner, string title, Category category, string description, Condition productCondition, float price) :
+Sale::Sale(PtrUser owner, string title, Category category, string description, Condition productCondition, float price) :
 						Advertisement(owner, title, category, description, price){
 	this->productCondition = productCondition;
 }
@@ -39,7 +39,7 @@ Transaction* Sale::viewProposals(){
 
 	int input;
 	cout << "Price offered: " << proposals.top()->getPrice() << endl;
-	cout << "Offer from: " << proposals.top()->getOwner()->getName() << endl;
+	cout << "Offer from: " << proposals.top()->getOwner().getUserPtr()->getName() << endl;
 	cout << "1 - Accept\n";
 	cout << "2 - Refuse\n";
 	cout << "3 - Back\n";
@@ -52,14 +52,14 @@ Transaction* Sale::viewProposals(){
 	switch(input){
 	case 1:
 	{
-		User* buyer = proposals.top()->getOwner();
+		PtrUser buyer = proposals.top()->getOwner();
 		float price = proposals.top()->getPrice();
 
 		while(!proposals.empty()){
 			delete proposals.top();
 			proposals.pop();
 		}
-		return new Transaction(buyer, owner, price);
+		return new Transaction(buyer, *owner, price);
 		break;
 	}
 	case 2:

@@ -15,6 +15,7 @@
 #include<string>
 #include<vector>
 
+#include "../PtrUser/PtrUser.h"
 #include "../../enums.h"
 #include "../date/date.h"
 #include "../user/user.h"
@@ -28,6 +29,7 @@ using namespace enums;
 class User;//had to do this to allow cyclic calling of class
 class Proposal;
 class Transaction;
+class PtrUser;
 
 /**
  * @brief Advertisement class
@@ -41,8 +43,7 @@ protected:
 	Category category; ///< Advertisement category
 	string description; ///< Advertisement description
 	Date creationDate; ///< Advertisement date of creation
-	vector<string> imagesPath; // temporary
-	User* owner; ///< Pointer to owner of advertisement
+	PtrUser *owner; ///< Pointer to owner of advertisement
 	float price; ///< Price of product
 	bool negotiable; ///< Whether price is negotiable or not
 	bool featured; ///< Whether the creator of the ad paid our not to put is ad on the spotlight
@@ -57,7 +58,7 @@ public:
 	 * @param description Advertisement description
 	 * @param price Product price
 	 */
-	Advertisement(User* owner, string title, Category category, string description, float price);
+	Advertisement(PtrUser owner, string title, Category category, string description, float price);
 
 	/**
 	 * @brief Advertisement destructor
@@ -76,7 +77,7 @@ public:
 	 *
 	 * @return Pointer to advertisement owner
 	 */
-	User* getOwner();
+	PtrUser getOwner();
 
 	/**
 	 * @brief Gets advertisement title
@@ -188,7 +189,7 @@ public:
 	 *
 	 * @param owner Owner
 	 */
-	void setOwner(User* owner);
+	void setOwner(PtrUser owner);
 
 	/**
 	 * @brief Sets the spotlight

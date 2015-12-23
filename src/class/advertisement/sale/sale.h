@@ -38,7 +38,7 @@ public:
 	 * @param productCondition Product condition
 	 * @param price Product price
 	 */
-	Sale(User* owner, string title, Category category, string description, Condition productCondition, float price);
+	Sale(PtrUser owner, string title, Category category, string description, Condition productCondition, float price);
 
 	/**
 	 * @brief Sale destructor

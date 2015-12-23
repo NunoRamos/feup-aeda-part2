@@ -1,17 +1,18 @@
 #ifndef PROPOSAL_H
 #define PROPOSAL_H
 
+#include "../PtrUser/PtrUser.h"
 #include "../user/user.h"
 
-class User;
+class PtrUser;
 
 class Proposal {
 	float price;
-	User* proposalOwner;
+	PtrUser *proposalOwner;
 public:
-	Proposal(User* proposalOwner, float price);
+	Proposal(PtrUser proposalOwner, float price);
 	float getPrice();
-	User* getOwner();
+	PtrUser getOwner();
 	bool operator<(const Proposal &p) const;
 };
 

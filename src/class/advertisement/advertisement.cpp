@@ -5,9 +5,9 @@
 
 unsigned int Advertisement::nextId = 0;
 
-Advertisement::Advertisement(User* owner, string title, Category category,
+Advertisement::Advertisement(PtrUser owner, string title, Category category,
 		string description, float price) {
-	this->owner = owner;
+	this->owner = new PtrUser(owner.getUserPtr());
 	this->title = title;
 	this->category = category;
 	this->description = description;
@@ -27,8 +27,8 @@ unsigned int Advertisement::getId() const {
 	return id;
 }
 
-User* Advertisement::getOwner() {
-	return owner;
+PtrUser Advertisement::getOwner() {
+	return *owner;
 }
 
 string Advertisement::getTitle() const {
@@ -189,10 +189,10 @@ istream& operator>>(istream& in, Advertisement &ad) {
 }
 
 Location Advertisement::getLocation() const {
-	return owner->getLocation();
+	return owner->getUserPtr()->getLocation();
 }
 
-void Advertisement::setOwner(User* owner) {
-	this->owner = owner;
+void Advertisement::setOwner(PtrUser owner) {
+	this->owner = new PtrUser(owner.getUserPtr());
 }
 

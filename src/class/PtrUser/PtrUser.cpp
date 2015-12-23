@@ -9,8 +9,9 @@
 #include <iostream>
 using namespace std;
 
-PtrUser::PtrUser(User* userPtr){
+PtrUser::PtrUser(){ userPtr = NULL; }
 
+PtrUser::PtrUser(User* userPtr){
 	this->userPtr=userPtr;
 }
 
@@ -20,13 +21,10 @@ User* PtrUser::getUserPtr() const{
 
 
 bool PtrUser:: operator< (const PtrUser &right) const{
-
-
 	if(this->userPtr->getTransactions()< right.getUserPtr()->getTransactions())
 		return false;
 	else if (this->userPtr->getTransactions()== right.getUserPtr()->getTransactions()){
 		if(this->userPtr->getlastTransaction()< right.getUserPtr()->getlastTransaction()){
-			cout<<"passei no overloading"<<endl;
 			return false;
 		}
 		else if (this->userPtr->getlastTransaction()< right.getUserPtr()->getlastTransaction())
@@ -37,5 +35,4 @@ bool PtrUser:: operator< (const PtrUser &right) const{
 	}
 
 	return true;
-
 }
