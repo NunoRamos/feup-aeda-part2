@@ -34,7 +34,7 @@ protected:
 	string name; ///< User name
 	string phoneNumber; ///< User phone number
 	Location location; ///< User location
-	Date lastTransaction;
+	Date lastTransaction; ///< Date of last transaction
 	int transactions; //Number of business transactions
 	bool showEmail; ///< Whether the user's email should be displayed in his/hers ads
 	bool showName; ///< Whether the user's name should be displayed in his/hers ads
@@ -44,6 +44,13 @@ public:
 	 * @brief User default constructor
 	 */
 	User();
+
+	/**
+	 * @brief Copies user
+	 *
+	 * @param u User
+	 */
+	User(const User& u);
 
 	/**
 	 * @brief User constructor
@@ -236,11 +243,6 @@ public:
 	vector<Advertisement *> getAdvertisements();
 
 	/**
-	 * @brief Sets all ads in user advertisement to have the user as owner
-	 */
-	void setAdsOwner();
-
-	/**
 	 * @brief Deletes all ads
 	 */
 	void deleteAds();
@@ -287,6 +289,11 @@ public:
 	 * @brief User default destructor
 	 */
 	~User();
+
+	/**
+	 * @brief User copy constructor
+	 */
+	User& operator=(const User& u);
 };
 
 #endif

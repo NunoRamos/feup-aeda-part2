@@ -17,9 +17,23 @@ User::User() {
 	lastTransaction = Date();
 }
 
+User::User(const User& u){
+	this->email = u.email;
+	this->password = u.password;
+	this->name = u.name;
+	this->phoneNumber = u.phoneNumber;
+	this->location = u.location;
+	this->lastTransaction = u.lastTransaction;
+	this->transactions = u.transactions;
+	this->showEmail = u.showEmail;
+	this->showName = u.showName;
+	this->showPhoneNumber = u.showPhoneNumber;
+	this->advertisements = u.advertisements;
+}
+
 User::User(string email, string password, string name, string phoneNumber,
 		Location location) :
-		User() {
+				User() {
 	this->email = email;
 	this->password = password;
 	this->name = name;
@@ -29,7 +43,7 @@ User::User(string email, string password, string name, string phoneNumber,
 
 User::User(string email, string password, string name, string phoneNumber,
 		string location) :
-		User(email, password, name, phoneNumber, Location(location)) {
+				User(email, password, name, phoneNumber, Location(location)) {
 }
 
 bool User::signIn(string password) const {
@@ -197,12 +211,6 @@ vector<Advertisement *> User::getAdvertisements() {
 	return advertisements;
 }
 
-void User::setAdsOwner() {
-	for (unsigned int i = 0; i < advertisements.size(); i++) {
-		advertisements[i]->setOwner(this);
-	}
-}
-
 void User::deleteAds() {
 	while (advertisements.size() != 0)
 		advertisements.pop_back();
@@ -233,7 +241,7 @@ void User::setLastTransaction(const Date &transaction) {
 }
 
 bool User::operator <( User* u1) const {
-	/*if (this->getTransactions() > u1->getTransactions())
+	if (this->getTransactions() > u1->getTransactions())
 		return true;
 	else if (this->getTransactions() == u1->getTransactions()) {
 		if (u1->getlastTransaction() < this->getlastTransaction())
@@ -243,8 +251,6 @@ bool User::operator <( User* u1) const {
 	}
 
 	return false;
-	*/
-	return true;
 }
 
 bool User::operator==(const User &u1) const {
@@ -282,3 +288,18 @@ bool User::deleteAd(Advertisement* ad) {
 }
 
 User::~User(){ }
+
+User& User::operator=(const User& u){
+	vector<Advertisement*> advertisements;
+	this->email = u.email;
+	this->password = u.password;
+	this->name = u.name;
+	this->phoneNumber = u.phoneNumber;
+	this->location = u.location;
+	this->lastTransaction = u.lastTransaction;
+	this->transactions = u.transactions;
+	this->showEmail = u.showEmail;
+	this->showName = u.showName;
+	this->showPhoneNumber = u.showPhoneNumber;
+	return *this;
+}

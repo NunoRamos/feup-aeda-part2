@@ -322,23 +322,14 @@ void signedInMenu(Data* data) {
 	clearScreen();
 	OptionMenu menu(data);
 	menu.addOption("Search", &search);
-	cout << "1";
 	menu.addOption("Create buying advertisement", &createBuyingAd);
-	cout << "2";
 	menu.addOption("Create selling advertisement", &createSellingAd);
-	cout << "3";
 	menu.addOption("View my advertisements", &viewMyAds);
-	cout << "4";
 	menu.addOption("Sign out", &signOut);
-	cout << "5";
 	menu.addOption("Delete account", &deleteUser);
-	cout << "6";
 	menu.addOption("Top Accounts", &topAccounts);
-	cout << "7";
 	menu.addOption("Exit", &exitApp);
-	cout << "8";
 	menu.createMenu();
-	cout << "9";
 }
 
 void createSellingAd(Data* data) {

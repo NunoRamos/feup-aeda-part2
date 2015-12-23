@@ -18,7 +18,6 @@ Data::~Data() {
 	for (int i = 0; i < advertisements.size(); i++) {
 		delete advertisements[i];
 	}
-	cin >> i;
 }
 
 bool Data::signIn(const string &email, const string &password) {
@@ -41,13 +40,20 @@ bool Data::signIn(const string &email, const string &password) {
 
 bool Data::signUp(User &user) {
 	int i = sequentialSearch(users, user);
-	if (i != -1)
+	//int i;
+
+	/*for(i = 0; i < users.size(); i++)
+		if(users[i].getEmail() == user.getEmail())
+			break;*/
+
+	//if (i != users.size())
+	if(i != -1)
 		cout << "Client is already created\n";
 	else{
-		users.resize(users.size());
-		users[users.size()-1] = user; //PUSH_BACK DESTROYS A USER, DONT KNOW WHY
-		//users.push_back(user);
-		addUserToBst(&user);
+		//users.resize(users.size());
+		//users[users.size()-1] = user; //PUSH_BACK DESTROYS A USER, DONT KNOW WHY
+		users.push_back(User(user));
+		addUserToBst(&users[users.size()-1]);
 	}
 	return true;
 }
