@@ -123,10 +123,8 @@ void AdDisplayMenu::print() {
 		ss << "Non-";
 	ss << "Negotiable";
 	cout << borderChar << " Price: " << ss.str()
-							<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-							<< endl;
-																			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-																			<< endl;
+		<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+		<< endl;
 
 	if (data->getSignedInUser() == ad->getOwner()){
 		if (ad->hasUserPaid())
