@@ -239,16 +239,16 @@ void Data::removeUser(User* user) {
 	users.erase(users.begin() + index);
 }
 
-void Data::addUserToBst(User* u1) {
-	if(u1->getTransactions() > 0)
+void Data::addUserToBst(PtrUser u1){
+	if(u1.getUserPtr()->getTransactions() > 0)
 		usersTransactions.insert(u1);
 }
 
-BST<User*> Data::getUsersTransactions() const {
+BST<PtrUser> Data::getUsersTransactions() const{
 	return usersTransactions;
 }
 
-void Data::removeUserFromBst(User* u1) {
+void Data::removeUserFromBst(PtrUser u1){
 	usersTransactions.remove(u1);
 	updateTree();
 }

@@ -259,23 +259,10 @@ public:
 	 * @param Transaction Date
 	 */
 	void setLastTransaction(const Date &Transaction);
-
-	/**
-	 * @brief Overloading of operator < for users
-	 *
-	 * @param u1 User
-	 */
-	bool operator < ( User* u1) const;
-
 	/**
 	 * @brief changes lastTransaction date by atual date
 	 */
 	void setLastTransaction();
-	/**
-	 * @brief changes number of transactions and last Transaction
-	 */
-	void RefreshProfile(User &u1);
-
 	/**
 	 * @brief Deleted advertisement
 	 *
