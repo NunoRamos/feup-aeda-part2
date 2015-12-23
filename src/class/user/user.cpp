@@ -149,7 +149,7 @@ istream& operator>>(istream& in, User &user) {
 		else
 			negotiable = false;
 		getline(in,temp);
-		if(temp == "1")
+		if(temp == "1")            //TODO Read and write on the file , the date while ad going to be highlighted
 			paid = true;
 		else
 			paid = false;

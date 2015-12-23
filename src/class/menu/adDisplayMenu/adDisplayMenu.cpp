@@ -2,8 +2,10 @@
 #include "adDisplayMenu.h"
 #include "../../../enums.h"
 #include "../../advertisement/sale/sale.h"
+#include "../../date/date.h"
 #include <sstream>
 #include <iostream>
+#include <ctime>
 
 AdDisplayMenu::AdDisplayMenu(Data* data, Advertisement* ad, unsigned int height,
 		unsigned int width, char borderChar) :
@@ -48,10 +50,10 @@ void AdDisplayMenu::print() {
 	emptyLine();
 
 	cout << borderChar << " Category: " << categoryToString(ad->getCategory())
-			<< string(
-					width - 2 - 11
-							- categoryToString(ad->getCategory()).length(), ' ')
-			<< borderChar << endl;
+																			<< string(
+																					width - 2 - 11
+																					- categoryToString(ad->getCategory()).length(), ' ')
+																					<< borderChar << endl;
 
 	emptyLine();
 
@@ -63,7 +65,7 @@ void AdDisplayMenu::print() {
 		tempW = 0;
 
 	cout << borderChar << " Description: " << description << string(tempW, ' ')
-			<< borderChar << endl;
+																			<< borderChar << endl;
 
 	if (ad->getType() == 'S') {
 		emptyLine();
@@ -78,8 +80,8 @@ void AdDisplayMenu::print() {
 	emptyLine();
 
 	cout << borderChar << " Creation Date: " << ad->getCreationDate()
-			<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
-			<< borderChar << endl;
+																			<< string(width - 2 - 16 - ad->getCreationDate().length(), ' ')
+																			<< borderChar << endl;
 
 	bool showEmail = ad->getOwner()->getShowEmail();
 	bool showName = ad->getOwner()->getShowName();
@@ -111,8 +113,8 @@ void AdDisplayMenu::print() {
 	stringstream ss;
 	ss << ad->getViews();
 	cout << borderChar << " Views: " << ss.str()
-			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-			<< endl;
+																			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+																			<< endl;
 	emptyLine();
 
 	ss.str("");
@@ -121,15 +123,15 @@ void AdDisplayMenu::print() {
 		ss << "Non-";
 	ss << "Negotiable";
 	cout << borderChar << " Price: " << ss.str()
-			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
-			<< endl;
+																			<< string(width - 2 - 8 - ss.str().length(), ' ') << borderChar
+																			<< endl;
 
-	if (ad->hasUserPaid())
-		cout << borderChar << " Paid " << string(width - 2 - 6, ' ')
-				<< borderChar << endl;
-	else
-		cout << borderChar << " Not Paid " << string(width - 2 - 10, ' ')
-						<< borderChar << endl;
+	if (data->getSignedInUser() == ad->getOwner()){
+		if (ad->hasUserPaid())
+			cout << borderChar << " Highlighted Ends in "<<ad->gethighlightEndDate() << string(width - 2 - 21-ad->gethighlightEndDate().length(), ' ')
+			<< borderChar << endl;
+	}
+
 	emptyLine();
 
 	unsigned int i = 1;
@@ -158,7 +160,11 @@ void AdDisplayMenu::print() {
 		cout << borderChar << " " << viewProposals
 				<< string(width - 3 - viewProposals.length(), ' ') << borderChar
 				<< endl;
-		i = 7;
+		string extendDuration= "7 - Extend highlight";
+		cout << borderChar << " " << extendDuration
+				<< string(width - 3 - extendDuration.length(), ' ') << borderChar
+				<< endl;
+		i = 8;
 	} else {
 		string imInterested = " 1 - I'm interested";
 		string sendProposal = " 2 - Send proposal";
@@ -173,7 +179,7 @@ void AdDisplayMenu::print() {
 	ss.str("");
 	ss << " " << i << " - Exit";
 	cout << borderChar << ss.str() << string(width - ss.str().length() - 2, ' ')
-			<< borderChar << endl;
+																			<< borderChar << endl;
 
 	emptyLine();
 
@@ -201,7 +207,7 @@ void AdDisplayMenu::createMenu() {
 			cin.clear();
 			i++;
 
-		} while (input < 1 || input > 7);
+		} while (input < 1 || input > 8);
 		switch (input) {
 		case 1:
 			cout << "Please introduce the new title." << endl;
@@ -252,6 +258,25 @@ void AdDisplayMenu::createMenu() {
 			ad->viewProposals();
 			break;
 		case 7:
+			if(!ad->hasUserPaid()){
+				time_t t = time(0);   // get time now
+				struct tm * now = localtime( & t );
+				int year=now->tm_year + 1900;
+				int month=now->tm_mon + 1 ;
+				int day= now->tm_mday;
+				Date d1(day,month,year);
+				ad->setFeatured(true);
+				ad->sethighlightEndDate(d1);
+			}
+
+			cout<<"Number of days that you want to extend your highlight extension.  2 Euros per day" << endl;
+			unsigned int duration;
+			cin>>duration;
+			cin.ignore();
+			cin.clear();
+			ad->extendDurationHighligh(duration);
+			break;
+		case 8:
 			signedInMenu(data);
 			break;
 		default:

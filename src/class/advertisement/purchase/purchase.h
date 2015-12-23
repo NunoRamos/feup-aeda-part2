@@ -23,7 +23,7 @@ using namespace std;
  */
 class Purchase : public Advertisement{
 private:
-	priority_queue<Proposal*, vector<Proposal*>, CompareProposal> proposals;
+	priority_queue<Proposal*, vector<Proposal*>, CompareProposal> proposals; ///< Receive proposals
 public:
 	/**
 	 * @brief Purchase constructor

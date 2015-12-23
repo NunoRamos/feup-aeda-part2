@@ -89,7 +89,7 @@ void searchByCategory(Data* data){
 		mainMenu(data);
 }
 
-void searchByLocation(Data* data){//TODO berninhas dá tudo com a localização
+void searchByLocation(Data* data){
 	clearScreen();
 	OptionMenu menu(data);
 	menu.addOption("Same city",&sameCity);
@@ -205,7 +205,6 @@ void saleOrPurchase(vector<Advertisement*> &results, Data* data){
 void signIn(Data* data){
 	clearScreen();
 	string email, password,input;
-
 
 	cout << "\nEmail: ";
 	getline(cin, email);
@@ -401,6 +400,7 @@ void createSellingAd(Data* data){
 		i++;
 	}while(answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
+	//asking to user if he wants to highlight the ad and how many days
 	cout<<"\nDo you want to pay to get your ad highlighted? (Y/N)\n";
 	string newAnswer;
 	i=0;
@@ -408,8 +408,17 @@ void createSellingAd(Data* data){
 		if(i > 0)
 			cout << "Please introduce a valid option. (Y/N)\n";
 		getline(cin,newAnswer);
-		if(newAnswer == "Y" || newAnswer == "y")
+		if(newAnswer == "Y" || newAnswer == "y"){
 			ad->setFeatured(true);
+			ad->sethighlightEndDate(ad->getCreationDate());
+			cout<<"Number of days that you want to extend your highlight extension. 2 Euros per day" << endl;
+			unsigned int duration;
+			cin>>duration;
+			cin.ignore();
+			cin.clear();
+			ad->extendDurationHighligh(duration);
+			cout<<ad->gethighlightEndDate()<<endl;
+		}
 		i++;
 	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
 
@@ -468,6 +477,7 @@ void createBuyingAd(Data* data){
 		i++;
 	}while(answer != "Y" && answer != "y" && answer != "N" && answer != "n");
 
+	//asking to user if he wants to highlight the ad and how many days
 	cout<<"\nDo you want to pay to get your ad highlighted? (Y/N)\n";
 	string newAnswer;
 	i=0;
@@ -475,8 +485,17 @@ void createBuyingAd(Data* data){
 		if(i > 0)
 			cout << "Please introduce a valid option. (Y/N)\n";
 		getline(cin,newAnswer);
-		if(newAnswer == "Y" || newAnswer == "y")
+		if(newAnswer == "Y" || newAnswer == "y"){
 			ad->setFeatured(true);
+			ad->sethighlightEndDate(ad->getCreationDate());
+			cout<<"Number of days that you want to extend your highlight extension. 2 Euros per day" << endl;
+			unsigned int duration;
+			cin>>duration;
+			cin.ignore();
+			cin.clear();
+			ad->extendDurationHighligh(duration);
+			cout<<ad->gethighlightEndDate()<<endl;
+		}
 		i++;
 	}while(newAnswer != "Y" && newAnswer != "y" && newAnswer != "N" && newAnswer != "n");
 

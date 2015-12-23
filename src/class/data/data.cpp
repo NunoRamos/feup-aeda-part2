@@ -19,7 +19,7 @@ usersTransactions(new User("", "", "", "", Location())) {
 Data::~Data() {
 	int i;
 	//	saveUsers();
-	for (int i = 0; i < advertisements.size(); i++) {
+	for (unsigned int i = 0; i < advertisements.size(); i++) {
 		delete advertisements[i];
 	}
 	cin >> i;
@@ -168,12 +168,12 @@ vector<Advertisement*> Data::vectorOfSaleOrPurchase(vector<Advertisement*> ads,
 	vector<Advertisement*> results;
 
 	if (saleOrPurchase == 'S') {
-		for (int i = 0; i < ads.size(); i++) {
+		for (unsigned int i = 0; i < ads.size(); i++) {
 			if (ads[i]->getType() == 'S')
 				results.push_back(ads[i]);
 		}
 	} else if (saleOrPurchase == 'P') {
-		for (int i = 0; i < ads.size(); i++) {
+		for (unsigned int i = 0; i < ads.size(); i++) {
 			if (ads[i]->getType() == 'P')
 				results.push_back(ads[i]);
 		}

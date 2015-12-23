@@ -16,13 +16,6 @@ public:
 	}
 	;
 	bool operator()(const Advertisement* lhs, const Advertisement* rhs) const {
-		/*if(lhs->hasUserPaid() && !rhs->hasUserPaid())
-		 return false;
-		 else if(!lhs->hasUserPaid() && rhs->hasUserPaid())
-		 return true;
-		 else
-		 return lhs->getPrice() > rhs->getPrice();*/
-
 		if (lhs->hasUserPaid() && rhs->hasUserPaid())
 			return (lhs->getPrice() > rhs->getPrice());
 		else if (lhs->hasUserPaid())
@@ -75,11 +68,13 @@ public:
 	}
 };
 
-class CompAscLocCity{
+class CompAscLocCity {
 public:
-	CompAscLocCity(){};
-	bool operator() (const Advertisement* lhs, const Advertisement* rhs) const{
-		if(lhs->hasUserPaid() && rhs->hasUserPaid())
+	CompAscLocCity() {
+	}
+	;
+	bool operator()(const Advertisement* lhs, const Advertisement* rhs) const {
+		if (lhs->hasUserPaid() && rhs->hasUserPaid())
 			return (lhs->getLocation().getCity() > rhs->getLocation().getCity());
 		else if (lhs->hasUserPaid())
 			return false;
@@ -90,12 +85,15 @@ public:
 	}
 };
 
-class CompAscLocCounty{
+class CompAscLocCounty {
 public:
-	CompAscLocCounty(){};
-	bool operator() (const Advertisement* lhs, const Advertisement* rhs) const{
-		if(lhs->hasUserPaid() && rhs->hasUserPaid())
-			return (lhs->getLocation().getCounty() > rhs->getLocation().getCounty());
+	CompAscLocCounty() {
+	}
+	;
+	bool operator()(const Advertisement* lhs, const Advertisement* rhs) const {
+		if (lhs->hasUserPaid() && rhs->hasUserPaid())
+			return (lhs->getLocation().getCounty()
+					> rhs->getLocation().getCounty());
 		else if (lhs->hasUserPaid())
 			return false;
 		else if (rhs->hasUserPaid())
@@ -105,18 +103,22 @@ public:
 	}
 };
 
-class CompAscLocDistrict{
+class CompAscLocDistrict {
 public:
-	CompAscLocDistrict(){};
-	bool operator() (const Advertisement* lhs, const Advertisement* rhs) const{
-		if(lhs->hasUserPaid() && rhs->hasUserPaid())
-			return (lhs->getLocation().getDistrict() > rhs->getLocation().getDistrict());
+	CompAscLocDistrict() {
+	}
+	;
+	bool operator()(const Advertisement* lhs, const Advertisement* rhs) const {
+		if (lhs->hasUserPaid() && rhs->hasUserPaid())
+			return (lhs->getLocation().getDistrict()
+					> rhs->getLocation().getDistrict());
 		else if (lhs->hasUserPaid())
 			return false;
 		else if (rhs->hasUserPaid())
 			return true;
 
-		return (lhs->getLocation().getDistrict() > rhs->getLocation().getDistrict());
+		return (lhs->getLocation().getDistrict()
+				> rhs->getLocation().getDistrict());
 	}
 };
 

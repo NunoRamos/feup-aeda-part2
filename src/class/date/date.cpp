@@ -111,6 +111,25 @@ bool Date::isDateValid(const Date& date) {
 	return Date::isDateValid(date.day, date.month, date.year);
 }
 
+unsigned int Date::numberOfDaysInAMonth(unsigned int month, unsigned int year){
+	switch (month) {
+	case 4:
+	case 6:
+	case 9:
+	case 11:
+		return 30;
+		break;
+	case 2:
+		if (isLeapYear(year))
+			return 29;
+		else
+			return 28;
+		break;
+	}
+
+	return 31;
+}
+
 Date& Date::operator=(Date rhs) {
 	this->day = rhs.day;
 	this->month = rhs.month;

@@ -22,6 +22,8 @@ Condition Sale::getCondition() const{
 
 ostream& Sale::print(ostream& out){
 	out << endl << conditionToString(productCondition);
+
+	return out;
 }
 
 void Sale::addProposal(Proposal* p){

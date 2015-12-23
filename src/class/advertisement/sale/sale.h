@@ -26,7 +26,7 @@ using namespace enums;
 class Sale : public Advertisement{
 private:
 	Condition productCondition; ///< Condition of product being sold
-	priority_queue<Proposal*> proposals;
+	priority_queue<Proposal*> proposals; ///< Receive proposals
 public:
 	/**
 	 * @brief Sale constructor

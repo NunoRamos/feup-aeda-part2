@@ -44,6 +44,7 @@ protected:
 	float price; ///< Price of product
 	bool negotiable; ///< Whether price is negotiable or not
 	bool featured; ///< Whether the creator of the ad paid our not to put is ad on the spotlight
+	Date highlightEndDate; ///< The date while the ad going to be highlighted
 public:
 	/**
 	 * @brief Constructor for class Advertisement
@@ -118,6 +119,13 @@ public:
 	string getCreationDate() const;
 
 	/**
+	 * @brief Gets date that highlight will finish
+	 *
+	 * @return Returns that date
+	 */
+	string gethighlightEndDate() const;
+
+	/**
 	 * @brief Returns if price is negotiable
 	 *
 	 * @return Returns whether the price is negotiable or not
@@ -187,9 +195,18 @@ public:
 	 */
 	void setFeatured(bool newValue);
 
-	string getImageAt(unsigned int index) const;//still to decide what to do with this
+	/**
+	 * @brief Sets finish date of highlight
+	 *
+	 * @param newDate its new date that the highlight will end
+	 */
+	void sethighlightEndDate(Date newDate);
 
-	void addImage(string path);
+	/**
+	 * @brief Extend duration of highlight
+	 *
+	 */
+	void extendDurationHighligh(unsigned int duration);
 
 	/**
 	 * @brief Increments advertisement views

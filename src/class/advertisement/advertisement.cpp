@@ -17,8 +17,6 @@ Advertisement::Advertisement(User* owner, string title, Category category,
 	id = nextId;
 	nextId++;
 	views = 0;
-	//TODO: get time and save as creationDate
-
 }
 
 Advertisement::~Advertisement() {
@@ -55,14 +53,17 @@ float Advertisement::getPrice() const {
 
 string Advertisement::getCreationDate() const {
 	return creationDate.toString();
+}
 
+string Advertisement::gethighlightEndDate() const {
+	return highlightEndDate.toString();
 }
 
 bool Advertisement::isPriceNegotiable() const {
 	return negotiable;
 }
 
-bool Advertisement::hasUserPaid() const{
+bool Advertisement::hasUserPaid() const {
 	return featured;
 }
 
@@ -94,12 +95,31 @@ void Advertisement::setFeatured(bool newValue) {
 	this->featured = newValue;
 }
 
-string Advertisement::getImageAt(unsigned int index) const {
-	return imagesPath[index];
+void Advertisement::sethighlightEndDate(Date newDate) {
+	this->highlightEndDate = newDate;
 }
 
-void Advertisement::addImage(string path) {
-	imagesPath.push_back(path);
+void Advertisement::extendDurationHighligh(unsigned int duration) {
+	if (featured) {
+		if (highlightEndDate.getDay() + duration
+				> Date::numberOfDaysInAMonth(highlightEndDate.getMonth(),
+						highlightEndDate.getYear())) {
+			highlightEndDate.setDay(
+					duration - (Date::numberOfDaysInAMonth(highlightEndDate.getMonth(),
+							highlightEndDate.getYear()) - highlightEndDate.getDay()));
+			if (highlightEndDate.getMonth() + 1 > 12) { //happy new year!!!!!!!!!!
+				highlightEndDate.setMonth(1);
+				highlightEndDate.setYear(highlightEndDate.getYear() + 1);
+			} else
+				highlightEndDate.setMonth(highlightEndDate.getMonth() + 1);
+		} else {
+			highlightEndDate.setDay(highlightEndDate.getDay() + duration);
+		}
+	} else {
+		highlightEndDate.setDay(0);
+		highlightEndDate.setMonth(0);
+		highlightEndDate.setYear(0);
+	}
 }
 
 void Advertisement::incrementViews() {
@@ -128,7 +148,7 @@ ostream& operator<<(ostream& out, Advertisement &ad) {
 			<< separationChar << ad.views << separationChar
 			<< categoryToString(ad.category) << separationChar << ad.description
 			<< separationChar << ad.creationDate << separationChar << ad.price
-			<< separationChar << ad.negotiable<<separationChar<<ad.featured;
+			<< separationChar << ad.negotiable << separationChar << ad.featured;
 
 	ad.print(out);
 
@@ -159,8 +179,8 @@ istream& operator>>(istream& in, Advertisement &ad) {
 		ad.negotiable = true;
 	else
 		ad.negotiable = false;
-	getline(in,temp);
-	if(temp == "1")
+	getline(in, temp);
+	if (temp == "1")
 		ad.featured = true;
 	else
 		ad.featured = false;
