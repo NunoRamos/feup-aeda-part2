@@ -11,7 +11,7 @@
 #include <queue>
 
 Data::Data() : usersTransactions(PtrUser(new User("", "", "", "", Location()))) {
-	//usersTransactions = BST<PtrUser>(PtrUser(new User("", "", "", "", Location())));
+	users.reserve(100);
 	signedInUser = NULL;
 }
 
